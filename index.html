@@ -1116,8 +1116,6 @@ productMainImage.addEventListener('touchend', function(e){
   if(Math.abs(delta) > 35) moveGallery(delta < 0 ? 1 : -1);
   galleryTouchX = null;
 }, {passive:true});
-document.getElementById('productClose').addEventListener('click', closeProduct);
-document.getElementById('productDetailDismiss').addEventListener('click', closeProduct);
 document.getElementById('productDetailAdd').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); } });
 document.getElementById('productBuy').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); openCart(); } });
 document.getElementById('productBack').addEventListener('click', closeProduct);
