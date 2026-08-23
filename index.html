@@ -1376,7 +1376,7 @@ function speak(text, btn){
 function stopSpeech(){
   if('speechSynthesis' in window) window.speechSynthesis.cancel();
   clearSpeechButton();
-  document.querySelectorAll('.listen-btn').forEach(function(b){ if(b !== speechState.button) updateListenButton(b, 'idle'); });
+  document.querySelectorAll('#aboutListen, #processListen').forEach(function(b){ updateListenButton(b, 'idle'); });
 }
 document.getElementById('aboutListen').addEventListener('click', function(){
   speak(lang === 'hi' ? 'कृषि गोल्ड शुद्धता, गुणवत्ता और भरोसे पर बना प्रीमियम सरसों तेल ब्रांड है।' : 'Krishi Gold is a premium mustard oil brand built on purity, quality and trust.', this);
