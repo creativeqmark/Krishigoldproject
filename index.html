@@ -40,7 +40,7 @@ section{position:relative}
 .icon-btn:hover{background:rgba(14,59,43,.08)}
 .icon-btn:active{transform:scale(.94)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--green)}
-.logo-mark{width:38px;height:44px;flex:none}
+.logo-mark{width:44px;height:44px;flex:none;padding:7px;border-radius:50%;background:var(--green);object-fit:contain}
 .logo-text{text-align:center;line-height:1}
 .logo-text .lt-name{font-family:'Playfair Display',serif;font-weight:800;font-size:1.15rem;letter-spacing:.14em}
 .logo-text .lt-name span{color:var(--golddeep)}
@@ -132,7 +132,7 @@ section{position:relative}
 .listen-btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#3d2c00;font-weight:800;font-size:.86rem;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(242,183,5,.35);transition:transform .2s,background .25s}
 .stop-btn{background:var(--green);color:#f3edda;box-shadow:0 8px 18px rgba(14,59,43,.25)}
 .listen-btn:hover{background:var(--gold2);transform:translateY(-2px)}
-.listen-btn.speaking{background:var(--green);color:#f3edda}
+.listen-btn.speaking{background:var(--gold);color:#3d2c00}
 .about-art{position:relative;display:flex;justify-content:center}
 .about-blob{position:absolute;inset:8% 6%;background:linear-gradient(150deg,#e9f0d8,#d4e4bd);border-radius:50% 50% 46% 54%/56% 48% 52% 44%}
 .about-art .ab-bottle{position:relative;width:min(240px,56%);filter:drop-shadow(0 16px 20px rgba(90,50,0,.3))}
@@ -160,8 +160,8 @@ section{position:relative}
 .prod-card{background:var(--paper);border-radius:24px;box-shadow:var(--shadow);border:1px solid rgba(227,219,192,.8);padding:22px;display:flex;gap:20px;align-items:center;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .prod-card:hover{transform:translateY(-5px)}
 .prod-card::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(242,183,5,.16),transparent 70%)}
-.prod-img{flex:none;width:150px;height:205px;display:grid;place-items:center;overflow:hidden}
-.product-photo{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(90,50,0,.28));transition:transform .35s}
+.prod-img{flex:none;width:150px;height:245px;display:grid;place-items:center;overflow:visible}
+.product-photo{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(90,50,0,.28));transition:transform .35s;user-select:none;-webkit-user-drag:none}
 .prod-card:hover .product-photo{transform:scale(1.05) rotate(-1.5deg)}
 .prod-info{flex:1;min-width:0}
 .prod-info h3{font-size:1.08rem;color:var(--green);line-height:1.25;margin-bottom:8px}
@@ -177,12 +177,11 @@ section{position:relative}
 
 /* ---------- process ---------- */
 .process{padding:56px 0}
-.stepper{display:flex;justify-content:space-between;position:relative;margin:34px 6px 22px}
-.stepper::before{content:'';position:absolute;top:50%;left:4%;right:4%;height:2px;background:repeating-linear-gradient(90deg,var(--golddeep) 0 8px,transparent 8px 16px);opacity:.55}
-.step-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--gold2);font-weight:800;font-size:.85rem;display:grid;place-items:center;border:3px solid var(--gold);box-shadow:0 4px 10px rgba(14,59,43,.3)}
-.proc-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.proc-card{background:var(--paper);border-radius:18px;padding:20px 12px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);transition:transform .3s;min-width:0}
+.proc-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative;margin-top:34px}
+.proc-cards::before{content:'';position:absolute;top:17px;left:8%;right:8%;height:2px;background:repeating-linear-gradient(90deg,var(--golddeep) 0 8px,transparent 8px 16px);opacity:.55}
+.proc-card{background:var(--paper);border-radius:18px;padding:20px 12px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);transition:transform .3s;min-width:0;position:relative;z-index:1}
 .proc-card:hover{transform:translateY(-5px)}
+.proc-number{width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--gold2);font-weight:800;font-size:.85rem;display:grid;place-items:center;border:3px solid var(--gold);box-shadow:0 4px 10px rgba(14,59,43,.3);margin:0 auto 14px}
 .proc-card.active{background:var(--green);border-color:var(--green)}
 .proc-card .pi{width:58px;height:58px;margin:0 auto 12px;border-radius:16px;background:#fff4c9;display:grid;place-items:center;color:var(--golddeep)}
 .proc-card.active .pi{color:var(--gold2)}
@@ -281,7 +280,11 @@ section{position:relative}
 .product-modal{width:min(760px,100%);padding:22px}
 .product-detail{display:grid;grid-template-columns:minmax(220px,.9fr) 1.1fr;gap:28px;align-items:center}
 .product-gallery{background:linear-gradient(145deg,#fffdf4,#efe7cb);border-radius:20px;padding:18px;min-width:0}
-.product-main-image{width:100%;height:300px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(90,50,0,.25))}
+.product-main-image{width:100%;height:340px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(90,50,0,.25));user-select:none;-webkit-user-drag:none}
+.gallery-stage{position:relative}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(14,59,43,.9);color:#f6f1da;z-index:2;box-shadow:0 5px 12px rgba(14,59,43,.2)}
+.gallery-nav:hover{background:var(--green3)}
+.gallery-prev{left:4px}.gallery-next{right:4px}
 .product-thumbs{display:flex;justify-content:center;gap:10px;margin-top:12px}
 .product-thumb{width:58px;height:58px;border-radius:12px;background:var(--paper);border:2px solid transparent;padding:4px;transition:border-color .2s,transform .2s}
 .product-thumb:hover,.product-thumb.active{border-color:var(--golddeep);transform:translateY(-2px)}
@@ -338,17 +341,17 @@ section{position:relative}
   .prod-card{flex-direction:column;text-align:center;padding:26px 18px}
   .prod-img{width:170px;height:220px}
   .prod-actions{justify-content:center}
-  .stepper{flex-direction:column;align-items:flex-start;gap:18px;margin:28px 0 24px 16px;padding:0 0 0 2px}
-  .stepper::before{top:17px;bottom:17px;left:17px;right:auto;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--golddeep) 0 8px,transparent 8px 16px)}
-  .step-dot{width:34px;height:34px}
-  .proc-cards{grid-template-columns:1fr;gap:14px}
-  .proc-card{display:grid;grid-template-columns:68px 1fr;grid-template-rows:auto auto;column-gap:14px;text-align:left;align-items:center;padding:16px}
+  .prod-img{width:190px;height:270px}
+  .proc-cards{grid-template-columns:1fr;gap:14px;margin-top:28px;padding-left:0}
+  .proc-cards::before{top:17px;bottom:17px;left:17px;right:auto;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--golddeep) 0 8px,transparent 8px 16px)}
+  .proc-card{display:grid;grid-template-columns:48px 58px 1fr;grid-template-rows:auto auto;column-gap:12px;text-align:left;align-items:center;padding:16px}
+  .proc-number{grid-row:1 / 3;margin:0}
   .proc-card .pi{grid-row:1 / 3;margin:0}
   .proc-card span{font-size:.78rem}
   .proc-card p{margin-top:2px}
   .product-detail{grid-template-columns:1fr;gap:16px}
   .product-modal{padding:18px}
-  .product-main-image{height:220px}
+  .product-main-image{height:240px}
   .about-creative{margin-top:20px}
 }
 @media (min-width:640px){
@@ -494,7 +497,7 @@ section{position:relative}
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
     </button>
     <a class="logo" href="#home" data-testid="brand-logo">
-      <svg class="logo-mark" viewBox="0 0 60 72" color="#0e3b2b"><use href="#dropLogo"/></svg>
+       <img class="logo-mark" src="assets/krishi-gold-mark.png" alt="Krishi Gold logo">
       <span class="logo-text">
         <span class="lt-name">KRISHI <span>GOLD</span></span>
         <span class="lt-sub">ENTERPRISES</span>
@@ -527,7 +530,7 @@ section{position:relative}
 <aside class="mobile-menu" id="mobileMenu" data-testid="mobile-menu" aria-label="Mobile navigation">
   <div class="mm-head">
     <a class="logo" href="#home" style="color:#f6f1da">
-      <svg class="logo-mark" viewBox="0 0 60 72" color="#f2b705"><use href="#dropLogo"/></svg>
+       <img class="logo-mark" src="assets/krishi-gold-mark.png" alt="Krishi Gold logo">
       <span class="logo-text"><span class="lt-name" style="color:#f6f1da">KRISHI <span>GOLD</span></span><span class="lt-sub" style="color:#c9d6c4">ENTERPRISES</span></span>
     </a>
     <button class="mm-close" id="menuClose" data-testid="mobile-menu-close" aria-label="Close menu">
@@ -743,31 +746,33 @@ section{position:relative}
       <div class="title-bar"></div>
       <p class="sec-sub" data-i18n data-en="Carefully handled from seed to bottle." data-hi="बीज से बोतल तक सावधानी से।">Carefully handled from seed to bottle.</p>
     </div>
-    <div class="stepper reveal" data-testid="process-stepper">
-      <div class="step-dot">1</div><div class="step-dot">2</div><div class="step-dot">3</div><div class="step-dot">4</div><div class="step-dot">5</div>
-    </div>
     <div class="proc-cards reveal">
       <div class="proc-card active" data-testid="process-step-quality-seeds">
+        <div class="proc-number">1</div>
         <div class="pi"><svg width="34" height="26" viewBox="0 0 120 80"><use href="#seedBowl"/></svg></div>
         <span data-i18n data-en="Quality Seeds" data-hi="गुणवत्तापूर्ण बीज">Quality Seeds</span>
         <p data-i18n data-en="Carefully chosen for rich, natural oil." data-hi="समृद्ध और प्राकृतिक तेल के लिए चुने गए।">Carefully chosen for rich, natural oil.</p>
       </div>
       <div class="proc-card" data-testid="process-step-cleaning">
+        <div class="proc-number">2</div>
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h13a4 4 0 1 0-4-4M3 13h17a4 4 0 1 1-4 4M3 18h7"/></svg></div>
         <span data-i18n data-en="Cleaning" data-hi="सफाई">Cleaning</span>
         <p data-i18n data-en="Seeds are cleaned before pressing." data-hi="पेराई से पहले बीजों की सफाई की जाती है।">Seeds are cleaned before pressing.</p>
       </div>
       <div class="proc-card" data-testid="process-step-cold-pressed">
+        <div class="proc-number">3</div>
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v9m0 0l-4-4m4 4l4-4M4 17h16v4H4z"/></svg></div>
         <span data-i18n data-en="Cold Pressed Extraction" data-hi="कोल्ड प्रेस्ड निष्कर्षण">Cold Pressed Extraction</span>
         <p data-i18n data-en="Traditional extraction protects flavour." data-hi="पारंपरिक निष्कर्षण स्वाद को सुरक्षित रखता है।">Traditional extraction protects flavour.</p>
       </div>
       <div class="proc-card" data-testid="process-step-filtration">
+        <div class="proc-number">4</div>
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg></div>
         <span data-i18n data-en="Filtration" data-hi="छनाई">Filtration</span>
         <p data-i18n data-en="Filtered gently for clear, pure oil." data-hi="साफ और शुद्ध तेल के लिए हल्की छनाई।">Filtered gently for clear, pure oil.</p>
       </div>
       <div class="proc-card" data-testid="process-step-packaging">
+        <div class="proc-number">5</div>
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></div>
         <span data-i18n data-en="Packaging" data-hi="पैकेजिंग">Packaging</span>
         <p data-i18n data-en="Sealed fresh for every kitchen." data-hi="हर रसोई के लिए ताजगी से सील किया गया।">Sealed fresh for every kitchen.</p>
@@ -920,7 +925,11 @@ section{position:relative}
     </div>
     <div class="product-detail">
       <div class="product-gallery">
-        <img class="product-main-image" id="productMainImage" src="" alt="">
+        <div class="gallery-stage">
+          <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous product image">‹</button>
+          <img class="product-main-image" id="productMainImage" src="" alt="">
+          <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next product image">›</button>
+        </div>
         <div class="product-thumbs" id="productThumbs"></div>
       </div>
       <div class="product-detail-copy">
@@ -1006,19 +1015,26 @@ var productOverlay = document.getElementById('productOverlay');
 var productMainImage = document.getElementById('productMainImage');
 var productThumbs = document.getElementById('productThumbs');
 var activeProduct = null;
-function openProduct(id){
+var galleryOrder = Object.keys(PRODUCTS);
+var galleryTouchX = null;
+function setGalleryProduct(id){
   var p = PRODUCTS[id]; if(!p) return;
   activeProduct = id;
+  productMainImage.src = p.image; productMainImage.alt = p.name + ' ' + p.size;
   document.getElementById('productDetailName').textContent = p.name;
   document.getElementById('productDetailSize').textContent = p.size;
   document.getElementById('productDetailPrice').innerHTML = fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small>';
   document.getElementById('productDetailDescription').textContent = p.description;
-  productMainImage.src = p.image; productMainImage.alt = p.name + ' ' + p.size;
+  productThumbs.querySelectorAll('.product-thumb').forEach(function(t){ t.classList.toggle('active', t.dataset.gallery === id); });
+}
+function openProduct(id){
+  var p = PRODUCTS[id]; if(!p) return;
   productThumbs.innerHTML = Object.keys(PRODUCTS).map(function(k){
     var item = PRODUCTS[k];
     return '<button class="product-thumb' + (k === id ? ' active' : '') + '" data-gallery="' + k + '" aria-label="View ' + item.size + '">' +
       '<img src="' + item.image + '" alt="' + item.size + '"></button>';
   }).join('');
+  setGalleryProduct(id);
   productOverlay.classList.add('open'); document.body.style.overflow = 'hidden';
 }
 function closeProduct(){ productOverlay.classList.remove('open'); document.body.style.overflow = ''; activeProduct = null; }
@@ -1028,9 +1044,25 @@ document.querySelectorAll('.prod-card[data-product]').forEach(function(card){
 productThumbs.addEventListener('click', function(e){
   var thumb = e.target.closest('[data-gallery]'); if(!thumb) return;
   var p = PRODUCTS[thumb.dataset.gallery]; if(!p) return;
-  productMainImage.src = p.image; productMainImage.alt = p.name + ' ' + p.size;
-  productThumbs.querySelectorAll('.product-thumb').forEach(function(t){ t.classList.toggle('active', t === thumb); });
+  setGalleryProduct(p.id);
 });
+function moveGallery(direction){
+  var index = galleryOrder.indexOf(activeProduct); if(index < 0) return;
+  setGalleryProduct(galleryOrder[(index + direction + galleryOrder.length) % galleryOrder.length]);
+}
+document.getElementById('galleryPrev').addEventListener('click', function(){ moveGallery(-1); });
+document.getElementById('galleryNext').addEventListener('click', function(){ moveGallery(1); });
+productMainImage.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+productMainImage.addEventListener('dragstart', function(e){ e.preventDefault(); });
+productThumbs.addEventListener('contextmenu', function(e){ if(e.target.closest('img')) e.preventDefault(); });
+productThumbs.addEventListener('dragstart', function(e){ if(e.target.closest('img')) e.preventDefault(); });
+productMainImage.addEventListener('touchstart', function(e){ galleryTouchX = e.changedTouches[0].clientX; }, {passive:true});
+productMainImage.addEventListener('touchend', function(e){
+  if(galleryTouchX === null) return;
+  var delta = e.changedTouches[0].clientX - galleryTouchX;
+  if(Math.abs(delta) > 35) moveGallery(delta < 0 ? 1 : -1);
+  galleryTouchX = null;
+}, {passive:true});
 document.getElementById('productClose').addEventListener('click', closeProduct);
 document.getElementById('productDetailDismiss').addEventListener('click', closeProduct);
 productOverlay.addEventListener('click', function(e){ if(e.target === productOverlay) closeProduct(); });
@@ -1256,12 +1288,13 @@ document.getElementById('langToggle').addEventListener('click', function(){
 var speechState = { utterance:null, button:null, paused:false };
 var speakerIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
 var pauseIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+var resumeIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l11-7L7 5z"/></svg>';
 function updateListenButton(btn, state){
   if(!btn) return;
   var label = btn.querySelector('span');
   if(!label) return;
   label.textContent = state === 'paused' ? 'Resume' : state === 'playing' ? 'Pause' : (lang === 'hi' ? 'सुनें' : 'Listen');
-  var icon = btn.querySelector('svg'); if(icon) icon.outerHTML = state === 'playing' || state === 'paused' ? pauseIcon : speakerIcon;
+  var icon = btn.querySelector('svg'); if(icon) icon.outerHTML = state === 'playing' ? pauseIcon : state === 'paused' ? resumeIcon : speakerIcon;
   btn.classList.toggle('speaking', state === 'playing' || state === 'paused');
 }
 function clearSpeechButton(){ updateListenButton(speechState.button, 'idle'); speechState.button = null; speechState.utterance = null; speechState.paused = false; }
@@ -1293,6 +1326,9 @@ document.getElementById('processListen').addEventListener('click', function(){
 });
 document.getElementById('aboutStop').addEventListener('click', stopSpeech);
 document.getElementById('processStop').addEventListener('click', stopSpeech);
+document.addEventListener('contextmenu', function(e){
+  if(e.target.closest('.product-photo,.product-main-image,.product-thumb img')) e.preventDefault();
+});
 
 /* ---------- header scroll + reveal ---------- */
 var header = document.getElementById('siteHeader');
