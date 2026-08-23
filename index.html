@@ -33,9 +33,9 @@ section{position:relative}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- header ---------- */
-.site-header{position:sticky;top:0;z-index:60;background:rgba(247,242,223,.92);backdrop-filter:blur(10px);transition:box-shadow .3s}
-.site-header.scrolled{box-shadow:0 6px 24px rgba(18,42,30,.12)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.site-header{position:sticky;top:0;z-index:60;background:transparent;backdrop-filter:none;transition:box-shadow .3s;padding:10px 0}
+.site-header.scrolled{box-shadow:none}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:rgba(247,242,223,.95);border:1px solid rgba(14,59,43,.12);border-radius:999px;box-shadow:0 10px 28px rgba(18,42,30,.10);backdrop-filter:blur(12px)}
 .icon-btn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--green);transition:background .25s,transform .2s}
 .icon-btn:hover{background:rgba(14,59,43,.08)}
 .icon-btn:active{transform:scale(.94)}
@@ -50,10 +50,12 @@ section{position:relative}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--gold);transition:width .3s}
 .nav-links a:hover::after{width:100%}
 .nav-actions{display:flex;align-items:center;gap:10px}
-.lang-toggle{display:flex;align-items:center;gap:6px;background:var(--green);color:#f3edda;border-radius:999px;padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.04em;transition:transform .2s,background .25s}
+.lang-toggle{display:flex;align-items:center;gap:2px;background:var(--green);color:#f3edda;border-radius:999px;padding:4px;font-size:.78rem;font-weight:700;letter-spacing:.04em;transition:transform .2s,background .25s}
+.lang-toggle span{padding:5px 8px;border-radius:999px;transition:background .2s,color .2s}
+.lang-toggle[data-lang="en"] .lang-en,.lang-toggle[data-lang="hi"] .lang-hi{background:var(--gold);color:#3d2c00}
 .lang-toggle:hover{background:var(--green3)}
 .lang-toggle:active{transform:scale(.95)}
-.lang-toggle .sep{opacity:.45}
+.lang-toggle .sep{display:none}
 .talk-btn{display:flex;align-items:center;gap:8px;background:var(--gold);color:#3d2c00;font-weight:800;font-size:.86rem;border-radius:999px;padding:11px 20px;box-shadow:0 6px 16px rgba(242,183,5,.4);transition:transform .2s,box-shadow .25s,background .25s;text-decoration:none}
 .talk-btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 22px rgba(242,183,5,.5)}
 .talk-btn:active{transform:scale(.96)}
@@ -93,7 +95,9 @@ section{position:relative}
 .btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
 .hero-art{position:relative;display:flex;justify-content:center}
 .hero-splash{position:absolute;inset:6% 2% 0;background:radial-gradient(ellipse at 50% 68%,#ffd23f 0%,#f7b712 46%,#eda406 78%,#e59a04 100%);border-radius:46% 54% 52% 48%/58% 46% 54% 42%;filter:saturate(1.05)}
-.hero-bottles{position:relative;display:flex;align-items:flex-end;gap:2%;width:min(520px,94%)}
+.hero-bottles{position:relative;display:flex;align-items:flex-end;justify-content:center;width:min(620px,100%)}
+.hero-product-image{width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(90,50,0,.28));transition:transform .4s}
+.hero-product-image:hover{transform:translateY(-8px)}
 .hero-bottles .hb{filter:drop-shadow(0 18px 22px rgba(90,50,0,.35));transition:transform .4s}
 .hero-bottles .hb:hover{transform:translateY(-8px)}
 .hb-500{width:26%} .hb-1l{width:31%} .hb-5l{width:43%}
@@ -124,7 +128,9 @@ section{position:relative}
 .about-copy p{color:var(--muted);line-height:1.75;font-size:.96rem;margin-bottom:16px}
 .about-sign{margin:22px 0 24px;font-weight:700;color:var(--green)}
 .about-sign small{display:block;font-weight:600;color:var(--muted);font-size:.8rem;margin-top:2px}
+.listen-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .listen-btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#3d2c00;font-weight:800;font-size:.86rem;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(242,183,5,.35);transition:transform .2s,background .25s}
+.stop-btn{background:var(--green);color:#f3edda;box-shadow:0 8px 18px rgba(14,59,43,.25)}
 .listen-btn:hover{background:var(--gold2);transform:translateY(-2px)}
 .listen-btn.speaking{background:var(--green);color:#f3edda}
 .about-art{position:relative;display:flex;justify-content:center}
@@ -136,7 +142,8 @@ section{position:relative}
 .ad-sd{bottom:0;right:16%;width:88px}
 
 /* ---------- why ---------- */
-.why{background:radial-gradient(120% 120% at 50% 0%,#124632 0%,var(--green2) 60%);border-radius:34px 34px 0 0;padding:56px 0 64px;margin-top:20px;overflow:hidden}
+.why{background:radial-gradient(120% 120% at 50% 0%,#124632 0%,var(--green2) 60%);border-radius:48% 52% 0 0/5% 7% 0 0;padding:76px 0 78px;margin-top:20px;overflow:hidden}
+.why::after{content:'';position:absolute;left:-8%;right:-8%;bottom:-70px;height:130px;background:var(--cream);border-radius:50% 50% 0 0/35% 35% 0 0}
 .why::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(242,183,5,.14),transparent 65%);border-radius:50%}
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
 .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,201,60,.28);border-radius:18px;padding:24px 18px;text-align:center;transition:transform .3s,background .3s,border-color .3s}
@@ -151,9 +158,9 @@ section{position:relative}
 .prod-card{background:var(--paper);border-radius:24px;box-shadow:var(--shadow);border:1px solid rgba(227,219,192,.8);padding:22px;display:flex;gap:20px;align-items:center;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .prod-card:hover{transform:translateY(-5px)}
 .prod-card::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(242,183,5,.16),transparent 70%)}
-.prod-img{flex:none;width:118px;display:grid;place-items:center}
-.prod-img svg{filter:drop-shadow(0 10px 12px rgba(90,50,0,.28));transition:transform .35s}
-.prod-card:hover .prod-img svg{transform:scale(1.05) rotate(-1.5deg)}
+.prod-img{flex:none;width:150px;height:205px;display:grid;place-items:center;overflow:hidden}
+.product-photo{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(90,50,0,.28));transition:transform .35s}
+.prod-card:hover .product-photo{transform:scale(1.05) rotate(-1.5deg)}
 .prod-info{flex:1;min-width:0}
 .prod-info h3{font-size:1.08rem;color:var(--green);line-height:1.25;margin-bottom:8px}
 .size-chip{display:inline-block;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#4a3700;font-weight:800;font-size:.72rem;border-radius:8px;padding:4px 12px;margin-bottom:10px}
@@ -172,12 +179,14 @@ section{position:relative}
 .stepper::before{content:'';position:absolute;top:50%;left:4%;right:4%;height:2px;background:repeating-linear-gradient(90deg,var(--golddeep) 0 8px,transparent 8px 16px);opacity:.55}
 .step-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--gold2);font-weight:800;font-size:.85rem;display:grid;place-items:center;border:3px solid var(--gold);box-shadow:0 4px 10px rgba(14,59,43,.3)}
 .proc-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.proc-card{background:var(--paper);border-radius:16px;padding:18px 10px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);transition:transform .3s}
+.proc-card{background:var(--paper);border-radius:18px;padding:20px 12px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);transition:transform .3s;min-width:0}
 .proc-card:hover{transform:translateY(-5px)}
 .proc-card.active{background:var(--green);border-color:var(--green)}
-.proc-card .pi{width:48px;height:48px;margin:0 auto 10px;display:grid;place-items:center;color:var(--golddeep)}
+.proc-card .pi{width:58px;height:58px;margin:0 auto 12px;border-radius:16px;background:#fff4c9;display:grid;place-items:center;color:var(--golddeep)}
 .proc-card.active .pi{color:var(--gold2)}
 .proc-card span{font-size:.66rem;font-weight:800;letter-spacing:.06em;color:var(--green);text-transform:uppercase;line-height:1.35;display:block}
+.proc-card p{font-size:.72rem;line-height:1.5;color:var(--muted);margin-top:8px}
+.proc-card.active p{color:#c9d6c4}
 .proc-card.active span{color:#f6f1da}
 .proc-listen{margin-top:26px}
 
@@ -303,7 +312,7 @@ section{position:relative}
 
 /* ---------- responsive ---------- */
 @media (max-width:640px){
-  .nav{gap:6px}
+  .nav{gap:6px;padding:8px 10px}
   .nav .talk-btn{display:none}
   .logo-mark{width:30px;height:36px}
   .logo-text .lt-name{font-size:.95rem;letter-spacing:.1em}
@@ -313,9 +322,15 @@ section{position:relative}
 }
 @media (max-width:520px){
   .prod-card{flex-direction:column;text-align:center;padding:26px 18px}
-  .prod-img{width:150px}
+  .prod-img{width:170px;height:220px}
   .prod-actions{justify-content:center}
-  .proc-cards{grid-template-columns:repeat(5,minmax(96px,1fr));overflow-x:auto;padding-bottom:8px}
+  .stepper{margin-left:20px;margin-right:20px}
+  .stepper::before{left:5%;right:5%}
+  .proc-cards{grid-template-columns:1fr;gap:14px}
+  .proc-card{display:grid;grid-template-columns:68px 1fr;grid-template-rows:auto auto;column-gap:14px;text-align:left;align-items:center;padding:16px}
+  .proc-card .pi{grid-row:1 / 3;margin:0}
+  .proc-card span{font-size:.78rem}
+  .proc-card p{margin-top:2px}
 }
 @media (min-width:640px){
   .trust-grid{grid-template-columns:repeat(4,1fr)}
@@ -475,7 +490,7 @@ section{position:relative}
       <a href="#contact" data-i18n data-en="Contact" data-hi="संपर्क">Contact</a>
     </nav>
     <div class="nav-actions">
-      <button class="lang-toggle" id="langToggle" data-testid="language-toggle"><span>EN</span><span class="sep">|</span><span>हिंदी</span></button>
+      <button class="lang-toggle" id="langToggle" data-lang="en" data-testid="language-toggle" aria-label="Change language"><span class="lang-en">EN</span><span class="lang-hi">हिंदी</span></button>
       <a class="talk-btn" href="#contact" data-testid="nav-talk-to-us">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
         <span data-i18n data-en="Talk to Us" data-hi="बात करें">Talk to Us</span>
@@ -534,9 +549,7 @@ section{position:relative}
       <svg class="hero-deco hd-flower2" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg>
       <svg class="hero-deco hd-seeds" viewBox="0 0 120 80"><use href="#seedBowl"/></svg>
       <div class="hero-bottles">
-        <svg class="hb hb-500" viewBox="0 0 160 290"><use href="#oilBottle"/></svg>
-        <svg class="hb hb-1l" viewBox="0 0 160 290"><use href="#oilBottle"/></svg>
-        <svg class="hb hb-5l" viewBox="0 0 220 250"><use href="#oilJar"/></svg>
+        <img class="hero-product-image" src="assets/krishi-gold-packs.png" alt="Krishi Gold 500 ml, 1 Litre and 5 Litre mustard oil packs">
       </div>
     </div>
   </div>
@@ -573,10 +586,16 @@ section{position:relative}
       <p data-i18n data-en="Krishi Gold is a premium mustard oil brand built on purity, quality and trust. We bring you the natural goodness of carefully selected mustard seeds, processed with care to deliver rich flavour, strong aroma and maximum nutrition." data-hi="कृषि गोल्ड एक प्रीमियम सरसों तेल ब्रांड है जो शुद्धता, गुणवत्ता और भरोसे पर बना है। हम सावधानी से चुने सरसों के बीजों की प्राकृतिक अच्छाई लाते हैं।">Krishi Gold is a premium mustard oil brand built on purity, quality and trust. We bring you the natural goodness of carefully selected mustard seeds, processed with care to deliver rich flavour, strong aroma and maximum nutrition.</p>
       <p data-i18n data-en="Our mission is simple – to provide every home with pure, natural and healthy mustard oil that you can trust." data-hi="हमारा लक्ष्य सरल है – हर घर तक शुद्ध, प्राकृतिक और स्वस्थ सरसों का तेल पहुँचाना।">Our mission is simple – to provide every home with pure, natural and healthy mustard oil that you can trust.</p>
       <div class="about-sign">– Prakash Kumar Bharti<small data-i18n data-en="Owner" data-hi="मालिक">Owner</small></div>
-      <button class="listen-btn" id="aboutListen" data-testid="about-listen-button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
-        <span data-i18n data-en="Listen" data-hi="सुनें">Listen</span>
-      </button>
+      <div class="listen-controls">
+        <button class="listen-btn" id="aboutListen" data-testid="about-listen-button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+          <span data-i18n data-en="Listen" data-hi="सुनें">Listen</span>
+        </button>
+        <button class="listen-btn stop-btn" id="aboutStop" data-testid="about-stop-button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+          <span data-i18n data-en="Stop" data-hi="रोकें">Stop</span>
+        </button>
+      </div>
     </div>
     <div class="about-art reveal">
       <div class="about-blob"></div>
@@ -637,11 +656,11 @@ section{position:relative}
     <div class="prod-list reveal">
 
       <article class="prod-card" data-testid="product-card-500ml">
-        <div class="prod-img"><svg viewBox="0 0 160 290" style="width:100%"><use href="#oilBottle"/></svg></div>
+        <div class="prod-img"><img class="product-photo" src="assets/krishi-gold-500ml.png" alt="Krishi Gold 500 ml pack"></div>
         <div class="prod-info">
           <h3>Krishi Gold<br>Mustard Oil</h3>
           <span class="size-chip">500 ml</span>
-          <div class="prod-price" data-testid="price-500ml">₹110 <small>/ pack</small></div>
+          <div class="prod-price" data-testid="price-500ml">₹130 <small>/ pack</small></div>
           <div class="prod-actions">
             <button class="add-btn" data-add="p500" data-testid="add-to-cart-500ml">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -656,11 +675,11 @@ section{position:relative}
       </article>
 
       <article class="prod-card" data-testid="product-card-1l">
-        <div class="prod-img"><svg viewBox="0 0 160 290" style="width:100%"><use href="#oilBottle"/></svg></div>
+        <div class="prod-img"><img class="product-photo" src="assets/krishi-gold-1l.png" alt="Krishi Gold 1 Litre pack"></div>
         <div class="prod-info">
           <h3>Krishi Gold<br>Mustard Oil</h3>
           <span class="size-chip">1 Litre</span>
-          <div class="prod-price" data-testid="price-1l">₹210 <small>/ pack</small></div>
+          <div class="prod-price" data-testid="price-1l">₹240 <small>/ pack</small></div>
           <div class="prod-actions">
             <button class="add-btn" data-add="p1l" data-testid="add-to-cart-1l">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -675,7 +694,7 @@ section{position:relative}
       </article>
 
       <article class="prod-card" data-testid="product-card-5l">
-        <div class="prod-img"><svg viewBox="0 0 220 250" style="width:100%"><use href="#oilJar"/></svg></div>
+        <div class="prod-img"><img class="product-photo" src="assets/krishi-gold-5l.png" alt="Krishi Gold 5 Litre pack"></div>
         <div class="prod-info">
           <h3>Krishi Gold<br>Mustard Oil</h3>
           <span class="size-chip">5 Litre</span>
@@ -711,30 +730,39 @@ section{position:relative}
     <div class="proc-cards reveal">
       <div class="proc-card active" data-testid="process-step-quality-seeds">
         <div class="pi"><svg width="34" height="26" viewBox="0 0 120 80"><use href="#seedBowl"/></svg></div>
-        <span>Quality<br>Seeds</span>
+        <span data-i18n data-en="Quality Seeds" data-hi="गुणवत्तापूर्ण बीज">Quality Seeds</span>
+        <p data-i18n data-en="Carefully chosen for rich, natural oil." data-hi="समृद्ध और प्राकृतिक तेल के लिए चुने गए।">Carefully chosen for rich, natural oil.</p>
       </div>
       <div class="proc-card" data-testid="process-step-cleaning">
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h13a4 4 0 1 0-4-4M3 13h17a4 4 0 1 1-4 4M3 18h7"/></svg></div>
-        <span>Cleaning</span>
+        <span data-i18n data-en="Cleaning" data-hi="सफाई">Cleaning</span>
+        <p data-i18n data-en="Seeds are cleaned before pressing." data-hi="पेराई से पहले बीजों की सफाई की जाती है।">Seeds are cleaned before pressing.</p>
       </div>
       <div class="proc-card" data-testid="process-step-cold-pressed">
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v9m0 0l-4-4m4 4l4-4M4 17h16v4H4z"/></svg></div>
-        <span>Cold Pressed<br>Extraction</span>
+        <span data-i18n data-en="Cold Pressed Extraction" data-hi="कोल्ड प्रेस्ड निष्कर्षण">Cold Pressed Extraction</span>
+        <p data-i18n data-en="Traditional extraction protects flavour." data-hi="पारंपरिक निष्कर्षण स्वाद को सुरक्षित रखता है।">Traditional extraction protects flavour.</p>
       </div>
       <div class="proc-card" data-testid="process-step-filtration">
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg></div>
-        <span>Filtration</span>
+        <span data-i18n data-en="Filtration" data-hi="छनाई">Filtration</span>
+        <p data-i18n data-en="Filtered gently for clear, pure oil." data-hi="साफ और शुद्ध तेल के लिए हल्की छनाई।">Filtered gently for clear, pure oil.</p>
       </div>
       <div class="proc-card" data-testid="process-step-packaging">
         <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></div>
-        <span>Packaging</span>
+        <span data-i18n data-en="Packaging" data-hi="पैकेजिंग">Packaging</span>
+        <p data-i18n data-en="Sealed fresh for every kitchen." data-hi="हर रसोई के लिए ताजगी से सील किया गया।">Sealed fresh for every kitchen.</p>
       </div>
     </div>
     <div class="proc-listen reveal">
-      <button class="listen-btn" id="processListen" data-testid="process-listen-button">
+        <button class="listen-btn" id="processListen" data-testid="process-listen-button">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
         <span data-i18n data-en="Listen" data-hi="सुनें">Listen</span>
       </button>
+        <button class="listen-btn stop-btn" id="processStop" data-testid="process-stop-button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+          <span data-i18n data-en="Stop" data-hi="रोकें">Stop</span>
+        </button>
     </div>
   </div>
 </section>
@@ -917,8 +945,8 @@ section{position:relative}
 
 /* ---------- products ---------- */
 var PRODUCTS = {
-  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:110, jar:false},
-  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:210, jar:false},
+  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, jar:false},
+  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, jar:false},
   p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, jar:true}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
@@ -1108,31 +1136,62 @@ function showToast(msg){
 
 /* ---------- language toggle ---------- */
 var lang = 'en';
-document.getElementById('langToggle').addEventListener('click', function(){
-  lang = (lang === 'en') ? 'hi' : 'en';
+try { lang = localStorage.getItem('kg_lang') || 'en'; } catch(e){}
+var staticCopy = {
+  '100%|Pure':'100%|शुद्ध', 'Natural &|Healthy':'प्राकृतिक और|स्वस्थ',
+  'Quality|Assured':'गुणवत्ता|आश्वस्त', 'Goodness in|Every Drop':'हर बूंद में|अच्छाई',
+  'Pure & Natural':'शुद्ध और प्राकृतिक', 'Carefully Selected Seeds':'सावधानी से चुने बीज',
+  'Cold Pressed Goodness':'कोल्ड प्रेस्ड अच्छाई', 'Quality Assured':'गुणवत्ता आश्वस्त',
+  'Traditional Care':'पारंपरिक देखभाल', 'Trusted Purity':'भरोसेमंद शुद्धता'
+};
+function applyLanguage(){
+  document.documentElement.lang = lang === 'hi' ? 'hi' : 'en';
+  var toggle = document.getElementById('langToggle');
+  toggle.dataset.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var v = el.getAttribute('data-' + lang);
     if(v) el.textContent = v;
   });
-  showToast(lang === 'hi' ? 'भाषा बदली गई: हिंदी' : 'Language switched: English');
+  document.querySelectorAll('.why-card b').forEach(function(el){
+    if(!el.dataset.enText) el.dataset.enText = el.textContent.trim();
+    var key = el.dataset.enText;
+    if(lang === 'hi' && staticCopy[key]) el.textContent = staticCopy[key];
+    else if(lang === 'en') el.textContent = el.dataset.enText;
+  });
+}
+applyLanguage();
+document.getElementById('langToggle').addEventListener('click', function(){
+  lang = (lang === 'en') ? 'hi' : 'en';
+  try { localStorage.setItem('kg_lang', lang); } catch(e){}
+  applyLanguage();
+  showToast(lang === 'hi' ? 'भाषा हिंदी में बदल दी गई है' : 'Language changed to English');
 });
 
 /* ---------- listen (text to speech) ---------- */
+var activeSpeechButton = null;
 function speak(text, btn){
   if(!('speechSynthesis' in window)){ showToast('Audio not supported on this device'); return; }
-  if(window.speechSynthesis.speaking){ window.speechSynthesis.cancel(); btn.classList.remove('speaking'); return; }
+  stopSpeech();
   var u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-IN'; u.rate = 0.95;
+  u.lang = lang === 'hi' ? 'hi-IN' : 'en-IN'; u.rate = 0.95;
+  activeSpeechButton = btn;
   btn.classList.add('speaking');
-  u.onend = function(){ btn.classList.remove('speaking'); };
+  u.onend = function(){ if(activeSpeechButton) activeSpeechButton.classList.remove('speaking'); activeSpeechButton = null; };
   window.speechSynthesis.speak(u);
 }
+function stopSpeech(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  document.querySelectorAll('.listen-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  activeSpeechButton = null;
+}
 document.getElementById('aboutListen').addEventListener('click', function(){
-  speak('Krishi Gold is a premium mustard oil brand built on purity, quality and trust. We bring you the natural goodness of carefully selected mustard seeds, processed with care to deliver rich flavour, strong aroma and maximum nutrition.', this);
+  speak(lang === 'hi' ? 'कृषि गोल्ड शुद्धता, गुणवत्ता और भरोसे पर बना प्रीमियम सरसों तेल ब्रांड है।' : 'Krishi Gold is a premium mustard oil brand built on purity, quality and trust.', this);
 });
 document.getElementById('processListen').addEventListener('click', function(){
-  speak('Our process. Step one, quality seeds. Step two, cleaning. Step three, cold pressed extraction. Step four, filtration. Step five, packaging. Carefully handled from seed to bottle.', this);
+  speak(lang === 'hi' ? 'हमारी प्रक्रिया। गुणवत्तापूर्ण बीज, सफाई, कोल्ड प्रेस्ड निष्कर्षण, छनाई और पैकेजिंग।' : 'Our process. Quality seeds, cleaning, cold pressed extraction, filtration and packaging.', this);
 });
+document.getElementById('aboutStop').addEventListener('click', stopSpeech);
+document.getElementById('processStop').addEventListener('click', stopSpeech);
 
 /* ---------- header scroll + reveal ---------- */
 var header = document.getElementById('siteHeader');
