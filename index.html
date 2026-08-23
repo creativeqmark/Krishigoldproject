@@ -40,7 +40,7 @@ section{position:relative}
 .icon-btn:hover{background:rgba(14,59,43,.08)}
 .icon-btn:active{transform:scale(.94)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--green)}
-.logo-mark{width:44px;height:44px;flex:none;padding:7px;border-radius:50%;background:var(--green);object-fit:contain}
+.logo-mark{width:56px;height:56px;flex:none;padding:8px;border-radius:50%;background:var(--green);object-fit:contain}
 .logo-text{text-align:center;line-height:1}
 .logo-text .lt-name{font-family:'Playfair Display',serif;font-weight:800;font-size:1.15rem;letter-spacing:.14em}
 .logo-text .lt-name span{color:var(--golddeep)}
@@ -277,10 +277,15 @@ section{position:relative}
 .modal-overlay.open{opacity:1;pointer-events:auto}
 .modal{background:var(--cream);border-radius:26px;width:min(560px,100%);max-height:92vh;overflow-y:auto;padding:28px;transform:translateY(26px) scale(.97);transition:transform .35s cubic-bezier(.22,.9,.3,1);box-shadow:0 30px 70px rgba(8,28,20,.45)}
 .modal-overlay.open .modal{transform:none}
-.product-modal{width:min(760px,100%);padding:22px}
-.product-detail{display:grid;grid-template-columns:minmax(220px,.9fr) 1.1fr;gap:28px;align-items:center}
-.product-gallery{background:linear-gradient(145deg,#fffdf4,#efe7cb);border-radius:20px;padding:18px;min-width:0}
-.product-main-image{width:100%;height:340px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(90,50,0,.25));user-select:none;-webkit-user-drag:none}
+.product-page{display:none;padding:34px 0 72px;overflow:hidden}
+.product-page.open{display:block}
+.page-hidden{display:none !important}
+.product-back{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.88rem;border:1px solid rgba(14,59,43,.2);border-radius:999px;padding:10px 16px;margin-bottom:24px;background:var(--paper)}
+.product-back:hover{background:#fff7d9}
+.product-detail{display:grid;grid-template-columns:minmax(320px,.95fr) 1.05fr;gap:42px;align-items:start}
+.product-gallery{background:linear-gradient(145deg,#fffdf4,#efe7cb);border-radius:24px;padding:22px;min-width:0;position:relative;box-shadow:var(--shadow)}
+.product-gallery::after{content:'';position:absolute;right:-18px;bottom:-18px;width:130px;height:90px;border:2px solid rgba(217,146,10,.25);border-left:0;border-bottom:0;border-radius:0 60px 0 0;transform:rotate(-12deg);pointer-events:none}
+.product-main-image{width:100%;height:440px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(90,50,0,.25));user-select:none;-webkit-user-drag:none}
 .gallery-stage{position:relative}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(14,59,43,.9);color:#f6f1da;z-index:2;box-shadow:0 5px 12px rgba(14,59,43,.2)}
 .gallery-nav:hover{background:var(--green3)}
@@ -289,11 +294,25 @@ section{position:relative}
 .product-thumb{width:58px;height:58px;border-radius:12px;background:var(--paper);border:2px solid transparent;padding:4px;transition:border-color .2s,transform .2s}
 .product-thumb:hover,.product-thumb.active{border-color:var(--golddeep);transform:translateY(-2px)}
 .product-thumb img{width:100%;height:100%;object-fit:contain}
+.product-detail-copy{padding:10px 0}
 .product-detail-copy h3{font-size:clamp(1.35rem,3vw,1.9rem);color:var(--green);line-height:1.15;margin-bottom:10px}
 .product-detail-copy p{color:var(--muted);font-size:.9rem;line-height:1.7;margin:14px 0 20px}
 .detail-price{font-size:1.45rem;font-weight:800;color:var(--green)}
 .detail-price small{font-size:.75rem;color:var(--muted);font-weight:600}
 .detail-actions{display:flex;flex-wrap:wrap;gap:10px}
+.product-rating{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.8rem;margin:16px 0 20px}
+.rating-placeholder{border:1px dashed var(--line);border-radius:999px;padding:5px 10px;color:var(--muted)}
+.price-stack{margin:18px 0}
+.mrp-line{color:var(--muted);font-size:.82rem}.mrp-line strong{text-decoration:line-through;font-weight:600}
+.discount{display:inline-block;background:#fff0b0;color:#8b5a00;border-radius:7px;padding:4px 8px;font-size:.72rem;font-weight:800;margin-top:7px}
+.product-specs,.about-product{background:var(--paper);border:1px solid rgba(227,219,192,.8);border-radius:20px;padding:22px;box-shadow:var(--shadow-sm)}
+.product-specs{margin-top:24px}.product-specs h4,.about-product h3,.explore-products h3{color:var(--green);font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:14px}
+.spec-list{display:grid;gap:10px;list-style:none}.spec-list li{display:flex;gap:10px;color:var(--muted);font-size:.86rem;line-height:1.5}.spec-list li::before{content:'✦';color:var(--golddeep);font-weight:800}
+.share-btn{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.84rem;border:1px solid rgba(14,59,43,.22);border-radius:999px;padding:10px 15px;background:transparent}.share-btn:hover{background:#fff7d9}
+.about-product{margin-top:34px}.about-product p{max-width:72ch;margin:0;color:var(--muted);line-height:1.75;font-size:.9rem}
+.explore-products{margin-top:34px}.explore-products .prod-list{margin-top:18px}
+.product-sticker{min-height:112px;margin:34px -10vw -40px;display:flex;justify-content:flex-end;align-items:flex-end;padding:0 8% 0 0;position:relative}
+.product-sticker::before{content:'PURE • NATURAL • TRUSTED';color:var(--green);font-size:.68rem;font-weight:800;letter-spacing:.2em;border:1px solid rgba(217,146,10,.38);border-radius:999px;padding:9px 14px;transform:rotate(-6deg);background:rgba(255,253,244,.7)}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .modal-head h3{color:var(--green);font-size:1.35rem}
 .modal-close{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--green);background:rgba(14,59,43,.08)}
@@ -331,7 +350,7 @@ section{position:relative}
 @media (max-width:640px){
   .nav{gap:6px;padding:8px 10px}
   .nav .talk-btn{display:none}
-  .logo-mark{width:30px;height:36px}
+  .logo-mark{width:48px;height:48px;padding:7px}
   .logo-text .lt-name{font-size:.95rem;letter-spacing:.1em}
   .logo-text .lt-sub{font-size:.42rem}
   .lang-toggle{padding:6px 10px;font-size:.72rem}
@@ -350,8 +369,10 @@ section{position:relative}
   .proc-card span{font-size:.78rem}
   .proc-card p{margin-top:2px}
   .product-detail{grid-template-columns:1fr;gap:16px}
-  .product-modal{padding:18px}
-  .product-main-image{height:240px}
+  .product-main-image{height:310px}
+  .product-gallery{padding:14px}
+  .product-page{padding-top:22px}
+  .product-sticker{margin-left:-30px;margin-right:-30px;padding-right:18px}
   .about-creative{margin-top:20px}
 }
 @media (min-width:640px){
@@ -375,6 +396,10 @@ section{position:relative}
   .cta-copy{max-width:52%}
   .footer-grid{grid-template-columns:1.3fr 1fr .8fr;gap:60px}
   .footer-art{position:absolute;right:0;bottom:0;margin:0;width:300px;opacity:.95}
+}
+@media (min-width:640px) and (max-width:1023px){
+  .product-detail{grid-template-columns:minmax(260px,.9fr) 1.1fr;gap:24px}
+  .product-main-image{height:360px}
 }
 @media (min-width:1440px){
   .container{width:min(1280px,90%)}
@@ -548,7 +573,7 @@ section{position:relative}
   <div class="mm-tag">PURE • NATURAL • TRUSTED</div>
 </aside>
 
-<main>
+<main id="homePage">
 <!-- ====== HERO ====== -->
 <section class="hero" id="home">
   <svg class="wheat-deco wd-1" viewBox="0 0 60 120"><use href="#wheatSprig"/></svg>
@@ -914,15 +939,10 @@ section{position:relative}
   </div>
 </aside>
 
-<!-- ====== PRODUCT DETAIL MODAL ====== -->
-<div class="modal-overlay" id="productOverlay">
-  <div class="modal product-modal" data-testid="product-detail-modal" role="dialog" aria-label="Product details">
-    <div class="modal-head">
-      <h3 data-i18n data-en="Product Details" data-hi="उत्पाद विवरण">Product Details</h3>
-      <button class="modal-close" id="productClose" data-testid="product-close-button" aria-label="Close product details">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
+<!-- ====== FULL PRODUCT DETAIL VIEW ====== -->
+<section class="product-page" id="productPage" data-testid="product-detail-page" aria-label="Product details">
+  <div class="container">
+    <button class="product-back" id="productBack" data-testid="product-back-button">← <span>Back to products</span></button>
     <div class="product-detail">
       <div class="product-gallery">
         <div class="gallery-stage">
@@ -933,21 +953,39 @@ section{position:relative}
         <div class="product-thumbs" id="productThumbs"></div>
       </div>
       <div class="product-detail-copy">
-        <h3 id="productDetailName"></h3>
+        <span class="eyebrow">KRISHI GOLD • PREMIUM MUSTARD OIL</span>
+        <h1 id="productDetailName"></h1>
         <span class="size-chip" id="productDetailSize"></span>
-        <div class="detail-price" id="productDetailPrice"></div>
-        <p id="productDetailDescription">Pure, naturally rich mustard oil made with carefully selected seeds for everyday cooking.</p>
+        <div class="product-rating"><span class="rating-placeholder">Reviews coming soon</span><span>Verified product information</span></div>
+        <div class="price-stack" id="productPriceStack"></div>
+        <p id="productDetailDescription"></p>
         <div class="detail-actions">
           <button class="add-btn" id="productDetailAdd" data-testid="product-detail-add-to-cart">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             Add to Cart
           </button>
-          <button class="btn btn-green" id="productDetailDismiss" data-testid="product-detail-dismiss">Close</button>
+          <button class="btn btn-gold" id="productBuy" data-testid="product-buy-action">Order Now →</button>
+          <button class="share-btn" id="productShare" data-testid="product-share-button">↗ Share Product</button>
+        </div>
+        <div class="product-specs">
+          <h4>Product Details</h4>
+          <ul class="spec-list">
+            <li id="specSize"></li><li>Cold-pressed extraction</li><li>Filtered and sealed for freshness</li><li id="specPack"></li>
+          </ul>
         </div>
       </div>
     </div>
+    <section class="about-product">
+      <h3>About This Product</h3>
+      <p id="aboutProductCopy"></p>
+    </section>
+    <section class="explore-products">
+      <h3>Explore Other Products</h3>
+      <div class="prod-list" id="exploreProductList"></div>
+    </section>
+    <div class="product-sticker" aria-hidden="true"></div>
   </div>
-</div>
+</section>
 
 <!-- ====== CHECKOUT MODAL ====== -->
 <div class="modal-overlay" id="checkoutOverlay">
@@ -1004,51 +1042,66 @@ section{position:relative}
 
 /* ---------- products ---------- */
 var PRODUCTS = {
-  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, jar:false, image:'assets/krishi-gold-500ml.png', description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.'},
-  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, jar:false, image:'assets/krishi-gold-1l.png', description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.'},
-  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, jar:true, image:'assets/krishi-gold-5l.png', description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.'}
+  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml-gallery-1.png','assets/krishi-gold-500ml-gallery-2.png','assets/krishi-gold-500ml-gallery-3.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', pack:'Pouch pack'},
+  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l-gallery-1.png','assets/krishi-gold-1l-gallery-2.png','assets/krishi-gold-1l-gallery-3.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', pack:'Bottle pack'},
+  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l-gallery-1.png','assets/krishi-gold-5l-gallery-2.png','assets/krishi-gold-5l-gallery-3.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', pack:'Jar pack'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
 
-/* ---------- product details ---------- */
-var productOverlay = document.getElementById('productOverlay');
+/* ---------- full product detail page ---------- */
+var productPage = document.getElementById('productPage');
+var homePage = document.getElementById('homePage');
+var siteFooter = document.querySelector('.site-footer');
 var productMainImage = document.getElementById('productMainImage');
 var productThumbs = document.getElementById('productThumbs');
 var activeProduct = null;
-var galleryOrder = Object.keys(PRODUCTS);
+var activeGalleryIndex = 0;
 var galleryTouchX = null;
-function setGalleryProduct(id){
+function setGalleryImage(index){
+  var p = PRODUCTS[activeProduct]; if(!p) return;
+  activeGalleryIndex = (index + p.gallery.length) % p.gallery.length;
+  productMainImage.src = p.gallery[activeGalleryIndex];
+  productMainImage.alt = p.name + ' ' + p.size;
+  productThumbs.querySelectorAll('.product-thumb').forEach(function(t,i){ t.classList.toggle('active', i === activeGalleryIndex); });
+}
+function setProductDetails(id){
   var p = PRODUCTS[id]; if(!p) return;
   activeProduct = id;
-  productMainImage.src = p.image; productMainImage.alt = p.name + ' ' + p.size;
   document.getElementById('productDetailName').textContent = p.name;
   document.getElementById('productDetailSize').textContent = p.size;
-  document.getElementById('productDetailPrice').innerHTML = fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small>';
+  var price = p.mrp ? '<div class="mrp-line">MRP <strong>' + fmt(p.mrp) + '</strong></div><div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div><div class="discount">' + Math.round((p.mrp - p.price) / p.mrp * 100) + '% OFF</div>' : '<div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div>';
+  document.getElementById('productPriceStack').innerHTML = price;
   document.getElementById('productDetailDescription').textContent = p.description;
-  productThumbs.querySelectorAll('.product-thumb').forEach(function(t){ t.classList.toggle('active', t.dataset.gallery === id); });
+  document.getElementById('specSize').textContent = 'Size: ' + p.size;
+  document.getElementById('specPack').textContent = 'Packaging: ' + p.pack;
+  document.getElementById('aboutProductCopy').textContent = p.description + ' This product is processed with cold-pressed extraction, gently filtered, and sealed in its ' + p.pack.toLowerCase() + ' for everyday kitchen use.';
+  activeGalleryIndex = 0;
+  productThumbs.innerHTML = p.gallery.map(function(src,i){ return '<button class="product-thumb' + (i === 0 ? ' active' : '') + '" data-gallery-index="' + i + '" aria-label="View product image ' + (i + 1) + '"><img src="' + src + '" alt="' + p.name + ' ' + p.size + ' image ' + (i + 1) + '"></button>'; }).join('');
+  setGalleryImage(0);
 }
 function openProduct(id){
   var p = PRODUCTS[id]; if(!p) return;
-  productThumbs.innerHTML = Object.keys(PRODUCTS).map(function(k){
+  setProductDetails(id);
+  document.getElementById('exploreProductList').innerHTML = Object.keys(PRODUCTS).filter(function(k){ return k !== id; }).map(function(k){
     var item = PRODUCTS[k];
-    return '<button class="product-thumb' + (k === id ? ' active' : '') + '" data-gallery="' + k + '" aria-label="View ' + item.size + '">' +
-      '<img src="' + item.image + '" alt="' + item.size + '"></button>';
+    return '<article class="prod-card" data-explore="' + k + '"><div class="prod-img"><img class="product-photo" src="' + item.image + '" alt="' + item.name + ' ' + item.size + '"></div><div class="prod-info"><h3>' + item.name + '</h3><span class="size-chip">' + item.size + '</span><div class="prod-price">' + fmt(item.price) + ' <small>/ ' + (item.jar ? 'jar' : 'pack') + '</small></div></div></article>';
   }).join('');
-  setGalleryProduct(id);
-  productOverlay.classList.add('open'); document.body.style.overflow = 'hidden';
+  document.querySelectorAll('[data-explore]').forEach(function(card){ card.addEventListener('click', function(){ openProduct(card.dataset.explore); window.scrollTo({top:0,behavior:'smooth'}); }); });
+  homePage.classList.add('page-hidden'); siteFooter.classList.add('page-hidden'); productPage.classList.add('open'); window.scrollTo({top:0,behavior:'smooth'});
 }
-function closeProduct(){ productOverlay.classList.remove('open'); document.body.style.overflow = ''; activeProduct = null; }
+function closeProduct(){ productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null; window.scrollTo({top:0,behavior:'smooth'}); }
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener('click', function(){ if(productPage.classList.contains('open')) closeProduct(); });
+});
 document.querySelectorAll('.prod-card[data-product]').forEach(function(card){
   card.addEventListener('click', function(e){ if(!e.target.closest('button,a')) openProduct(card.dataset.product); });
 });
 productThumbs.addEventListener('click', function(e){
-  var thumb = e.target.closest('[data-gallery]'); if(!thumb) return;
-  var p = PRODUCTS[thumb.dataset.gallery]; if(!p) return;
-  setGalleryProduct(p.id);
+  var thumb = e.target.closest('[data-gallery-index]'); if(!thumb) return;
+  setGalleryImage(Number(thumb.dataset.galleryIndex));
 });
 function moveGallery(direction){
-  var index = galleryOrder.indexOf(activeProduct); if(index < 0) return;
-  setGalleryProduct(galleryOrder[(index + direction + galleryOrder.length) % galleryOrder.length]);
+  setGalleryImage(activeGalleryIndex + direction);
 }
 document.getElementById('galleryPrev').addEventListener('click', function(){ moveGallery(-1); });
 document.getElementById('galleryNext').addEventListener('click', function(){ moveGallery(1); });
@@ -1065,8 +1118,17 @@ productMainImage.addEventListener('touchend', function(e){
 }, {passive:true});
 document.getElementById('productClose').addEventListener('click', closeProduct);
 document.getElementById('productDetailDismiss').addEventListener('click', closeProduct);
-productOverlay.addEventListener('click', function(e){ if(e.target === productOverlay) closeProduct(); });
-document.getElementById('productDetailAdd').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); closeProduct(); } });
+document.getElementById('productDetailAdd').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); } });
+document.getElementById('productBuy').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); openCart(); } });
+document.getElementById('productBack').addEventListener('click', closeProduct);
+document.getElementById('productShare').addEventListener('click', function(){
+  if(!activeProduct) return;
+  var p = PRODUCTS[activeProduct], url = window.location.href.split('#')[0] + '#product-' + activeProduct;
+  var share = {title:p.name + ' ' + p.size, text:p.description + ' ' + p.size + ' — ' + fmt(p.price), url:url};
+  if(navigator.share) navigator.share(share).catch(function(){});
+  else if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){ showToast('Product link copied'); }).catch(function(){ showToast('Copy the product URL from your browser'); });
+  else showToast('Copy the product URL from your browser');
+});
 
 /* ---------- cart state ---------- */
 var cart = {};
