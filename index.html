@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishi Gold — Pure Mustard Oil</title>
+<meta name="description" content="Krishi Gold — premium pure mustard oil. Natural goodness, trusted quality, richness of carefully selected mustard seeds in every drop.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7f2df; --cream2:#efe7cb; --paper:#fffdf4;
+  --green:#0e3b2b; --green2:#0a2c20; --green3:#155239;
+  --gold:#f2b705; --gold2:#ffc93c; --golddeep:#d9920a;
+  --ink:#22312a; --muted:#5f6f62; --line:#e3dbc0;
+  --radius:20px;
+  --shadow:0 14px 34px rgba(18,42,30,.10);
+  --shadow-sm:0 8px 20px rgba(18,42,30,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,textarea,select{font-family:inherit}
+.container{width:min(1180px,92%);margin:0 auto}
+section{position:relative}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- header ---------- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(247,242,223,.92);backdrop-filter:blur(10px);transition:box-shadow .3s}
+.site-header.scrolled{box-shadow:0 6px 24px rgba(18,42,30,.12)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.icon-btn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--green);transition:background .25s,transform .2s}
+.icon-btn:hover{background:rgba(14,59,43,.08)}
+.icon-btn:active{transform:scale(.94)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--green)}
+.logo-mark{width:38px;height:44px;flex:none}
+.logo-text{text-align:center;line-height:1}
+.logo-text .lt-name{font-family:'Playfair Display',serif;font-weight:800;font-size:1.15rem;letter-spacing:.14em}
+.logo-text .lt-name span{color:var(--golddeep)}
+.logo-text .lt-sub{font-size:.5rem;letter-spacing:.42em;font-weight:700;color:var(--muted);margin-top:4px}
+.nav-links{display:none;gap:26px}
+.nav-links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.92rem;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--gold);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang-toggle{display:flex;align-items:center;gap:6px;background:var(--green);color:#f3edda;border-radius:999px;padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.04em;transition:transform .2s,background .25s}
+.lang-toggle:hover{background:var(--green3)}
+.lang-toggle:active{transform:scale(.95)}
+.lang-toggle .sep{opacity:.45}
+.talk-btn{display:flex;align-items:center;gap:8px;background:var(--gold);color:#3d2c00;font-weight:800;font-size:.86rem;border-radius:999px;padding:11px 20px;box-shadow:0 6px 16px rgba(242,183,5,.4);transition:transform .2s,box-shadow .25s,background .25s;text-decoration:none}
+.talk-btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 22px rgba(242,183,5,.5)}
+.talk-btn:active{transform:scale(.96)}
+.cart-btn{position:relative;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--green);background:rgba(14,59,43,.07);transition:background .25s,transform .2s}
+.cart-btn:hover{background:rgba(14,59,43,.14)}
+.cart-btn:active{transform:scale(.92)}
+.cart-count{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;border-radius:999px;background:var(--gold);color:#3d2c00;font-size:.68rem;font-weight:800;display:grid;place-items:center;padding:0 5px;border:2px solid var(--cream);transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.cart-count.show{transform:scale(1)}
+
+/* ---------- mobile menu ---------- */
+.menu-overlay{position:fixed;inset:0;background:rgba(8,28,20,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;z-index:80}
+.menu-overlay.open{opacity:1;pointer-events:auto}
+.mobile-menu{position:fixed;top:0;left:0;bottom:0;width:min(330px,86vw);background:var(--green2);z-index:90;transform:translateX(-105%);transition:transform .38s cubic-bezier(.22,.9,.3,1);display:flex;flex-direction:column;padding:22px 26px 30px;overflow-y:auto}
+.mobile-menu.open{transform:none}
+.mm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.mm-close{color:#f3edda;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.mm-links{display:flex;flex-direction:column}
+.mm-links a{display:flex;align-items:center;justify-content:space-between;color:#f3edda;text-decoration:none;font-weight:600;font-size:1.02rem;padding:16px 2px;border-bottom:1px solid rgba(255,255,255,.12);transition:padding-left .25s,color .25s}
+.mm-links a:hover{padding-left:8px;color:var(--gold2)}
+.mm-tag{margin-top:auto;padding-top:26px;color:var(--gold2);font-weight:700;letter-spacing:.18em;font-size:.78rem;text-align:center}
+
+/* ---------- hero ---------- */
+.hero{padding:34px 0 8px;overflow:hidden}
+.hero-grid{display:grid;gap:30px;align-items:center}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.34em;color:var(--muted);margin-bottom:16px}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.1rem);line-height:1.08;font-weight:800;color:var(--green);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--golddeep)}
+.hero-sub{margin:20px 0 28px;color:var(--muted);font-size:1rem;line-height:1.7;max-width:46ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:.92rem;border-radius:999px;padding:14px 26px;text-decoration:none;transition:transform .2s,box-shadow .25s,background .25s}
+.btn:active{transform:scale(.96)}
+.btn-green{background:var(--green);color:#f3edda;box-shadow:0 10px 22px rgba(14,59,43,.3)}
+.btn-green:hover{background:var(--green3);transform:translateY(-2px)}
+.btn-green .arr{transition:transform .25s}
+.btn-green:hover .arr{transform:translateX(4px)}
+.btn-gold{background:var(--gold);color:#3d2c00;box-shadow:0 8px 18px rgba(242,183,5,.4)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-splash{position:absolute;inset:6% 2% 0;background:radial-gradient(ellipse at 50% 68%,#ffd23f 0%,#f7b712 46%,#eda406 78%,#e59a04 100%);border-radius:46% 54% 52% 48%/58% 46% 54% 42%;filter:saturate(1.05)}
+.hero-bottles{position:relative;display:flex;align-items:flex-end;gap:2%;width:min(520px,94%)}
+.hero-bottles .hb{filter:drop-shadow(0 18px 22px rgba(90,50,0,.35));transition:transform .4s}
+.hero-bottles .hb:hover{transform:translateY(-8px)}
+.hb-500{width:26%} .hb-1l{width:31%} .hb-5l{width:43%}
+.hero-deco{position:absolute;pointer-events:none}
+.hd-flower1{top:4%;left:6%;width:64px;animation:float 6s ease-in-out infinite}
+.hd-flower2{bottom:8%;right:2%;width:78px;animation:float 7s ease-in-out infinite reverse}
+.hd-seeds{bottom:2%;left:8%;width:96px;animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---------- trust badges ---------- */
+.trust{padding:38px 0 10px}
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.trust-card{background:var(--paper);border-radius:var(--radius);padding:22px 14px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.7);transition:transform .3s,box-shadow .3s}
+.trust-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.trust-card .ti{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;background:linear-gradient(160deg,#fdf3cf,#fbe7a1);display:grid;place-items:center;color:var(--golddeep)}
+.trust-card b{display:block;font-size:.88rem;color:var(--green)}
+
+/* ---------- section titles ---------- */
+.sec-title{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:800;color:var(--green);margin-bottom:6px}
+.sec-title.light{color:#f6f1da}
+.title-bar{width:56px;height:5px;border-radius:99px;background:var(--gold);margin:12px 0 18px}
+.sec-sub{color:var(--muted);font-size:.95rem;max-width:60ch}
+.sec-sub.light{color:#c9d6c4}
+
+/* ---------- about ---------- */
+.about{padding:56px 0}
+.about-grid{display:grid;gap:36px;align-items:center}
+.about-copy p{color:var(--muted);line-height:1.75;font-size:.96rem;margin-bottom:16px}
+.about-sign{margin:22px 0 24px;font-weight:700;color:var(--green)}
+.about-sign small{display:block;font-weight:600;color:var(--muted);font-size:.8rem;margin-top:2px}
+.listen-btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#3d2c00;font-weight:800;font-size:.86rem;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(242,183,5,.35);transition:transform .2s,background .25s}
+.listen-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.listen-btn.speaking{background:var(--green);color:#f3edda}
+.about-art{position:relative;display:flex;justify-content:center}
+.about-blob{position:absolute;inset:8% 6%;background:linear-gradient(150deg,#e9f0d8,#d4e4bd);border-radius:50% 50% 46% 54%/56% 48% 52% 44%}
+.about-art .ab-bottle{position:relative;width:min(240px,56%);filter:drop-shadow(0 16px 20px rgba(90,50,0,.3))}
+.about-art .ad{position:absolute}
+.ad-fl1{top:12%;right:14%;width:58px;animation:float 6.5s ease-in-out infinite}
+.ad-fl2{bottom:6%;left:10%;width:66px;animation:float 7.5s ease-in-out infinite reverse}
+.ad-sd{bottom:0;right:16%;width:88px}
+
+/* ---------- why ---------- */
+.why{background:radial-gradient(120% 120% at 50% 0%,#124632 0%,var(--green2) 60%);border-radius:34px 34px 0 0;padding:56px 0 64px;margin-top:20px;overflow:hidden}
+.why::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(242,183,5,.14),transparent 65%);border-radius:50%}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,201,60,.28);border-radius:18px;padding:24px 18px;text-align:center;transition:transform .3s,background .3s,border-color .3s}
+.why-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.09);border-color:rgba(255,201,60,.55)}
+.why-card .wi{width:58px;height:58px;margin:0 auto 14px;display:grid;place-items:center;color:var(--gold2)}
+.why-card b{display:block;color:#f6f1da;font-size:.98rem;margin-bottom:8px;font-family:'Playfair Display',serif}
+.why-card p{color:#b9c8b4;font-size:.8rem;line-height:1.55}
+
+/* ---------- products ---------- */
+.products{padding:60px 0 20px}
+.prod-list{display:grid;gap:20px;margin-top:30px}
+.prod-card{background:var(--paper);border-radius:24px;box-shadow:var(--shadow);border:1px solid rgba(227,219,192,.8);padding:22px;display:flex;gap:20px;align-items:center;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.prod-card:hover{transform:translateY(-5px)}
+.prod-card::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(242,183,5,.16),transparent 70%)}
+.prod-img{flex:none;width:118px;display:grid;place-items:center}
+.prod-img svg{filter:drop-shadow(0 10px 12px rgba(90,50,0,.28));transition:transform .35s}
+.prod-card:hover .prod-img svg{transform:scale(1.05) rotate(-1.5deg)}
+.prod-info{flex:1;min-width:0}
+.prod-info h3{font-size:1.08rem;color:var(--green);line-height:1.25;margin-bottom:8px}
+.size-chip{display:inline-block;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#4a3700;font-weight:800;font-size:.72rem;border-radius:8px;padding:4px 12px;margin-bottom:10px}
+.prod-price{font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:14px}
+.prod-price small{font-size:.72rem;font-weight:600;color:var(--muted)}
+.prod-actions{display:flex;flex-wrap:wrap;gap:10px}
+.add-btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#f3edda;font-weight:800;font-size:.82rem;border-radius:999px;padding:11px 18px;transition:background .25s,transform .2s;box-shadow:0 6px 14px rgba(14,59,43,.28)}
+.add-btn:hover{background:var(--green3);transform:translateY(-2px)}
+.add-btn:active{transform:scale(.95)}
+.wa-btn{display:inline-flex;align-items:center;gap:8px;border:2px solid #1faa53;color:#14843f;font-weight:800;font-size:.82rem;border-radius:999px;padding:9px 16px;text-decoration:none;transition:background .25s,transform .2s}
+.wa-btn:hover{background:#e8f8ee;transform:translateY(-2px)}
+
+/* ---------- process ---------- */
+.process{padding:56px 0}
+.stepper{display:flex;justify-content:space-between;position:relative;margin:34px 6px 22px}
+.stepper::before{content:'';position:absolute;top:50%;left:4%;right:4%;height:2px;background:repeating-linear-gradient(90deg,var(--golddeep) 0 8px,transparent 8px 16px);opacity:.55}
+.step-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--gold2);font-weight:800;font-size:.85rem;display:grid;place-items:center;border:3px solid var(--gold);box-shadow:0 4px 10px rgba(14,59,43,.3)}
+.proc-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.proc-card{background:var(--paper);border-radius:16px;padding:18px 10px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);transition:transform .3s}
+.proc-card:hover{transform:translateY(-5px)}
+.proc-card.active{background:var(--green);border-color:var(--green)}
+.proc-card .pi{width:48px;height:48px;margin:0 auto 10px;display:grid;place-items:center;color:var(--golddeep)}
+.proc-card.active .pi{color:var(--gold2)}
+.proc-card span{font-size:.66rem;font-weight:800;letter-spacing:.06em;color:var(--green);text-transform:uppercase;line-height:1.35;display:block}
+.proc-card.active span{color:#f6f1da}
+.proc-listen{margin-top:26px}
+
+/* ---------- cta banner ---------- */
+.cta{padding:20px 0 60px}
+.cta-banner{position:relative;background:linear-gradient(115deg,#0f4130 0%,var(--green2) 70%);border-radius:30px;padding:44px 34px;overflow:hidden;box-shadow:0 24px 48px rgba(10,44,32,.35)}
+.cta-banner h2{color:#f6f1da;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;max-width:16ch;line-height:1.2}
+.cta-banner p{color:#bfd2bf;margin:14px 0 24px;font-size:.95rem}
+.cta-art{position:absolute;right:-14px;bottom:-10px;width:min(300px,52%);pointer-events:none}
+.cta-art .pour{animation:float 7s ease-in-out infinite}
+.cta-deco-leaf{position:absolute;left:-20px;top:-30px;width:150px;opacity:.25;transform:rotate(18deg)}
+
+/* ---------- contact ---------- */
+.contact{padding:56px 0}
+.contact-grid{display:grid;gap:16px;margin-top:30px}
+.contact-card{background:var(--paper);border-radius:var(--radius);padding:22px;display:flex;gap:16px;align-items:center;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);transition:transform .3s}
+.contact-card:hover{transform:translateY(-4px)}
+.cc-icon{flex:none;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.cc-icon.green{background:linear-gradient(150deg,#1faa53,#0d7a38)}
+.cc-icon.gold{background:linear-gradient(150deg,var(--gold2),var(--golddeep));color:#3d2c00}
+.contact-card b{display:block;color:var(--green);font-size:.95rem;margin-bottom:5px}
+.contact-card p, .contact-card a{color:var(--muted);font-size:.9rem;line-height:1.55;text-decoration:none;display:block}
+.contact-card a:hover{color:var(--green)}
+.owner-card{grid-column:1/-1;background:linear-gradient(120deg,#fdf8e6,#f8efcf);border:1px solid rgba(217,146,10,.3)}
+.owner-avatar{flex:none;width:74px;height:74px;border-radius:50%;background:var(--green);color:var(--gold2);display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:800;font-size:1.5rem;border:3px solid var(--gold);box-shadow:0 8px 18px rgba(14,59,43,.3)}
+.contact-form-wrap{margin-top:34px;background:var(--paper);border-radius:24px;padding:28px;box-shadow:var(--shadow);border:1px solid rgba(227,219,192,.8)}
+.contact-form-wrap h3{color:var(--green);font-size:1.25rem;margin-bottom:18px}
+.form-grid{display:grid;gap:14px}
+.field label{display:block;font-size:.78rem;font-weight:800;color:var(--green);margin-bottom:6px;letter-spacing:.03em}
+.field input,.field textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.92rem;background:#fff;color:var(--ink);transition:border-color .25s,box-shadow .25s;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(242,183,5,.15)}
+.field textarea{resize:vertical;min-height:96px}
+.form-submit{margin-top:6px;justify-content:center;width:100%}
+
+/* ---------- footer ---------- */
+.site-footer{background:radial-gradient(120% 130% at 50% 0%,#124632 0%,#08231a 70%);color:#c9d6c4;padding:56px 0 0;position:relative;overflow:hidden}
+.footer-grid{display:grid;gap:34px;position:relative;z-index:1}
+.f-logo{display:flex;align-items:center;gap:12px}
+.f-logo .logo-text .lt-name{color:#f6f1da;font-size:1.35rem}
+.f-about{margin:16px 0;font-size:.88rem;line-height:1.7;max-width:44ch}
+.f-tag{color:var(--gold2);font-weight:800;letter-spacing:.16em;font-size:.8rem}
+.f-links h4{color:#f6f1da;font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:14px}
+.f-links a{display:flex;align-items:center;justify-content:space-between;color:#c9d6c4;text-decoration:none;font-size:.92rem;font-weight:600;padding:12px 2px;border-bottom:1px solid rgba(255,255,255,.12);transition:color .25s,padding-left .25s}
+.f-links a:hover{color:var(--gold2);padding-left:8px}
+.f-social{display:flex;gap:12px;margin-top:6px}
+.f-social a{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;transition:transform .25s,box-shadow .25s}
+.f-social a:hover{transform:translateY(-4px) scale(1.06)}
+.fs-yt{background:#e52d27}.fs-ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}.fs-fb{background:#1877f2}.fs-wa{background:#25d366}
+.footer-art{position:relative;z-index:1;display:flex;justify-content:center;margin-top:8px}
+.footer-art svg{width:min(340px,80%)}
+.copyright{position:relative;z-index:1;text-align:center;font-size:.78rem;color:#8fa393;padding:22px 0;border-top:1px solid rgba(255,255,255,.1);margin-top:14px}
+.f-leaf{position:absolute;right:-30px;top:90px;width:190px;opacity:.16;z-index:0}
+
+/* ---------- cart drawer ---------- */
+.cart-overlay{position:fixed;inset:0;background:rgba(8,28,20,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;z-index:95}
+.cart-overlay.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,94vw);background:var(--cream);z-index:100;transform:translateX(105%);transition:transform .4s cubic-bezier(.22,.9,.3,1);display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(10,44,32,.3)}
+.cart-drawer.open{transform:none}
+.cart-head{background:var(--green);color:#f6f1da;padding:20px 22px;display:flex;align-items:center;justify-content:space-between}
+.cart-head h3{font-size:1.15rem}
+.cart-close{color:#f6f1da;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.1);transition:background .25s}
+.cart-close:hover{background:rgba(255,255,255,.2)}
+.cart-body{flex:1;overflow-y:auto;padding:18px 20px}
+.cart-empty{text-align:center;padding:60px 10px;color:var(--muted)}
+.cart-empty .ce-icon{width:80px;height:80px;margin:0 auto 18px;border-radius:50%;background:#efe7cb;display:grid;place-items:center;color:var(--golddeep)}
+.cart-item{display:flex;gap:14px;background:var(--paper);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);align-items:center}
+.ci-img{flex:none;width:52px}
+.ci-info{flex:1;min-width:0}
+.ci-info b{display:block;font-size:.85rem;color:var(--green);line-height:1.3}
+.ci-info .ci-size{font-size:.72rem;color:var(--muted);font-weight:700}
+.ci-info .ci-price{font-size:.88rem;font-weight:800;margin-top:4px}
+.ci-controls{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.qty-ctrl{display:flex;align-items:center;gap:2px;background:#efe7cb;border-radius:999px;padding:3px}
+.qty-ctrl button{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--green);font-weight:800;font-size:1rem;transition:background .2s,transform .15s}
+.qty-ctrl button:hover{background:var(--gold2)}
+.qty-ctrl button:active{transform:scale(.88)}
+.qty-ctrl span{min-width:26px;text-align:center;font-weight:800;font-size:.88rem;color:var(--green)}
+.ci-remove{color:#b3402e;font-size:.72rem;font-weight:700;display:flex;align-items:center;gap:4px;transition:color .2s}
+.ci-remove:hover{color:#8f2b1d}
+.cart-foot{border-top:1px solid var(--line);padding:18px 22px 22px;background:var(--paper)}
+.totals-row{display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted);margin-bottom:8px}
+.totals-row.grand{font-size:1.1rem;font-weight:800;color:var(--green);margin:12px 0 16px;padding-top:12px;border-top:2px dashed var(--line)}
+.totals-row .free{color:#14843f;font-weight:800}
+.checkout-btn{width:100%;justify-content:center}
+
+/* ---------- modals ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(8,28,20,.6);backdrop-filter:blur(4px);z-index:110;display:grid;place-items:center;padding:18px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{background:var(--cream);border-radius:26px;width:min(560px,100%);max-height:92vh;overflow-y:auto;padding:28px;transform:translateY(26px) scale(.97);transition:transform .35s cubic-bezier(.22,.9,.3,1);box-shadow:0 30px 70px rgba(8,28,20,.45)}
+.modal-overlay.open .modal{transform:none}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.modal-head h3{color:var(--green);font-size:1.35rem}
+.modal-close{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--green);background:rgba(14,59,43,.08)}
+.form-2col{display:grid;gap:14px}
+.pay-options{display:grid;gap:12px;margin:6px 0 18px}
+.pay-opt{display:flex;gap:14px;align-items:flex-start;border:2px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;transition:border-color .25s,background .25s;background:var(--paper)}
+.pay-opt.selected{border-color:var(--gold);background:#fdf6dd;box-shadow:0 0 0 4px rgba(242,183,5,.12)}
+.pay-opt input{margin-top:4px;accent-color:var(--green);width:17px;height:17px}
+.pay-opt b{display:block;color:var(--green);font-size:.94rem;margin-bottom:3px}
+.pay-opt p{font-size:.78rem;color:var(--muted);line-height:1.5}
+.order-summary{background:var(--paper);border:1px dashed var(--golddeep);border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:.86rem}
+.order-summary .os-row{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:6px}
+.order-summary .os-row.total{color:var(--green);font-weight:800;font-size:1rem;margin:8px 0 0;padding-top:8px;border-top:1px dashed var(--line)}
+.place-order-btn{width:100%;justify-content:center;font-size:1rem;padding:16px}
+.field-error{border-color:#c0452f !important;animation:shake .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.success-modal{text-align:center;padding:36px 28px}
+.success-check{width:90px;height:90px;margin:0 auto 22px;border-radius:50%;background:linear-gradient(150deg,#2ec56a,#0d9a48);display:grid;place-items:center;color:#fff;box-shadow:0 16px 34px rgba(20,150,75,.4);animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-modal h3{color:var(--green);font-size:1.6rem;margin-bottom:10px}
+.success-modal p{color:var(--muted);font-size:.92rem;line-height:1.65;margin-bottom:8px}
+.order-id{display:inline-block;background:#efe7cb;border-radius:10px;padding:8px 18px;font-weight:800;color:var(--green);margin:10px 0 22px;letter-spacing:.06em}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--green);color:#f6f1da;font-weight:700;font-size:.88rem;border-radius:999px;padding:13px 26px;box-shadow:0 14px 30px rgba(10,44,32,.4);z-index:130;transition:transform .4s cubic-bezier(.22,.9,.3,1);display:flex;align-items:center;gap:10px;pointer-events:none}
+.toast.show{transform:translate(-50%,0)}
+.toast .t-dot{width:9px;height:9px;border-radius:50%;background:var(--gold2)}
+
+/* ---------- decorations ---------- */
+.wheat-deco{position:absolute;pointer-events:none;opacity:.5}
+.wd-1{right:2%;top:14%;width:70px;transform:rotate(12deg)}
+.wd-2{left:1%;bottom:6%;width:60px;transform:rotate(-14deg)}
+
+/* ---------- responsive ---------- */
+@media (max-width:640px){
+  .nav{gap:6px}
+  .nav .talk-btn{display:none}
+  .logo-mark{width:30px;height:36px}
+  .logo-text .lt-name{font-size:.95rem;letter-spacing:.1em}
+  .logo-text .lt-sub{font-size:.42rem}
+  .lang-toggle{padding:6px 10px;font-size:.72rem}
+  .icon-btn,.cart-btn{width:40px;height:40px}
+}
+@media (max-width:520px){
+  .prod-card{flex-direction:column;text-align:center;padding:26px 18px}
+  .prod-img{width:150px}
+  .prod-actions{justify-content:center}
+  .proc-cards{grid-template-columns:repeat(5,minmax(96px,1fr));overflow-x:auto;padding-bottom:8px}
+}
+@media (min-width:640px){
+  .trust-grid{grid-template-columns:repeat(4,1fr)}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .form-2col{grid-template-columns:1fr 1fr}
+  .form-2col .full{grid-column:1/-1}
+}
+@media (min-width:1024px){
+  .nav-links{display:flex}
+  .hero{padding:60px 0 30px}
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+  .about-grid{grid-template-columns:1.1fr .9fr;gap:60px}
+  .why-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+  .why{border-radius:44px 44px 0 0;padding:74px 0 84px}
+  .prod-list{grid-template-columns:repeat(3,1fr)}
+  .prod-card{flex-direction:column;text-align:center;padding:30px 22px}
+  .prod-img{width:150px}
+  .prod-actions{justify-content:center}
+  .cta-banner{display:flex;align-items:center;padding:56px 60px;min-height:270px}
+  .cta-copy{max-width:52%}
+  .footer-grid{grid-template-columns:1.3fr 1fr .8fr;gap:60px}
+  .footer-art{position:absolute;right:0;bottom:0;margin:0;width:300px;opacity:.95}
+}
+@media (min-width:1440px){
+  .container{width:min(1280px,90%)}
+  .hero h1{font-size:4.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== SVG DEFS (self-drawn artwork) ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <linearGradient id="oilGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffd23f"/><stop offset=".45" stop-color="#f7b712"/>
+    <stop offset=".8" stop-color="#e89e05"/><stop offset="1" stop-color="#d98f04"/>
+  </linearGradient>
+  <linearGradient id="labelGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#124832"/><stop offset="1" stop-color="#0a2c20"/>
+  </linearGradient>
+  <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+
+  <symbol id="dropLogo" viewBox="0 0 60 72">
+    <path d="M30 3 C30 3 7 32 7 47 a23 23 0 0 0 46 0 C53 32 30 3 30 3 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+    <path d="M30 30 v22 M30 36 c-5 -2 -8 -6 -8 -11 c5 1 8 5 8 11 Z M30 36 c5 -2 8 -6 8 -11 c-5 1 -8 5 -8 11 Z M30 45 c-5 -2 -8 -6 -8 -11 c5 1 8 5 8 11 Z M30 45 c5 -2 8 -6 8 -11 c-5 1 -8 5 -8 11 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="oilBottle" viewBox="0 0 160 290">
+    <rect x="66" y="4" width="28" height="18" rx="4" fill="#0c3a2a"/>
+    <rect x="66" y="4" width="28" height="6" rx="3" fill="#082a1e"/>
+    <path d="M73 22 h14 v16 h-14 z" fill="url(#oilGrad)"/>
+    <path d="M73 38 C70 58 40 64 39 92 L39 242 C39 268 56 280 80 280 C104 280 121 268 121 242 L121 92 C120 64 90 58 87 38 Z" fill="url(#oilGrad)"/>
+    <path d="M52 70 C46 78 45 88 45 100 L45 220 C45 228 47 236 50 242 C46 200 48 120 56 76 Z" fill="url(#shine)"/>
+    <rect x="46" y="118" width="68" height="104" rx="10" fill="url(#labelGrad)" stroke="#f2b705" stroke-width="2"/>
+    <use href="#dropLogo" x="68" y="126" width="24" height="29" color="#f2b705"/>
+    <text x="80" y="172" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="12" fill="#f6f1da" letter-spacing="1">KRISHI</text>
+    <text x="80" y="185" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="11" fill="#f2b705" letter-spacing="3">GOLD</text>
+    <rect x="58" y="192" width="44" height="13" rx="6.5" fill="#f2b705"/>
+    <text x="80" y="202" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="7.5" fill="#0a2c20">MUSTARD OIL</text>
+    <text x="80" y="216" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" fill="#c9d6c4">PURE • NATURAL</text>
+  </symbol>
+
+  <symbol id="oilJar" viewBox="0 0 220 250">
+    <rect x="88" y="6" width="30" height="18" rx="4" fill="#0c3a2a"/>
+    <path d="M118 30 C160 30 182 44 182 66 L182 70 L166 70 L166 64 C166 52 150 44 122 44 L118 44 Z" fill="#0c3a2a"/>
+    <path d="M94 24 h18 v14 h-18 z" fill="url(#oilGrad)"/>
+    <path d="M92 38 C60 44 44 58 44 84 L44 196 C44 226 64 240 108 240 C152 240 172 226 172 196 L172 84 C172 58 148 44 116 38 Z" fill="url(#oilGrad)"/>
+    <path d="M58 64 C52 74 51 86 51 100 L51 180 C51 190 53 200 56 208 C52 160 55 100 64 66 Z" fill="url(#shine)"/>
+    <rect x="62" y="96" width="92" height="112" rx="12" fill="url(#labelGrad)" stroke="#f2b705" stroke-width="2.5"/>
+    <use href="#dropLogo" x="93" y="104" width="30" height="36" color="#f2b705"/>
+    <text x="108" y="158" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="15" fill="#f6f1da" letter-spacing="1.5">KRISHI</text>
+    <text x="108" y="174" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="13" fill="#f2b705" letter-spacing="4">GOLD</text>
+    <rect x="80" y="182" width="56" height="15" rx="7.5" fill="#f2b705"/>
+    <text x="108" y="193" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="8.5" fill="#0a2c20">MUSTARD OIL</text>
+  </symbol>
+
+  <symbol id="mustardFlower" viewBox="0 0 100 110">
+    <path d="M50 55 C48 75 46 92 44 108" stroke="#3f7a3a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M47 80 C38 76 30 78 24 86 C32 90 42 88 47 80 Z" fill="#4c8f43"/>
+    <path d="M48 68 C56 62 64 62 71 67 C65 74 54 75 48 68 Z" fill="#5da553"/>
+    <g fill="#ffd23f" stroke="#e8a200" stroke-width="1.5">
+      <ellipse cx="50" cy="34" rx="11" ry="17"/>
+      <ellipse cx="50" cy="34" rx="11" ry="17" transform="rotate(72 50 46)"/>
+      <ellipse cx="50" cy="34" rx="11" ry="17" transform="rotate(144 50 46)"/>
+      <ellipse cx="50" cy="34" rx="11" ry="17" transform="rotate(216 50 46)"/>
+      <ellipse cx="50" cy="34" rx="11" ry="17" transform="rotate(288 50 46)"/>
+    </g>
+    <circle cx="50" cy="46" r="7" fill="#e8a200"/>
+    <circle cx="72" cy="22" r="5" fill="#ffd23f" stroke="#e8a200"/>
+    <circle cx="80" cy="34" r="4" fill="#ffd23f" stroke="#e8a200"/>
+  </symbol>
+
+  <symbol id="seedBowl" viewBox="0 0 120 80">
+    <path d="M10 34 h100 a50 42 0 0 1 -100 0 Z" fill="#a8542c"/>
+    <path d="M10 34 h100 a8 8 0 0 0 -100 0 Z" fill="#c46a3a"/>
+    <ellipse cx="60" cy="34" rx="48" ry="10" fill="#4a2413"/>
+    <g fill="#5d2f18"><circle cx="40" cy="31" r="4"/><circle cx="52" cy="34" r="4.5"/><circle cx="64" cy="30" r="4"/><circle cx="76" cy="34" r="4.5"/><circle cx="46" cy="27" r="3.5"/><circle cx="60" cy="26" r="3.5"/><circle cx="70" cy="27" r="3.2"/><circle cx="34" cy="34" r="3.2"/><circle cx="84" cy="32" r="3.4"/></g>
+    <g fill="#7a3f20"><circle cx="46" cy="33" r="2.4"/><circle cx="58" cy="30" r="2.6"/><circle cx="70" cy="33" r="2.4"/></g>
+  </symbol>
+
+  <symbol id="wheatSprig" viewBox="0 0 60 120">
+    <path d="M30 116 C30 80 30 40 30 6" stroke="#b8860b" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <g fill="#d9a520">
+      <path d="M30 14 C22 10 18 4 18 0 C26 2 30 8 30 14 Z"/><path d="M30 14 C38 10 42 4 42 0 C34 2 30 8 30 14 Z"/>
+      <path d="M30 30 C22 26 18 20 18 16 C26 18 30 24 30 30 Z"/><path d="M30 30 C38 26 42 20 42 16 C34 18 30 24 30 30 Z"/>
+      <path d="M30 46 C22 42 18 36 18 32 C26 34 30 40 30 46 Z"/><path d="M30 46 C38 42 42 36 42 32 C34 34 30 40 30 46 Z"/>
+      <path d="M30 62 C22 58 18 52 18 48 C26 50 30 56 30 62 Z"/><path d="M30 62 C38 58 42 52 42 48 C34 50 30 56 30 62 Z"/>
+    </g>
+  </symbol>
+
+  <symbol id="leafSprig" viewBox="0 0 90 130">
+    <path d="M45 126 C45 90 45 50 45 8" stroke="#2e6b34" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <g fill="#3f7a3a">
+      <path d="M45 26 C30 22 20 12 18 0 C34 4 44 14 45 26 Z"/><path d="M45 26 C60 22 70 12 72 0 C56 4 46 14 45 26 Z"/>
+      <path d="M45 56 C28 52 16 40 14 26 C32 30 44 42 45 56 Z"/><path d="M45 56 C62 52 74 40 76 26 C58 30 46 42 45 56 Z"/>
+      <path d="M45 88 C26 84 12 70 10 54 C30 58 44 72 45 88 Z"/><path d="M45 88 C64 84 78 70 80 54 C60 58 46 72 45 88 Z"/>
+    </g>
+  </symbol>
+
+  <symbol id="oilPourBowl" viewBox="0 0 260 180">
+    <path d="M236 0 C220 30 196 52 168 76" stroke="url(#oilGrad)" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <path d="M30 108 h200 a100 62 0 0 1 -200 0 Z" fill="#a8542c"/>
+    <ellipse cx="130" cy="108" rx="100" ry="16" fill="#c46a3a"/>
+    <ellipse cx="130" cy="106" rx="88" ry="12" fill="url(#oilGrad)"/>
+    <ellipse cx="110" cy="104" rx="30" ry="4" fill="#fff" opacity=".35"/>
+    <g fill="#5d2f18"><circle cx="20" cy="150" r="4"/><circle cx="40" cy="160" r="3.4"/><circle cx="230" cy="152" r="4"/><circle cx="212" cy="162" r="3.4"/><circle cx="60" cy="168" r="3"/><circle cx="196" cy="170" r="3"/></g>
+  </symbol>
+</defs>
+</svg>
+
+<!-- ====== HEADER ====== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <button class="icon-btn" id="menuBtn" data-testid="mobile-menu-button" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+    <a class="logo" href="#home" data-testid="brand-logo">
+      <svg class="logo-mark" viewBox="0 0 60 72" color="#0e3b2b"><use href="#dropLogo"/></svg>
+      <span class="logo-text">
+        <span class="lt-name">KRISHI <span>GOLD</span></span>
+        <span class="lt-sub">ENTERPRISES</span>
+      </span>
+    </a>
+    <nav class="nav-links" data-testid="desktop-nav">
+      <a href="#home" data-i18n data-en="Home" data-hi="होम">Home</a>
+      <a href="#about" data-i18n data-en="About" data-hi="हमारे बारे में">About</a>
+      <a href="#why" data-i18n data-en="Why Us" data-hi="क्यों चुनें">Why Us</a>
+      <a href="#products" data-i18n data-en="Products" data-hi="उत्पाद">Products</a>
+      <a href="#process" data-i18n data-en="Process" data-hi="प्रक्रिया">Process</a>
+      <a href="#contact" data-i18n data-en="Contact" data-hi="संपर्क">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle" data-testid="language-toggle"><span>EN</span><span class="sep">|</span><span>हिंदी</span></button>
+      <a class="talk-btn" href="#contact" data-testid="nav-talk-to-us">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        <span data-i18n data-en="Talk to Us" data-hi="बात करें">Talk to Us</span>
+      </a>
+      <button class="cart-btn" id="cartBtn" data-testid="cart-open-button" aria-label="Open cart">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2.5 3.5h2.4l2.5 12h11.4l2.2-8.5H6.1"/></svg>
+        <span class="cart-count" id="cartCount" data-testid="cart-count-badge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ====== MOBILE MENU ====== -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="mobile-menu" id="mobileMenu" data-testid="mobile-menu" aria-label="Mobile navigation">
+  <div class="mm-head">
+    <a class="logo" href="#home" style="color:#f6f1da">
+      <svg class="logo-mark" viewBox="0 0 60 72" color="#f2b705"><use href="#dropLogo"/></svg>
+      <span class="logo-text"><span class="lt-name" style="color:#f6f1da">KRISHI <span>GOLD</span></span><span class="lt-sub" style="color:#c9d6c4">ENTERPRISES</span></span>
+    </a>
+    <button class="mm-close" id="menuClose" data-testid="mobile-menu-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="mm-links">
+    <a href="#home" data-testid="mm-link-home"><span>Home</span><span>›</span></a>
+    <a href="#about" data-testid="mm-link-about"><span>About</span><span>›</span></a>
+    <a href="#why" data-testid="mm-link-why"><span>Why Krishi Gold</span><span>›</span></a>
+    <a href="#products" data-testid="mm-link-products"><span>Products</span><span>›</span></a>
+    <a href="#process" data-testid="mm-link-process"><span>Our Process</span><span>›</span></a>
+    <a href="#contact" data-testid="mm-link-contact"><span>Contact</span><span>›</span></a>
+  </nav>
+  <div class="mm-tag">PURE • NATURAL • TRUSTED</div>
+</aside>
+
+<main>
+<!-- ====== HERO ====== -->
+<section class="hero" id="home">
+  <svg class="wheat-deco wd-1" viewBox="0 0 60 120"><use href="#wheatSprig"/></svg>
+  <div class="container hero-grid">
+    <div class="hero-copy reveal in">
+      <p class="eyebrow" data-i18n data-en="PURE • NATURAL • TRUSTED" data-hi="शुद्ध • प्राकृतिक • विश्वसनीय">PURE • NATURAL • TRUSTED</p>
+      <h1 data-testid="hero-heading"><span data-i18n data-en="Pure Mustard Oil." data-hi="शुद्ध सरसों का तेल।">Pure Mustard Oil.</span><br><em data-i18n data-en="Purely Krishi Gold." data-hi="बस कृषि गोल्ड।">Purely Krishi Gold.</em></h1>
+      <p class="hero-sub" data-i18n data-en="Natural goodness, trusted quality and the richness of carefully selected mustard seeds in every drop." data-hi="हर बूंद में प्राकृतिक अच्छाई, भरोसेमंद गुणवत्ता और सावधानी से चुने सरसों के बीजों का रस।">Natural goodness, trusted quality and the richness of carefully selected mustard seeds in every drop.</p>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="#products" data-testid="hero-explore-products"><span data-i18n data-en="Explore Products" data-hi="उत्पाद देखें">Explore Products</span><span class="arr">→</span></a>
+        <a class="btn btn-gold" href="#contact" data-testid="hero-talk-to-us">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+          <span data-i18n data-en="Talk to Us" data-hi="बात करें">Talk to Us</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-art reveal in">
+      <div class="hero-splash"></div>
+      <svg class="hero-deco hd-flower1" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg>
+      <svg class="hero-deco hd-flower2" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg>
+      <svg class="hero-deco hd-seeds" viewBox="0 0 120 80"><use href="#seedBowl"/></svg>
+      <div class="hero-bottles">
+        <svg class="hb hb-500" viewBox="0 0 160 290"><use href="#oilBottle"/></svg>
+        <svg class="hb hb-1l" viewBox="0 0 160 290"><use href="#oilBottle"/></svg>
+        <svg class="hb hb-5l" viewBox="0 0 220 250"><use href="#oilJar"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TRUST BADGES ====== -->
+<section class="trust">
+  <div class="container trust-grid reveal">
+    <div class="trust-card" data-testid="trust-100-pure">
+      <div class="ti"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12 2 5 10.5 5 15.5a7 7 0 0 0 14 0C19 10.5 12 2 12 2z"/></svg></div>
+      <b>100%<br>Pure</b>
+    </div>
+    <div class="trust-card" data-testid="trust-natural">
+      <div class="ti"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15zm0 0c3-5 7-8 11-10"/></svg></div>
+      <b>Natural &amp;<br>Healthy</b>
+    </div>
+    <div class="trust-card" data-testid="trust-quality">
+      <div class="ti"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zm-1.2 13.6l5.2-5.2-1.4-1.4-3.8 3.8-1.6-1.6-1.4 1.4 3 3z"/></svg></div>
+      <b>Quality<br>Assured</b>
+    </div>
+    <div class="trust-card" data-testid="trust-goodness">
+      <div class="ti"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 5 5.7 5c2 0 3.4 1.1 4.3 2.4h4C15 6.1 16.4 5 18.4 5c3.4 0 5.3 3.6 3.6 6.7C19.5 16.3 12 21 12 21z" transform="scale(.92) translate(1,1)"/></svg></div>
+      <b>Goodness in<br>Every Drop</b>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <h2 class="sec-title" data-testid="about-heading" data-i18n data-en="About Krishi Gold" data-hi="कृषि गोल्ड के बारे में">About Krishi Gold</h2>
+      <div class="title-bar"></div>
+      <p data-i18n data-en="Krishi Gold is a premium mustard oil brand built on purity, quality and trust. We bring you the natural goodness of carefully selected mustard seeds, processed with care to deliver rich flavour, strong aroma and maximum nutrition." data-hi="कृषि गोल्ड एक प्रीमियम सरसों तेल ब्रांड है जो शुद्धता, गुणवत्ता और भरोसे पर बना है। हम सावधानी से चुने सरसों के बीजों की प्राकृतिक अच्छाई लाते हैं।">Krishi Gold is a premium mustard oil brand built on purity, quality and trust. We bring you the natural goodness of carefully selected mustard seeds, processed with care to deliver rich flavour, strong aroma and maximum nutrition.</p>
+      <p data-i18n data-en="Our mission is simple – to provide every home with pure, natural and healthy mustard oil that you can trust." data-hi="हमारा लक्ष्य सरल है – हर घर तक शुद्ध, प्राकृतिक और स्वस्थ सरसों का तेल पहुँचाना।">Our mission is simple – to provide every home with pure, natural and healthy mustard oil that you can trust.</p>
+      <div class="about-sign">– Prakash Kumar Bharti<small data-i18n data-en="Owner" data-hi="मालिक">Owner</small></div>
+      <button class="listen-btn" id="aboutListen" data-testid="about-listen-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+        <span data-i18n data-en="Listen" data-hi="सुनें">Listen</span>
+      </button>
+    </div>
+    <div class="about-art reveal">
+      <div class="about-blob"></div>
+      <svg class="ad ad-fl1" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg>
+      <svg class="ad ad-fl2" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg>
+      <svg class="ad ad-sd" viewBox="0 0 120 80"><use href="#seedBowl"/></svg>
+      <svg class="ab-bottle" viewBox="0 0 160 290"><use href="#oilBottle"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHY ====== -->
+<section class="why" id="why">
+  <svg class="hero-deco" style="top:6%;right:4%;width:90px" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg>
+  <div class="container">
+    <div class="reveal">
+      <h2 class="sec-title light" data-testid="why-heading" data-i18n data-en="Why Krishi Gold?" data-hi="कृषि गोल्ड ही क्यों?">Why Krishi Gold?</h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card" data-testid="why-pure-natural">
+        <div class="wi"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12 2 5 10.5 5 15.5a7 7 0 0 0 14 0C19 10.5 12 2 12 2z"/></svg></div>
+        <b>Pure &amp; Natural</b><p>100% pure mustard oil with no additives.</p>
+      </div>
+      <div class="why-card" data-testid="why-selected-seeds">
+        <div class="wi"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22V12M12 12C12 7 8 4 3 4c0 5 4 8 9 8zm0 0c0-5 4-8 9-8 0 5-4 8-9 8z"/></svg></div>
+        <b>Carefully Selected Seeds</b><p>Best quality mustard seeds from trusted farms.</p>
+      </div>
+      <div class="why-card" data-testid="why-cold-pressed">
+        <div class="wi"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10m0 0l-4-4m4 4l4-4M4 17h16v4H4z"/></svg></div>
+        <b>Cold Pressed Goodness</b><p>Traditional cold pressing for rich flavour &amp; nutrition.</p>
+      </div>
+      <div class="why-card" data-testid="why-quality-assured">
+        <div class="wi"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zm-1.2 13.6l5.2-5.2-1.4-1.4-3.8 3.8-1.6-1.6-1.4 1.4 3 3z"/></svg></div>
+        <b>Quality Assured</b><p>Strict quality checks at every step.</p>
+      </div>
+      <div class="why-card" data-testid="why-traditional-care">
+        <div class="wi"><svg width="34" height="34" viewBox="0 0 100 110"><use href="#mustardFlower"/></svg></div>
+        <b>Traditional Care</b><p>Backed by Indian tradition &amp; taste.</p>
+      </div>
+      <div class="why-card" data-testid="why-trusted-purity">
+        <div class="wi"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 5 5.7 5c2 0 3.4 1.1 4.3 2.4h4C15 6.1 16.4 5 18.4 5c3.4 0 5.3 3.6 3.6 6.7C19.5 16.3 12 21 12 21z"/></svg></div>
+        <b>Trusted Purity</b><p>Millions of meals, one trusted brand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PRODUCTS ====== -->
+<section class="products" id="products">
+  <svg class="wheat-deco wd-2" viewBox="0 0 60 120"><use href="#wheatSprig"/></svg>
+  <div class="container">
+    <div class="reveal">
+      <h2 class="sec-title" data-testid="products-heading" data-i18n data-en="Our Mustard Oil" data-hi="हमारा सरसों का तेल">Our Mustard Oil</h2>
+      <div class="title-bar"></div>
+      <p class="sec-sub" data-i18n data-en="Choose the pack that fits your needs." data-hi="अपनी ज़रूरत के हिसाब से पैक चुनें।">Choose the pack that fits your needs.</p>
+    </div>
+    <div class="prod-list reveal">
+
+      <article class="prod-card" data-testid="product-card-500ml">
+        <div class="prod-img"><svg viewBox="0 0 160 290" style="width:100%"><use href="#oilBottle"/></svg></div>
+        <div class="prod-info">
+          <h3>Krishi Gold<br>Mustard Oil</h3>
+          <span class="size-chip">500 ml</span>
+          <div class="prod-price" data-testid="price-500ml">₹110 <small>/ pack</small></div>
+          <div class="prod-actions">
+            <button class="add-btn" data-add="p500" data-testid="add-to-cart-500ml">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              Add to Cart
+            </button>
+            <a class="wa-btn" href="https://wa.me/919504460972?text=Hi%2C%20I%20want%20to%20enquire%20about%20Krishi%20Gold%20Mustard%20Oil%20500ml" target="_blank" rel="noopener" data-testid="whatsapp-enquire-500ml">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-testid="product-card-1l">
+        <div class="prod-img"><svg viewBox="0 0 160 290" style="width:100%"><use href="#oilBottle"/></svg></div>
+        <div class="prod-info">
+          <h3>Krishi Gold<br>Mustard Oil</h3>
+          <span class="size-chip">1 Litre</span>
+          <div class="prod-price" data-testid="price-1l">₹210 <small>/ pack</small></div>
+          <div class="prod-actions">
+            <button class="add-btn" data-add="p1l" data-testid="add-to-cart-1l">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              Add to Cart
+            </button>
+            <a class="wa-btn" href="https://wa.me/919504460972?text=Hi%2C%20I%20want%20to%20enquire%20about%20Krishi%20Gold%20Mustard%20Oil%201L" target="_blank" rel="noopener" data-testid="whatsapp-enquire-1l">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-testid="product-card-5l">
+        <div class="prod-img"><svg viewBox="0 0 220 250" style="width:100%"><use href="#oilJar"/></svg></div>
+        <div class="prod-info">
+          <h3>Krishi Gold<br>Mustard Oil</h3>
+          <span class="size-chip">5 Litre</span>
+          <div class="prod-price" data-testid="price-5l">₹1,175 <small>/ jar</small></div>
+          <div class="prod-actions">
+            <button class="add-btn" data-add="p5l" data-testid="add-to-cart-5l">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              Add to Cart
+            </button>
+            <a class="wa-btn" href="https://wa.me/919504460972?text=Hi%2C%20I%20want%20to%20enquire%20about%20Krishi%20Gold%20Mustard%20Oil%205L" target="_blank" rel="noopener" data-testid="whatsapp-enquire-5l">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="sec-title" data-testid="process-heading" data-i18n data-en="Our Process" data-hi="हमारी प्रक्रिया">Our Process</h2>
+      <div class="title-bar"></div>
+      <p class="sec-sub" data-i18n data-en="Carefully handled from seed to bottle." data-hi="बीज से बोतल तक सावधानी से।">Carefully handled from seed to bottle.</p>
+    </div>
+    <div class="stepper reveal" data-testid="process-stepper">
+      <div class="step-dot">1</div><div class="step-dot">2</div><div class="step-dot">3</div><div class="step-dot">4</div><div class="step-dot">5</div>
+    </div>
+    <div class="proc-cards reveal">
+      <div class="proc-card active" data-testid="process-step-quality-seeds">
+        <div class="pi"><svg width="34" height="26" viewBox="0 0 120 80"><use href="#seedBowl"/></svg></div>
+        <span>Quality<br>Seeds</span>
+      </div>
+      <div class="proc-card" data-testid="process-step-cleaning">
+        <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h13a4 4 0 1 0-4-4M3 13h17a4 4 0 1 1-4 4M3 18h7"/></svg></div>
+        <span>Cleaning</span>
+      </div>
+      <div class="proc-card" data-testid="process-step-cold-pressed">
+        <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v9m0 0l-4-4m4 4l4-4M4 17h16v4H4z"/></svg></div>
+        <span>Cold Pressed<br>Extraction</span>
+      </div>
+      <div class="proc-card" data-testid="process-step-filtration">
+        <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg></div>
+        <span>Filtration</span>
+      </div>
+      <div class="proc-card" data-testid="process-step-packaging">
+        <div class="pi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></div>
+        <span>Packaging</span>
+      </div>
+    </div>
+    <div class="proc-listen reveal">
+      <button class="listen-btn" id="processListen" data-testid="process-listen-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+        <span data-i18n data-en="Listen" data-hi="सुनें">Listen</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-banner reveal" data-testid="cta-banner">
+      <svg class="cta-deco-leaf" viewBox="0 0 90 130"><use href="#leafSprig"/></svg>
+      <div class="cta-copy">
+        <h2 data-i18n data-en="Bring Home the Goodness of Pure Mustard Oil" data-hi="घर लाएं शुद्ध सरसों तेल की अच्छाई">Bring Home the Goodness of Pure Mustard Oil</h2>
+        <p data-i18n data-en="Natural, trusted and made with care." data-hi="प्राकृतिक, भरोसेमंद और सावधानी से बना।">Natural, trusted and made with care.</p>
+        <a class="btn btn-gold" href="https://wa.me/919504460972?text=Hi%2C%20I%20want%20to%20order%20Krishi%20Gold%20Mustard%20Oil" target="_blank" rel="noopener" data-testid="cta-whatsapp-enquire">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enquire on WhatsApp
+        </a>
+      </div>
+      <div class="cta-art"><svg class="pour" viewBox="0 0 260 180"><use href="#oilPourBowl"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="sec-title" data-testid="contact-heading" data-i18n data-en="Talk to Us" data-hi="हमसे बात करें">Talk to Us</h2>
+      <div class="title-bar"></div>
+      <p class="sec-sub" data-i18n data-en="We'd love to hear from you." data-hi="हमें आपसे सुनना अच्छा लगेगा।">We'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-card" data-testid="contact-phone-card">
+        <div class="cc-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></div>
+        <div><b>Phone</b><a href="tel:+919504460972" data-testid="contact-phone-1">9504460972</a><a href="tel:+917480033168" data-testid="contact-phone-2">7480033168</a></div>
+      </div>
+      <div class="contact-card" data-testid="contact-email-card">
+        <div class="cc-icon gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.4L4.2 7h15.6L12 12.4z"/></svg></div>
+        <div><b>Email</b><a href="mailto:krishigoldoil@gmail.com" data-testid="contact-email">krishigoldoil@gmail.com</a></div>
+      </div>
+      <div class="contact-card" data-testid="contact-address-card">
+        <div class="cc-icon gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+        <div><b>Address</b><p>Pipra, Madhepur,<br>Madhubani, Bihar - 847408</p></div>
+      </div>
+      <div class="contact-card" data-testid="contact-whatsapp-card">
+        <div class="cc-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div><b>WhatsApp</b><a href="https://wa.me/919504460972" target="_blank" rel="noopener" data-testid="contact-whatsapp">9504460972</a></div>
+      </div>
+      <div class="contact-card owner-card" data-testid="contact-owner-card">
+        <div class="owner-avatar">PB</div>
+        <div><b style="font-size:1.05rem">Prakash Kumar Bharti</b><p data-i18n data-en="Owner" data-hi="मालिक">Owner</p></div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal" data-testid="contact-form">
+      <h3 data-i18n data-en="Send us a message" data-hi="हमें संदेश भेजें">Send us a message</h3>
+      <form id="contactForm" class="form-2col" novalidate>
+        <div class="field"><label for="cfName">Your Name</label><input id="cfName" data-testid="contact-form-name" type="text" placeholder="Full name" required></div>
+        <div class="field"><label for="cfPhone">Phone</label><input id="cfPhone" data-testid="contact-form-phone" type="tel" placeholder="10-digit mobile" required></div>
+        <div class="field full"><label for="cfMsg">Message</label><textarea id="cfMsg" data-testid="contact-form-message" placeholder="How can we help?" required></textarea></div>
+        <div class="field full"><button type="submit" class="btn btn-green form-submit" data-testid="contact-form-submit"><span data-i18n data-en="Send Message" data-hi="संदेश भेजें">Send Message</span><span class="arr">→</span></button></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="site-footer">
+  <svg class="f-leaf" viewBox="0 0 90 130"><use href="#leafSprig"/></svg>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">
+          <svg class="logo-mark" viewBox="0 0 60 72" color="#f2b705"><use href="#dropLogo"/></svg>
+          <span class="logo-text"><span class="lt-name">KRISHI <span>GOLD</span></span><span class="lt-sub" style="color:#c9d6c4">ENTERPRISES</span></span>
+        </div>
+        <p class="f-about" data-i18n data-en="Premium mustard oil made with natural goodness, rich flavour and trusted quality. For a healthier tomorrow, choose Krishi Gold." data-hi="प्राकृतिक अच्छाई, समृद्ध स्वाद और भरोसेमंद गुणवत्ता वाला प्रीमियम सरसों तेल।">Premium mustard oil made with natural goodness, rich flavour and trusted quality. For a healthier tomorrow, choose Krishi Gold.</p>
+        <p class="f-tag">Pure • Natural • Trusted</p>
+      </div>
+      <div class="f-links">
+        <h4 data-i18n data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
+        <a href="#home" data-testid="footer-link-home"><span>Home</span><span>›</span></a>
+        <a href="#about" data-testid="footer-link-about"><span>About</span><span>›</span></a>
+        <a href="#why" data-testid="footer-link-why"><span>Why Krishi Gold</span><span>›</span></a>
+        <a href="#products" data-testid="footer-link-products"><span>Products</span><span>›</span></a>
+        <a href="#process" data-testid="footer-link-process"><span>Our Process</span><span>›</span></a>
+        <a href="#contact" data-testid="footer-link-contact"><span>Contact</span><span>›</span></a>
+      </div>
+      <div>
+        <div class="f-links"><h4 data-i18n data-en="Follow Us" data-hi="हमें फॉलो करें">Follow Us</h4></div>
+        <div class="f-social">
+          <a class="fs-yt" href="#" aria-label="YouTube" data-testid="social-youtube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.6A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.6 8.9.6 8.9.6s7 0 8.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.2zM9.8 15.3V8.7l6.2 3.3-6.2 3.3z"/></svg></a>
+          <a class="fs-ig" href="#" aria-label="Instagram" data-testid="social-instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.6 4.8-4.9 4.9-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>
+          <a class="fs-fb" href="#" aria-label="Facebook" data-testid="social-facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a class="fs-wa" href="https://wa.me/919504460972" target="_blank" rel="noopener" aria-label="WhatsApp" data-testid="social-whatsapp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-art">
+      <svg viewBox="0 0 340 130">
+        <use href="#seedBowl" x="120" y="46" width="130" height="86"/>
+        <use href="#mustardFlower" x="30" y="10" width="100" height="110"/>
+        <use href="#mustardFlower" x="240" y="24" width="80" height="88"/>
+      </svg>
+    </div>
+    <p class="copyright">© 2024 Krishi Gold. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ====== CART DRAWER ====== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" data-testid="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3 data-testid="cart-title" data-i18n data-en="Your Cart" data-hi="आपकी टोकरी">Your Cart</h3>
+    <button class="cart-close" id="cartClose" data-testid="cart-close-button" aria-label="Close cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="totals-row"><span data-i18n data-en="Subtotal" data-hi="उप-योग">Subtotal</span><span id="cartSubtotal" data-testid="cart-subtotal">₹0</span></div>
+    <div class="totals-row"><span data-i18n data-en="Delivery" data-hi="डिलीवरी">Delivery</span><span class="free">FREE</span></div>
+    <div class="totals-row grand"><span data-i18n data-en="Total" data-hi="कुल">Total</span><span id="cartTotal" data-testid="cart-total">₹0</span></div>
+    <button class="btn btn-green checkout-btn" id="checkoutBtn" data-testid="proceed-to-checkout-button"><span data-i18n data-en="Proceed to Checkout" data-hi="चेकआउट करें">Proceed to Checkout</span><span class="arr">→</span></button>
+  </div>
+</aside>
+
+<!-- ====== CHECKOUT MODAL ====== -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal" data-testid="checkout-modal" role="dialog" aria-label="Checkout">
+    <div class="modal-head">
+      <h3 data-i18n data-en="Checkout" data-hi="चेकआउट">Checkout</h3>
+      <button class="modal-close" id="checkoutClose" data-testid="checkout-close-button" aria-label="Close checkout">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="order-summary" id="checkoutSummary"></div>
+    <form id="checkoutForm" class="form-2col" novalidate>
+      <div class="field"><label for="coName">Full Name *</label><input id="coName" data-testid="checkout-name" type="text" placeholder="Your full name"></div>
+      <div class="field"><label for="coPhone">Phone *</label><input id="coPhone" data-testid="checkout-phone" type="tel" maxlength="10" placeholder="10-digit mobile"></div>
+      <div class="field full"><label for="coAddress">Address *</label><textarea id="coAddress" data-testid="checkout-address" placeholder="House no, street, area" style="min-height:70px"></textarea></div>
+      <div class="field"><label for="coCity">City *</label><input id="coCity" data-testid="checkout-city" type="text" placeholder="City"></div>
+      <div class="field"><label for="coState">State *</label><input id="coState" data-testid="checkout-state" type="text" placeholder="State"></div>
+      <div class="field"><label for="coPincode">Pincode *</label><input id="coPincode" data-testid="checkout-pincode" type="tel" maxlength="6" placeholder="6-digit pincode"></div>
+      <div class="field full">
+        <label style="margin-bottom:10px">Payment Method</label>
+        <div class="pay-options">
+          <label class="pay-opt selected" data-testid="payment-cod-option">
+            <input type="radio" name="pay" value="cod" checked>
+            <span><b>Cash on Delivery</b><p>Pay in cash when your order arrives at your doorstep.</p></span>
+          </label>
+          <label class="pay-opt" data-testid="payment-upi-option">
+            <input type="radio" name="pay" value="upi">
+            <span><b>UPI / PhonePe</b><p>You will receive a UPI payment request on your phone after placing the order. (Coming soon)</p></span>
+          </label>
+        </div>
+      </div>
+      <div class="field full"><button type="submit" class="btn btn-gold place-order-btn" data-testid="place-order-button"><span data-i18n data-en="Place Order" data-hi="ऑर्डर करें">Place Order</span> →</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- ====== SUCCESS MODAL ====== -->
+<div class="modal-overlay" id="successOverlay">
+  <div class="modal success-modal" data-testid="order-success-modal" role="dialog" aria-label="Order success">
+    <div class="success-check"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+    <h3 data-testid="order-success-title">Order Placed!</h3>
+    <p>Thank you for choosing Krishi Gold. We will call you shortly to confirm your order.</p>
+    <div class="order-id" id="orderId" data-testid="order-id">KG-0000</div>
+    <p id="successDetail" data-testid="order-success-detail" style="font-size:.84rem"></p>
+    <button class="btn btn-green" id="successClose" data-testid="success-continue-button" style="justify-content:center;width:100%">Continue Shopping</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" data-testid="toast"><span class="t-dot"></span><span id="toastMsg">Added to cart</span></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- products ---------- */
+var PRODUCTS = {
+  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:110, jar:false},
+  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:210, jar:false},
+  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, jar:true}
+};
+function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
+
+/* ---------- cart state ---------- */
+var cart = {};
+try { cart = JSON.parse(localStorage.getItem('kg_cart') || '{}') || {}; } catch(e){ cart = {}; }
+function saveCart(){ try { localStorage.setItem('kg_cart', JSON.stringify(cart)); } catch(e){} }
+
+var cartDrawer = document.getElementById('cartDrawer');
+var cartOverlay = document.getElementById('cartOverlay');
+var cartBody = document.getElementById('cartBody');
+var cartFoot = document.getElementById('cartFoot');
+var cartCount = document.getElementById('cartCount');
+
+function cartQtyTotal(){ var t=0; for(var k in cart){ t += cart[k]; } return t; }
+function cartSubtotal(){ var t=0; for(var k in cart){ if(PRODUCTS[k]) t += PRODUCTS[k].price * cart[k]; } return t; }
+
+function renderCart(){
+  var keys = Object.keys(cart).filter(function(k){ return cart[k] > 0 && PRODUCTS[k]; });
+  var totalQty = cartQtyTotal();
+  cartCount.textContent = totalQty;
+  cartCount.classList.toggle('show', totalQty > 0);
+
+  if(keys.length === 0){
+    cartFoot.style.display = 'none';
+    cartBody.innerHTML = '<div class="cart-empty" data-testid="cart-empty-state">' +
+      '<div class="ce-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2.5 3.5h2.4l2.5 12h11.4l2.2-8.5H6.1"/></svg></div>' +
+      '<b style="color:var(--green);font-size:1.05rem">Your cart is empty</b>' +
+      '<p style="margin-top:8px;font-size:.86rem">Add some pure goodness to get started.</p></div>';
+    return;
+  }
+  cartFoot.style.display = 'block';
+  var html = '';
+  keys.forEach(function(k){
+    var p = PRODUCTS[k], q = cart[k];
+    var sym = p.jar ? 'oilJar' : 'oilBottle';
+    var vb = p.jar ? '0 0 220 250' : '0 0 160 290';
+    html += '<div class="cart-item" data-testid="cart-item-' + k + '">' +
+      '<div class="ci-img"><svg viewBox="' + vb + '" style="width:100%"><use href="#' + sym + '"/></svg></div>' +
+      '<div class="ci-info"><b>' + p.name + '</b><span class="ci-size">' + p.size + '</span>' +
+      '<div class="ci-price">' + fmt(p.price) + ' × ' + q + ' = ' + fmt(p.price * q) + '</div></div>' +
+      '<div class="ci-controls">' +
+        '<div class="qty-ctrl">' +
+          '<button data-dec="' + k + '" data-testid="qty-decrease-' + k + '" aria-label="Decrease">−</button>' +
+          '<span data-testid="qty-value-' + k + '">' + q + '</span>' +
+          '<button data-inc="' + k + '" data-testid="qty-increase-' + k + '" aria-label="Increase">+</button>' +
+        '</div>' +
+        '<button class="ci-remove" data-remove="' + k + '" data-testid="remove-' + k + '">' +
+          '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Remove</button>' +
+      '</div></div>';
+  });
+  cartBody.innerHTML = html;
+  document.getElementById('cartSubtotal').textContent = fmt(cartSubtotal());
+  document.getElementById('cartTotal').textContent = fmt(cartSubtotal());
+}
+
+function addToCart(id){
+  if(!PRODUCTS[id]) return;
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart(); renderCart();
+  showToast(PRODUCTS[id].size + ' pack added to cart');
+}
+
+cartBody.addEventListener('click', function(e){
+  var t = e.target.closest('button');
+  if(!t) return;
+  if(t.dataset.inc){ cart[t.dataset.inc]++; }
+  else if(t.dataset.dec){ var k = t.dataset.dec; cart[k]--; if(cart[k] <= 0) delete cart[k]; }
+  else if(t.dataset.remove){ delete cart[t.dataset.remove]; showToast('Item removed from cart'); }
+  else return;
+  saveCart(); renderCart();
+});
+
+document.querySelectorAll('[data-add]').forEach(function(btn){
+  btn.addEventListener('click', function(){ addToCart(btn.dataset.add); });
+});
+
+function openCart(){ renderCart(); cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeCart(){ cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('cartBtn').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+/* ---------- mobile menu ---------- */
+var mobileMenu = document.getElementById('mobileMenu');
+var menuOverlay = document.getElementById('menuOverlay');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('menuBtn').addEventListener('click', openMenu);
+document.getElementById('menuClose').addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+/* ---------- checkout ---------- */
+var checkoutOverlay = document.getElementById('checkoutOverlay');
+var successOverlay = document.getElementById('successOverlay');
+
+function openCheckout(){
+  if(cartQtyTotal() === 0){ showToast('Your cart is empty'); return; }
+  var keys = Object.keys(cart).filter(function(k){ return cart[k] > 0 && PRODUCTS[k]; });
+  var html = '';
+  keys.forEach(function(k){
+    var p = PRODUCTS[k];
+    html += '<div class="os-row"><span>' + p.name + ' ' + p.size + ' × ' + cart[k] + '</span><span>' + fmt(p.price * cart[k]) + '</span></div>';
+  });
+  html += '<div class="os-row"><span>Delivery</span><span style="color:#14843f;font-weight:800">FREE</span></div>';
+  html += '<div class="os-row total" data-testid="checkout-total"><span>Total</span><span>' + fmt(cartSubtotal()) + '</span></div>';
+  document.getElementById('checkoutSummary').innerHTML = html;
+  closeCart();
+  checkoutOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCheckout(){ checkoutOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+document.getElementById('checkoutClose').addEventListener('click', closeCheckout);
+checkoutOverlay.addEventListener('click', function(e){ if(e.target === checkoutOverlay) closeCheckout(); });
+
+document.querySelectorAll('.pay-opt').forEach(function(opt){
+  opt.addEventListener('click', function(){
+    document.querySelectorAll('.pay-opt').forEach(function(o){ o.classList.remove('selected'); });
+    opt.classList.add('selected');
+  });
+});
+
+function markError(el){ el.classList.add('field-error'); setTimeout(function(){ el.classList.remove('field-error'); }, 1400); }
+
+document.getElementById('checkoutForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('coName');
+  var phone = document.getElementById('coPhone');
+  var address = document.getElementById('coAddress');
+  var city = document.getElementById('coCity');
+  var state = document.getElementById('coState');
+  var pincode = document.getElementById('coPincode');
+  var ok = true;
+  [name, address, city, state].forEach(function(f){ if(!f.value.trim()){ markError(f); ok = false; } });
+  if(!/^\d{10}$/.test(phone.value.trim())){ markError(phone); ok = false; }
+  if(!/^\d{6}$/.test(pincode.value.trim())){ markError(pincode); ok = false; }
+  if(!ok){ showToast('Please fill all details correctly'); return; }
+
+  var pay = document.querySelector('input[name="pay"]:checked').value;
+  var oid = 'KG-' + Math.floor(1000 + Math.random() * 9000);
+  document.getElementById('orderId').textContent = oid;
+  document.getElementById('successDetail').textContent =
+    (pay === 'cod' ? 'Payment: Cash on Delivery' : 'Payment: UPI / PhonePe (we will share a payment link)') +
+    ' • ' + fmt(cartSubtotal()) + ' • Deliver to ' + city.value.trim() + ', ' + state.value.trim() + ' - ' + pincode.value.trim();
+
+  cart = {}; saveCart(); renderCart();
+  closeCheckout();
+  document.getElementById('checkoutForm').reset();
+  document.querySelectorAll('.pay-opt').forEach(function(o,i){ o.classList.toggle('selected', i === 0); });
+  successOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+document.getElementById('successClose').addEventListener('click', function(){
+  successOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+});
+successOverlay.addEventListener('click', function(e){
+  if(e.target === successOverlay){ successOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+});
+
+/* ---------- contact form ---------- */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var n = document.getElementById('cfName'), p = document.getElementById('cfPhone'), m = document.getElementById('cfMsg');
+  var ok = true;
+  if(!n.value.trim()){ markError(n); ok = false; }
+  if(!/^\d{10}$/.test(p.value.trim())){ markError(p); ok = false; }
+  if(!m.value.trim()){ markError(m); ok = false; }
+  if(!ok){ showToast('Please fill the form correctly'); return; }
+  this.reset();
+  showToast('Message sent! We will get back to you soon.');
+});
+
+/* ---------- toast ---------- */
+var toastTimer;
+function showToast(msg){
+  var t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2400);
+}
+
+/* ---------- language toggle ---------- */
+var lang = 'en';
+document.getElementById('langToggle').addEventListener('click', function(){
+  lang = (lang === 'en') ? 'hi' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var v = el.getAttribute('data-' + lang);
+    if(v) el.textContent = v;
+  });
+  showToast(lang === 'hi' ? 'भाषा बदली गई: हिंदी' : 'Language switched: English');
+});
+
+/* ---------- listen (text to speech) ---------- */
+function speak(text, btn){
+  if(!('speechSynthesis' in window)){ showToast('Audio not supported on this device'); return; }
+  if(window.speechSynthesis.speaking){ window.speechSynthesis.cancel(); btn.classList.remove('speaking'); return; }
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-IN'; u.rate = 0.95;
+  btn.classList.add('speaking');
+  u.onend = function(){ btn.classList.remove('speaking'); };
+  window.speechSynthesis.speak(u);
+}
+document.getElementById('aboutListen').addEventListener('click', function(){
+  speak('Krishi Gold is a premium mustard oil brand built on purity, quality and trust. We bring you the natural goodness of carefully selected mustard seeds, processed with care to deliver rich flavour, strong aroma and maximum nutrition.', this);
+});
+document.getElementById('processListen').addEventListener('click', function(){
+  speak('Our process. Step one, quality seeds. Step two, cleaning. Step three, cold pressed extraction. Step four, filtration. Step five, packaging. Carefully handled from seed to bottle.', this);
+});
+
+/* ---------- header scroll + reveal ---------- */
+var header = document.getElementById('siteHeader');
+window.addEventListener('scroll', function(){ header.classList.toggle('scrolled', window.scrollY > 10); }, {passive:true});
+
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+} else {
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+}
+
+/* ---------- esc key ---------- */
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ closeCart(); closeMenu(); closeCheckout(); successOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+});
+
+renderCart();
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"7f7b0fd8732c4326aae4b9d58d5c514a"}' crossorigin="anonymous"></script>
+</body>
+</html>
