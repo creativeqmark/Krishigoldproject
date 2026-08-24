@@ -277,11 +277,10 @@ section{position:relative}
 .modal-overlay.open{opacity:1;pointer-events:auto}
 .modal{background:var(--cream);border-radius:26px;width:min(560px,100%);max-height:92vh;overflow-y:auto;padding:28px;transform:translateY(26px) scale(.97);transition:transform .35s cubic-bezier(.22,.9,.3,1);box-shadow:0 30px 70px rgba(8,28,20,.45)}
 .modal-overlay.open .modal{transform:none}
-.product-page{display:none;padding:34px 0 72px;overflow:hidden}
-.product-page.open{display:block;animation:productPageFade .2s ease-out both}
-@keyframes productPageFade{from{opacity:0}to{opacity:1}}
+.product-page{display:none;padding:78px 0 72px;overflow:hidden}
+.product-page.open{display:block}
 .page-hidden{display:none !important}
-.product-back{position:sticky;top:86px;z-index:6;display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.88rem;border:1px solid rgba(14,59,43,.2);border-radius:999px;padding:10px 16px;margin-bottom:24px;background:rgba(255,253,244,.96);box-shadow:0 6px 18px rgba(10,44,32,.08);backdrop-filter:blur(8px);transition:background .2s,box-shadow .2s}
+.product-back{position:fixed;top:86px;left:max(4%,calc((100vw - 1180px)/2));z-index:65;display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.88rem;border:1px solid rgba(14,59,43,.2);border-radius:999px;padding:10px 16px;background:rgba(255,253,244,.96);box-shadow:0 6px 18px rgba(10,44,32,.08);backdrop-filter:blur(8px);transition:background .2s,box-shadow .2s}
 .product-back:hover{background:#fff7d9}
 .product-detail{display:grid;grid-template-columns:minmax(320px,.95fr) 1.05fr;gap:42px;align-items:start}
 .product-gallery{background:linear-gradient(145deg,#fffdf4,#efe7cb);border-radius:24px;padding:22px;min-width:0;position:relative;box-shadow:var(--shadow)}
@@ -316,6 +315,15 @@ section{position:relative}
 .share-btn{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.84rem;border:1px solid rgba(14,59,43,.22);border-radius:999px;padding:10px 15px;background:transparent}.share-btn:hover{background:#fff7d9}
 .about-product{margin-top:34px}.about-product p{max-width:72ch;margin:0;color:var(--muted);line-height:1.75;font-size:.9rem}
 .explore-products{margin-top:34px}.explore-products .prod-list{margin-top:18px}
+.explore-products .prod-list{display:flex;gap:18px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:4px 4px 18px;margin-right:-4%;scrollbar-width:thin}
+.explore-products .prod-list::-webkit-scrollbar{height:7px}.explore-products .prod-list::-webkit-scrollbar-thumb{background:var(--golddeep);border-radius:99px}
+.explore-products .prod-card{flex:0 0 min(340px,86vw);scroll-snap-align:start;cursor:pointer}
+.explore-products .prod-card:hover{transform:translateY(-3px)}
+.oil-flow{position:relative;margin:42px -2vw 0;padding:54px clamp(22px,5vw,72px) 62px;overflow:hidden;background:var(--green);color:#f6f1da;clip-path:ellipse(78% 70% at 50% 48%)}
+.oil-flow::before{content:'';position:absolute;inset:18px -8% auto;height:45%;background:var(--gold);border-radius:48% 52% 40% 60%;transform:rotate(-3deg);opacity:.95}
+.oil-flow::after{content:'';position:absolute;left:8%;right:12%;top:36px;height:22px;border-radius:50%;background:rgba(255,244,185,.55);filter:blur(5px);transform:rotate(-4deg)}
+.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:44px;height:44px;margin:0 auto 9px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;color:var(--gold2)}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:#c9d6c4;font-size:.68rem;margin-top:4px}
+.wa-icon{width:18px!important;height:18px!important;flex:none;display:block}
 .product-sticker{min-height:112px;margin:34px -10vw -40px;display:flex;justify-content:flex-end;align-items:flex-end;padding:0 8% 0 0;position:relative}
 .product-sticker::before{content:'PURE • NATURAL • TRUSTED';color:var(--green);font-size:.68rem;font-weight:800;letter-spacing:.2em;border:1px solid rgba(217,146,10,.38);border-radius:999px;padding:9px 14px;transform:rotate(-6deg);background:rgba(255,253,244,.7)}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
@@ -376,13 +384,15 @@ section{position:relative}
   .product-detail{grid-template-columns:1fr;gap:16px}
   .product-main-image{height:310px}
   .product-gallery{padding:14px}
-  .product-page{padding-top:22px}
-  .product-back{top:70px;margin-bottom:18px}
+  .product-page{padding-top:80px}
+  .product-back{top:74px;left:4%;font-size:.78rem;padding:9px 13px}
   .detail-actions{align-items:stretch}
   .quantity-control{justify-content:space-between;width:100%}
   .detail-actions .add-btn,.detail-actions .btn,.detail-actions .share-btn,.detail-actions .wa-btn{width:100%;justify-content:center}
   .product-sticker{margin-left:-30px;margin-right:-30px;padding-right:18px}
   .about-creative{margin-top:20px}
+  .oil-flow{margin-left:-6vw;margin-right:-6vw;clip-path:ellipse(100% 70% at 50% 48%);padding-top:50px;padding-bottom:58px}
+  .oil-highlights{grid-template-columns:repeat(2,1fr);gap:18px 10px}
 }
 @media (min-width:640px){
   .trust-grid{grid-template-columns:repeat(4,1fr)}
@@ -520,6 +530,9 @@ section{position:relative}
     <ellipse cx="130" cy="106" rx="88" ry="12" fill="url(#oilGrad)"/>
     <ellipse cx="110" cy="104" rx="30" ry="4" fill="#fff" opacity=".35"/>
     <g fill="#5d2f18"><circle cx="20" cy="150" r="4"/><circle cx="40" cy="160" r="3.4"/><circle cx="230" cy="152" r="4"/><circle cx="212" cy="162" r="3.4"/><circle cx="60" cy="168" r="3"/><circle cx="196" cy="170" r="3"/></g>
+  </symbol>
+  <symbol id="whatsappIcon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 14.99L2 22l5.18-1.32A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.93 12l-.28.48.67 2.45-2.51-.64-.46.27A8 8 0 1 1 12 4Zm-3.26 3.4c-.2 0-.52.08-.79.38-.27.3-1.03 1-1.03 2.45s1.06 2.84 1.2 3.04c.15.2 2.07 3.16 5.02 4.43.7.3 1.25.48 1.68.61.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57Z"/>
   </symbol>
 </defs>
 </svg>
@@ -854,19 +867,19 @@ section{position:relative}
     <div class="contact-grid reveal">
       <div class="contact-card" data-testid="contact-phone-card">
         <div class="cc-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></div>
-        <div><b>Phone</b><a href="tel:+919504460972" data-testid="contact-phone-1">9504460972</a><a href="tel:+917480033168" data-testid="contact-phone-2">7480033168</a></div>
+         <div><b data-i18n data-en="Phone" data-hi="फोन">Phone</b><a href="tel:+919504460972" data-testid="contact-phone-1">9504460972</a><a href="tel:+917480033168" data-testid="contact-phone-2">7480033168</a></div>
       </div>
       <div class="contact-card" data-testid="contact-email-card">
         <div class="cc-icon gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.4L4.2 7h15.6L12 12.4z"/></svg></div>
-        <div><b>Email</b><a href="mailto:krishigoldoil@gmail.com" data-testid="contact-email">krishigoldoil@gmail.com</a></div>
+         <div><b data-i18n data-en="Email" data-hi="ईमेल">Email</b><a href="mailto:krishigoldoil@gmail.com" data-testid="contact-email">krishigoldoil@gmail.com</a></div>
       </div>
       <div class="contact-card" data-testid="contact-address-card">
         <div class="cc-icon gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
-        <div><b>Address</b><p>Pipra, Madhepur,<br>Madhubani, Bihar - 847408</p></div>
+         <div><b data-i18n data-en="Address" data-hi="पता">Address</b><p>Pipra, Madhepur,<br>Madhubani, Bihar - 847408</p></div>
       </div>
       <div class="contact-card" data-testid="contact-whatsapp-card">
         <div class="cc-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-        <div><b>WhatsApp</b><a href="https://wa.me/919504460972" target="_blank" rel="noopener" data-testid="contact-whatsapp">9504460972</a></div>
+         <div><b data-i18n data-en="WhatsApp" data-hi="WhatsApp">WhatsApp</b><a href="https://wa.me/919504460972" target="_blank" rel="noopener" data-testid="contact-whatsapp">9504460972</a></div>
       </div>
       <div class="contact-card owner-card" data-testid="contact-owner-card">
         <div class="owner-avatar">PB</div>
@@ -951,7 +964,7 @@ section{position:relative}
 <!-- ====== FULL PRODUCT DETAIL VIEW ====== -->
 <section class="product-page" id="productPage" data-testid="product-detail-page" aria-label="Product details">
   <div class="container">
-    <button class="product-back" id="productBack" data-testid="product-back-button">← <span>Back to products</span></button>
+     <button class="product-back" id="productBack" data-testid="product-back-button">← <span data-i18n data-en="Back to Products" data-hi="उत्पादों पर वापस जाएं">Back to Products</span></button>
     <div class="product-detail">
       <div class="product-gallery">
         <div class="gallery-stage">
@@ -965,41 +978,50 @@ section{position:relative}
         <span class="eyebrow">KRISHI GOLD • PREMIUM MUSTARD OIL</span>
         <h1 id="productDetailName"></h1>
         <span class="size-chip" id="productDetailSize"></span>
-        <div class="product-rating"><span class="rating-placeholder">Reviews coming soon</span><span>Verified product information</span></div>
+         <div class="product-rating"><span class="rating-placeholder" data-i18n data-en="Reviews coming soon" data-hi="समीक्षाएं जल्द">Reviews coming soon</span><span data-i18n data-en="Verified product information" data-hi="सत्यापित उत्पाद जानकारी">Verified product information</span></div>
         <div class="price-stack" id="productPriceStack"></div>
         <p id="productDetailDescription"></p>
         <div class="detail-actions">
            <div class="quantity-control" aria-label="Quantity">
-             <span>Qty</span>
+             <span data-i18n data-en="Qty" data-hi="मात्रा">Qty</span>
              <button type="button" id="productQtyMinus" aria-label="Decrease quantity">−</button>
              <output id="productQty" aria-live="polite">1</output>
              <button type="button" id="productQtyPlus" aria-label="Increase quantity">+</button>
            </div>
           <button class="add-btn" id="productDetailAdd" data-testid="product-detail-add-to-cart">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-            Add to Cart
+             <span data-i18n data-en="Add to Cart" data-hi="कार्ट में जोड़ें">Add to Cart</span>
           </button>
-          <button class="btn btn-gold" id="productBuy" data-testid="product-buy-action">Order Now →</button>
+           <button class="btn btn-gold" id="productBuy" data-testid="product-buy-action"><span data-i18n data-en="Order Now" data-hi="अभी ऑर्डर करें">Order Now</span> →</button>
            <a class="wa-btn" id="productDetailWhatsApp" href="#" target="_blank" rel="noopener" data-testid="product-detail-whatsapp">
              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.198.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-             Enquire on WhatsApp
+              <span data-i18n data-en="Enquire on WhatsApp" data-hi="WhatsApp पर पूछें">Enquire on WhatsApp</span>
            </a>
-          <button class="share-btn" id="productShare" data-testid="product-share-button">↗ Share Product</button>
+         <button class="share-btn" id="productShare" data-testid="product-share-button">↗ <span data-i18n data-en="Share Product" data-hi="उत्पाद साझा करें">Share Product</span></button>
         </div>
         <div class="product-specs">
-          <h4>Product Details</h4>
+          <h4 data-i18n data-en="Product Details" data-hi="उत्पाद विवरण">Product Details</h4>
           <ul class="spec-list">
-            <li id="specSize"></li><li>Cold-pressed extraction</li><li>Filtered and sealed for freshness</li><li id="specPack"></li>
+             <li id="specSize"></li><li data-i18n data-en="Pure mustard seeds, carefully selected" data-hi="सावधानी से चुने शुद्ध सरसों के बीज">Pure mustard seeds, carefully selected</li><li data-i18n data-en="Traditional cold-pressed extraction" data-hi="पारंपरिक कोल्ड प्रेस्ड निष्कर्षण">Traditional cold-pressed extraction</li><li data-i18n data-en="Rich aroma for everyday cooking" data-hi="रोज़ाना पकाने के लिए समृद्ध सुगंध">Rich aroma for everyday cooking</li><li data-i18n data-en="Filtered and sealed for freshness" data-hi="ताजगी के लिए छनाई और सीलबंद">Filtered and sealed for freshness</li><li data-i18n data-en="Quality assured and kitchen-ready" data-hi="गुणवत्ता आश्वस्त और रसोई के लिए तैयार">Quality assured and kitchen-ready</li><li data-i18n data-en="Store in a cool, dry place" data-hi="ठंडी, सूखी जगह पर रखें">Store in a cool, dry place</li><li id="specPack"></li>
           </ul>
         </div>
       </div>
     </div>
     <section class="about-product">
-      <h3>About This Product</h3>
+      <h3 data-i18n data-en="About This Product" data-hi="इस उत्पाद के बारे में">About This Product</h3>
       <p id="aboutProductCopy"></p>
     </section>
+    <section class="oil-flow" aria-label="Krishi Gold quality highlights">
+      <h3 data-i18n data-en="Golden goodness in every pour" data-hi="हर धार में सुनहरी अच्छाई">Golden goodness in every pour</h3>
+      <div class="oil-highlights">
+        <div class="oil-highlight"><div class="oil-icon">✦</div><b data-i18n data-en="PURE &amp; NATURAL" data-hi="शुद्ध और प्राकृतिक">PURE &amp; NATURAL</b><span data-i18n data-en="Nothing extra" data-hi="कुछ भी अतिरिक्त नहीं">Nothing extra</span></div>
+        <div class="oil-highlight"><div class="oil-icon">◌</div><b data-i18n data-en="RICH AROMA" data-hi="समृद्ध सुगंध">RICH AROMA</b><span data-i18n data-en="True mustard character" data-hi="सरसों का असली स्वाद">True mustard character</span></div>
+        <div class="oil-highlight"><div class="oil-icon">✓</div><b data-i18n data-en="QUALITY ASSURED" data-hi="गुणवत्ता आश्वस्त">QUALITY ASSURED</b><span data-i18n data-en="Checked with care" data-hi="सावधानी से जांचा गया">Checked with care</span></div>
+        <div class="oil-highlight"><div class="oil-icon">⌁</div><b data-i18n data-en="TRADITIONAL GOODNESS" data-hi="पारंपरिक अच्छाई">TRADITIONAL GOODNESS</b><span data-i18n data-en="Made for every kitchen" data-hi="हर रसोई के लिए">Made for every kitchen</span></div>
+      </div>
+    </section>
     <section class="explore-products">
-      <h3>Explore Other Products</h3>
+      <h3 data-i18n data-en="Explore Other Products" data-hi="अन्य उत्पाद देखें">Explore Other Products</h3>
       <div class="prod-list" id="exploreProductList"></div>
     </section>
     <div class="product-sticker" aria-hidden="true"></div>
@@ -1061,9 +1083,9 @@ section{position:relative}
 
 /* ---------- products ---------- */
 var PRODUCTS = {
-  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', pack:'Pouch pack'},
-  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', pack:'Bottle pack'},
-  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', pack:'Jar pack'}
+  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', descriptionHi:'शुद्ध और प्राकृतिक रूप से समृद्ध सरसों तेल का सुविधाजनक पैक, तेज़ सुगंध और मुलायम स्वाद के साथ।', pack:'Pouch pack',packHi:'पाउच पैक'},
+  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', descriptionHi:'सावधानी से चुने सरसों के बीजों से बना परिवार के लिए उपयुक्त पैक, भरपूर स्वाद और भरोसेमंद गुणवत्ता के साथ।', pack:'Bottle pack',packHi:'बोतल पैक'},
+  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
 
@@ -1093,13 +1115,13 @@ function setProductDetails(id){
   document.getElementById('productDetailSize').textContent = p.size;
   var price = p.mrp ? '<div class="mrp-line">MRP <strong>' + fmt(p.mrp) + '</strong></div><div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div><div class="discount">' + Math.round((p.mrp - p.price) / p.mrp * 100) + '% OFF</div>' : '<div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div>';
   document.getElementById('productPriceStack').innerHTML = price;
-  document.getElementById('productDetailDescription').textContent = p.description;
+   document.getElementById('productDetailDescription').textContent = lang === 'hi' ? p.descriptionHi : p.description;
    productQuantity = 1;
    document.getElementById('productQty').textContent = productQuantity;
    document.getElementById('productDetailWhatsApp').href = 'https://wa.me/919504460972?text=' + encodeURIComponent('Hi, I want to enquire about Krishi Gold Mustard Oil ' + p.size);
-  document.getElementById('specSize').textContent = 'Size: ' + p.size;
-  document.getElementById('specPack').textContent = 'Packaging: ' + p.pack;
-  document.getElementById('aboutProductCopy').textContent = p.description + ' This product is processed with cold-pressed extraction, gently filtered, and sealed in its ' + p.pack.toLowerCase() + ' for everyday kitchen use.';
+   document.getElementById('specSize').textContent = (lang === 'hi' ? 'आकार: ' : 'Size: ') + p.size;
+   document.getElementById('specPack').textContent = (lang === 'hi' ? 'पैकेजिंग: ' : 'Packaging: ') + (lang === 'hi' ? p.packHi : p.pack);
+   document.getElementById('aboutProductCopy').textContent = lang === 'hi' ? p.descriptionHi + ' पारंपरिक निष्कर्षण, हल्की छनाई और ताजगी के लिए सीलबंद पैक।' : p.description + ' Processed with traditional extraction, gently filtered, and sealed for everyday kitchen use.';
   activeGalleryIndex = 0;
   productThumbs.innerHTML = p.gallery.map(function(src,i){ return '<button class="product-thumb' + (i === 0 ? ' active' : '') + '" data-gallery-index="' + i + '" aria-label="View product image ' + (i + 1) + '"><img src="' + src + '" alt="' + p.name + ' ' + p.size + ' image ' + (i + 1) + '"></button>'; }).join('');
   setGalleryImage(0);
@@ -1111,12 +1133,12 @@ function setProductDetails(id){
     var item = PRODUCTS[k];
     return '<article class="prod-card" data-explore="' + k + '"><div class="prod-img"><img class="product-photo" src="' + item.image + '" alt="' + item.name + ' ' + item.size + '"></div><div class="prod-info"><h3>' + item.name + '</h3><span class="size-chip">' + item.size + '</span><div class="prod-price">' + fmt(item.price) + ' <small>/ ' + (item.jar ? 'jar' : 'pack') + '</small></div></div></article>';
   }).join('');
-  document.querySelectorAll('[data-explore]').forEach(function(card){ card.addEventListener('click', function(){ openProduct(card.dataset.explore); window.scrollTo({top:0,behavior:'smooth'}); }); });
+     document.querySelectorAll('[data-explore]').forEach(function(card){ card.addEventListener('click', function(){ openProduct(card.dataset.explore); window.scrollTo(0,0); }); });
    homePage.classList.add('page-hidden'); siteFooter.classList.add('page-hidden'); productPage.classList.add('open');
    if(!fromPopstate && window.location.hash !== '#product-' + id) history.pushState({product:id},'',window.location.pathname + window.location.search + '#product-' + id);
-   window.scrollTo({top:0,behavior:'smooth'});
+    window.scrollTo(0,0);
 }
- function closeProduct(fromPopstate){ productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null; if(!fromPopstate && window.location.hash.indexOf('#product-') === 0) history.replaceState(null,'',window.location.pathname + window.location.search); window.scrollTo({top:0,behavior:'smooth'}); }
+  function closeProduct(fromPopstate){ productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null; if(!fromPopstate && window.location.hash.indexOf('#product-') === 0) history.replaceState(null,'',window.location.pathname + window.location.search); window.scrollTo(0,0); }
  window.addEventListener('popstate', function(){
    var id = window.location.hash.indexOf('#product-') === 0 ? window.location.hash.slice(9) : '';
    if(id && PRODUCTS[id]) openProduct(id, true); else if(productPage.classList.contains('open')) closeProduct(true);
@@ -1178,6 +1200,7 @@ function cartSubtotal(){ var t=0; for(var k in cart){ if(PRODUCTS[k]) t += PRODU
 function renderCart(){
   var keys = Object.keys(cart).filter(function(k){ return cart[k] > 0 && PRODUCTS[k]; });
   var totalQty = cartQtyTotal();
+  var isHi = lang === 'hi';
   cartCount.textContent = totalQty;
   cartCount.classList.toggle('show', totalQty > 0);
 
@@ -1185,8 +1208,8 @@ function renderCart(){
     cartFoot.style.display = 'none';
     cartBody.innerHTML = '<div class="cart-empty" data-testid="cart-empty-state">' +
       '<div class="ce-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2.5 3.5h2.4l2.5 12h11.4l2.2-8.5H6.1"/></svg></div>' +
-      '<b style="color:var(--green);font-size:1.05rem">Your cart is empty</b>' +
-      '<p style="margin-top:8px;font-size:.86rem">Add some pure goodness to get started.</p></div>';
+       '<b style="color:var(--green);font-size:1.05rem">' + (isHi ? 'आपकी टोकरी खाली है' : 'Your cart is empty') + '</b>' +
+       '<p style="margin-top:8px;font-size:.86rem">' + (isHi ? 'शुरू करने के लिए शुद्ध अच्छाई जोड़ें।' : 'Add some pure goodness to get started.') + '</p></div>';
     return;
   }
   cartFoot.style.display = 'block';
@@ -1198,7 +1221,7 @@ function renderCart(){
     html += '<div class="cart-item" data-testid="cart-item-' + k + '">' +
       '<div class="ci-img"><svg viewBox="' + vb + '" style="width:100%"><use href="#' + sym + '"/></svg></div>' +
       '<div class="ci-info"><b>' + p.name + '</b><span class="ci-size">' + p.size + '</span>' +
-      '<div class="ci-price">' + fmt(p.price) + ' × ' + q + ' = ' + fmt(p.price * q) + '</div></div>' +
+       '<div class="ci-price">' + fmt(p.price) + ' × ' + q + ' = ' + fmt(p.price * q) + '</div></div>' +
       '<div class="ci-controls">' +
         '<div class="qty-ctrl">' +
           '<button data-dec="' + k + '" data-testid="qty-decrease-' + k + '" aria-label="Decrease">−</button>' +
@@ -1206,7 +1229,7 @@ function renderCart(){
           '<button data-inc="' + k + '" data-testid="qty-increase-' + k + '" aria-label="Increase">+</button>' +
         '</div>' +
         '<button class="ci-remove" data-remove="' + k + '" data-testid="remove-' + k + '">' +
-          '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Remove</button>' +
+           '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>' + (isHi ? 'हटाएं' : 'Remove') + '</button>' +
       '</div></div>';
   });
   cartBody.innerHTML = html;
@@ -1334,6 +1357,15 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   this.reset();
   showToast('Message sent! We will get back to you soon.');
 });
+var addressCard = document.querySelector('[data-testid="contact-address-card"]');
+if(addressCard){
+  addressCard.setAttribute('role','link');
+  addressCard.setAttribute('tabindex','0');
+  addressCard.setAttribute('aria-label','Open Krishi Gold address in Google Maps');
+  function openMaps(){ window.open('https://www.google.com/maps/search/?api=1&query=Pipra%2C+Madhepur%2C+Madhubani%2C+Bihar+847408','_blank','noopener'); }
+  addressCard.addEventListener('click', openMaps);
+  addressCard.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openMaps(); } });
+}
 
 /* ---------- toast ---------- */
 var toastTimer;
@@ -1348,6 +1380,13 @@ function showToast(msg){
 /* ---------- language toggle ---------- */
 var lang = 'en';
 try { lang = localStorage.getItem('kg_lang') || 'en'; } catch(e){}
+function normalizeWhatsAppIcons(){
+  document.querySelectorAll('.wa-btn,[data-testid="cta-whatsapp-enquire"],[data-testid="product-detail-whatsapp"],.fs-wa').forEach(function(el){
+    var isSocial = el.classList.contains('fs-wa');
+    var label = isSocial ? '' : (lang === 'hi' ? 'WhatsApp पर पूछें' : 'Enquire on WhatsApp');
+    el.innerHTML = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsappIcon"></use></svg>' + (label ? '<span class="wa-label">' + label + '</span>' : '');
+  });
+}
 var staticCopy = {
   '100%|Pure':'100%|शुद्ध', 'Natural &|Healthy':'प्राकृतिक और|स्वस्थ',
   'Quality|Assured':'गुणवत्ता|आश्वस्त', 'Goodness in|Every Drop':'हर बूंद में|अच्छाई',
@@ -1359,6 +1398,7 @@ function applyLanguage(){
   document.documentElement.lang = lang === 'hi' ? 'hi' : 'en';
   var toggle = document.getElementById('langToggle');
   toggle.dataset.lang = lang;
+  normalizeWhatsAppIcons();
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var v = el.getAttribute('data-' + lang);
     if(v) el.textContent = v;
@@ -1368,6 +1408,29 @@ function applyLanguage(){
     var key = el.dataset.enText;
     if(lang === 'hi' && staticCopy[key]) el.textContent = staticCopy[key];
     else if(lang === 'en') el.textContent = el.dataset.enText;
+  });
+  if(activeProduct) setProductDetails(activeProduct);
+  document.querySelectorAll('.prod-card[data-product]').forEach(function(card){
+    var p = PRODUCTS[card.dataset.product], title = card.querySelector('.prod-info h3'), chip = card.querySelector('.size-chip');
+    if(title) title.innerHTML = lang === 'hi' ? 'कृषि गोल्ड<br>सरसों का तेल' : 'Krishi Gold<br>Mustard Oil';
+    if(chip && p) chip.textContent = lang === 'hi' ? (p.size === '1 Litre' ? '1 लीटर' : p.size) : p.size;
+  });
+  document.querySelectorAll('.prod-card[data-explore]').forEach(function(card){
+    var p = PRODUCTS[card.dataset.explore], title = card.querySelector('.prod-info h3'), chip = card.querySelector('.size-chip');
+    if(title) title.textContent = lang === 'hi' ? 'कृषि गोल्ड सरसों का तेल' : 'Krishi Gold Mustard Oil';
+    if(chip && p) chip.textContent = lang === 'hi' ? (p.size === '1 Litre' ? '1 लीटर' : p.size) : p.size;
+  });
+  var navLabels = { '#home':['Home','होम'], '#about':['About','हमारे बारे में'], '#why':['Why Krishi Gold','कृषि गोल्ड ही क्यों'], '#products':['Products','उत्पाद'], '#process':['Our Process','हमारी प्रक्रिया'], '#contact':['Contact','संपर्क'] };
+  document.querySelectorAll('.nav-links a,.mm-links a,.f-links a').forEach(function(a){
+    var label = navLabels[a.getAttribute('href')], span = a.querySelector('span');
+    if(label && span) span.textContent = label[lang === 'hi' ? 1 : 0];
+  });
+  document.querySelectorAll('.prod-card[data-product] .add-btn').forEach(function(btn){
+    btn.lastChild.textContent = lang === 'hi' ? ' कार्ट में जोड़ें' : ' Add to Cart';
+  });
+  document.querySelectorAll('.prod-card[data-product] .wa-btn').forEach(function(btn){
+    var text = btn.querySelector('.wa-label');
+    if(text) text.textContent = lang === 'hi' ? 'WhatsApp पर पूछें' : 'Enquire on WhatsApp';
   });
 }
 applyLanguage();
