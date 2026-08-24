@@ -130,7 +130,8 @@ section{position:relative}
 .about-sign small{display:block;font-weight:600;color:var(--muted);font-size:.8rem;margin-top:2px}
 .listen-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .listen-btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#3d2c00;font-weight:800;font-size:.86rem;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(242,183,5,.35);transition:transform .2s,background .25s}
-.stop-btn{background:var(--green);color:#f3edda;box-shadow:0 8px 18px rgba(14,59,43,.25)}
+.stop-btn{display:none;background:var(--green);color:#f3edda;box-shadow:0 8px 18px rgba(14,59,43,.25)}
+.stop-btn.visible{display:inline-flex}
 .listen-btn:hover{background:var(--gold2);transform:translateY(-2px)}
 .listen-btn.speaking{background:var(--gold);color:#3d2c00}
 .about-art{position:relative;display:flex;justify-content:center}
@@ -324,6 +325,8 @@ section{position:relative}
 .oil-flow::after{content:'';position:absolute;left:8%;right:12%;top:36px;height:22px;border-radius:50%;background:rgba(255,244,185,.55);filter:blur(5px);transform:rotate(-4deg)}
 .oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:44px;height:44px;margin:0 auto 9px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;color:var(--gold2)}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:#c9d6c4;font-size:.68rem;margin-top:4px}
 .wa-icon{width:18px!important;height:18px!important;flex:none;display:block}
+.contact-card[data-testid="contact-whatsapp-card"] .cc-icon svg{width:24px;height:24px}
+.cart-item .ci-img img{width:52px;height:78px;object-fit:contain;filter:drop-shadow(0 5px 7px rgba(90,50,0,.2));user-select:none;-webkit-user-drag:none}
 .product-sticker{min-height:112px;margin:34px -10vw -40px;display:flex;justify-content:flex-end;align-items:flex-end;padding:0 8% 0 0;position:relative}
 .product-sticker::before{content:'PURE • NATURAL • TRUSTED';color:var(--green);font-size:.68rem;font-weight:800;letter-spacing:.2em;border:1px solid rgba(217,146,10,.38);border-radius:999px;padding:9px 14px;transform:rotate(-6deg);background:rgba(255,253,244,.7)}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
@@ -997,7 +1000,7 @@ section{position:relative}
              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.198.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               <span data-i18n data-en="Enquire on WhatsApp" data-hi="WhatsApp पर पूछें">Enquire on WhatsApp</span>
            </a>
-         <button class="share-btn" id="productShare" data-testid="product-share-button">↗ <span data-i18n data-en="Share Product" data-hi="उत्पाद साझा करें">Share Product</span></button>
+         <button class="share-btn" id="productShare" data-testid="product-share-button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.6M8.2 13.2l7.6 4.6"/></svg><span data-i18n data-en="Share Product" data-hi="उत्पाद साझा करें">Share Product</span></button>
         </div>
         <div class="product-specs">
           <h4 data-i18n data-en="Product Details" data-hi="उत्पाद विवरण">Product Details</h4>
@@ -1099,6 +1102,7 @@ var activeProduct = null;
 var activeGalleryIndex = 0;
 var productQuantity = 1;
 var galleryTouchX = null;
+var productReturnY = 0;
 function setGalleryImage(index){
   var p = PRODUCTS[activeProduct]; if(!p) return;
   activeGalleryIndex = (index + p.gallery.length) % p.gallery.length;
@@ -1128,6 +1132,7 @@ function setProductDetails(id){
 }
  function openProduct(id, fromPopstate){
   var p = PRODUCTS[id]; if(!p) return;
+   if(!fromPopstate) productReturnY = window.scrollY;
   setProductDetails(id);
   document.getElementById('exploreProductList').innerHTML = Object.keys(PRODUCTS).filter(function(k){ return k !== id; }).map(function(k){
     var item = PRODUCTS[k];
@@ -1136,9 +1141,12 @@ function setProductDetails(id){
      document.querySelectorAll('[data-explore]').forEach(function(card){ card.addEventListener('click', function(){ openProduct(card.dataset.explore); window.scrollTo(0,0); }); });
    homePage.classList.add('page-hidden'); siteFooter.classList.add('page-hidden'); productPage.classList.add('open');
    if(!fromPopstate && window.location.hash !== '#product-' + id) history.pushState({product:id},'',window.location.pathname + window.location.search + '#product-' + id);
-    window.scrollTo(0,0);
 }
-  function closeProduct(fromPopstate){ productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null; if(!fromPopstate && window.location.hash.indexOf('#product-') === 0) history.replaceState(null,'',window.location.pathname + window.location.search); window.scrollTo(0,0); }
+  function closeProduct(fromPopstate){
+    productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null;
+    if(!fromPopstate && window.location.hash.indexOf('#product-') === 0) history.replaceState(null,'',window.location.pathname + window.location.search);
+    window.scrollTo(0, productReturnY || document.getElementById('products').offsetTop);
+  }
  window.addEventListener('popstate', function(){
    var id = window.location.hash.indexOf('#product-') === 0 ? window.location.hash.slice(9) : '';
    if(id && PRODUCTS[id]) openProduct(id, true); else if(productPage.classList.contains('open')) closeProduct(true);
@@ -1219,7 +1227,7 @@ function renderCart(){
     var sym = p.jar ? 'oilJar' : 'oilBottle';
     var vb = p.jar ? '0 0 220 250' : '0 0 160 290';
     html += '<div class="cart-item" data-testid="cart-item-' + k + '">' +
-      '<div class="ci-img"><svg viewBox="' + vb + '" style="width:100%"><use href="#' + sym + '"/></svg></div>' +
+       '<div class="ci-img"><img src="' + p.image + '" alt="' + p.name + ' ' + p.size + '"></div>' +
       '<div class="ci-info"><b>' + p.name + '</b><span class="ci-size">' + p.size + '</span>' +
        '<div class="ci-price">' + fmt(p.price) + ' × ' + q + ' = ' + fmt(p.price * q) + '</div></div>' +
       '<div class="ci-controls">' +
@@ -1386,7 +1394,11 @@ function normalizeWhatsAppIcons(){
     var label = isSocial ? '' : (lang === 'hi' ? 'WhatsApp पर पूछें' : 'Enquire on WhatsApp');
     el.innerHTML = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsappIcon"></use></svg>' + (label ? '<span class="wa-label">' + label + '</span>' : '');
   });
+  var contactIcon = document.querySelector('[data-testid="contact-whatsapp-card"] .cc-icon');
+  if(contactIcon) contactIcon.innerHTML = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsappIcon"></use></svg>';
 }
+var socialLinks = {'.fs-yt':'https://youtube.com/@krishigoldoil?si=APbYDfCv7TJ__Lpq','.fs-ig':'https://www.instagram.com/krishi_gold_oil?igsi=MWtyM2xuamJhYWk4cw==','.fs-fb':'https://www.facebook.com/share/1Dgd5mZcS4/'};
+Object.keys(socialLinks).forEach(function(selector){ var link = document.querySelector(selector); if(link){ link.href = socialLinks[selector]; link.target = '_blank'; link.rel = 'noopener'; } });
 var staticCopy = {
   '100%|Pure':'100%|शुद्ध', 'Natural &|Healthy':'प्राकृतिक और|स्वस्थ',
   'Quality|Assured':'गुणवत्ता|आश्वस्त', 'Goodness in|Every Drop':'हर बूंद में|अच्छाई',
@@ -1453,6 +1465,8 @@ function updateListenButton(btn, state){
   label.textContent = state === 'paused' ? 'Resume' : state === 'playing' ? 'Pause' : (lang === 'hi' ? 'सुनें' : 'Listen');
   var icon = btn.querySelector('svg'); if(icon) icon.outerHTML = state === 'playing' ? pauseIcon : state === 'paused' ? resumeIcon : speakerIcon;
   btn.classList.toggle('speaking', state === 'playing' || state === 'paused');
+  var stop = btn.id === 'aboutListen' ? document.getElementById('aboutStop') : btn.id === 'processListen' ? document.getElementById('processStop') : null;
+  if(stop) stop.classList.toggle('visible', state === 'playing' || state === 'paused');
 }
 function clearSpeechButton(){ updateListenButton(speechState.button, 'idle'); speechState.button = null; speechState.utterance = null; speechState.paused = false; }
 function speak(text, btn){
@@ -1474,6 +1488,7 @@ function stopSpeech(){
   if('speechSynthesis' in window) window.speechSynthesis.cancel();
   clearSpeechButton();
   document.querySelectorAll('#aboutListen, #processListen').forEach(function(b){ updateListenButton(b, 'idle'); });
+  document.querySelectorAll('#aboutStop, #processStop').forEach(function(b){ b.classList.remove('visible'); });
 }
 document.getElementById('aboutListen').addEventListener('click', function(){
   speak(lang === 'hi' ? 'कृषि गोल्ड शुद्धता, गुणवत्ता और भरोसे पर बना प्रीमियम सरसों तेल ब्रांड है।' : 'Krishi Gold is a premium mustard oil brand built on purity, quality and trust.', this);
