@@ -278,14 +278,16 @@ section{position:relative}
 .modal{background:var(--cream);border-radius:26px;width:min(560px,100%);max-height:92vh;overflow-y:auto;padding:28px;transform:translateY(26px) scale(.97);transition:transform .35s cubic-bezier(.22,.9,.3,1);box-shadow:0 30px 70px rgba(8,28,20,.45)}
 .modal-overlay.open .modal{transform:none}
 .product-page{display:none;padding:34px 0 72px;overflow:hidden}
-.product-page.open{display:block}
+.product-page.open{display:block;animation:productPageFade .2s ease-out both}
+@keyframes productPageFade{from{opacity:0}to{opacity:1}}
 .page-hidden{display:none !important}
-.product-back{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.88rem;border:1px solid rgba(14,59,43,.2);border-radius:999px;padding:10px 16px;margin-bottom:24px;background:var(--paper)}
+.product-back{position:sticky;top:86px;z-index:6;display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.88rem;border:1px solid rgba(14,59,43,.2);border-radius:999px;padding:10px 16px;margin-bottom:24px;background:rgba(255,253,244,.96);box-shadow:0 6px 18px rgba(10,44,32,.08);backdrop-filter:blur(8px);transition:background .2s,box-shadow .2s}
 .product-back:hover{background:#fff7d9}
 .product-detail{display:grid;grid-template-columns:minmax(320px,.95fr) 1.05fr;gap:42px;align-items:start}
 .product-gallery{background:linear-gradient(145deg,#fffdf4,#efe7cb);border-radius:24px;padding:22px;min-width:0;position:relative;box-shadow:var(--shadow)}
 .product-gallery::after{content:'';position:absolute;right:-18px;bottom:-18px;width:130px;height:90px;border:2px solid rgba(217,146,10,.25);border-left:0;border-bottom:0;border-radius:0 60px 0 0;transform:rotate(-12deg);pointer-events:none}
-.product-main-image{width:100%;height:440px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(90,50,0,.25));user-select:none;-webkit-user-drag:none}
+.product-main-image{width:100%;height:440px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(90,50,0,.25));user-select:none;-webkit-user-drag:none;transition:opacity .15s ease}
+.product-main-image.is-switching{opacity:.45}
 .gallery-stage{position:relative}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(14,59,43,.9);color:#f6f1da;z-index:2;box-shadow:0 5px 12px rgba(14,59,43,.2)}
 .gallery-nav:hover{background:var(--green3)}
@@ -300,6 +302,9 @@ section{position:relative}
 .detail-price{font-size:1.45rem;font-weight:800;color:var(--green)}
 .detail-price small{font-size:.75rem;color:var(--muted);font-weight:600}
 .detail-actions{display:flex;flex-wrap:wrap;gap:10px}
+.quantity-control{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(14,59,43,.2);border-radius:999px;padding:5px 8px 5px 14px;background:var(--paper);color:var(--green);font-weight:800;font-size:.84rem}
+.quantity-control button{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--green);background:#efe7cb;font-size:1.1rem;line-height:1}
+.quantity-control output{min-width:18px;text-align:center}
 .product-rating{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.8rem;margin:16px 0 20px}
 .rating-placeholder{border:1px dashed var(--line);border-radius:999px;padding:5px 10px;color:var(--muted)}
 .price-stack{margin:18px 0}
@@ -372,6 +377,10 @@ section{position:relative}
   .product-main-image{height:310px}
   .product-gallery{padding:14px}
   .product-page{padding-top:22px}
+  .product-back{top:70px;margin-bottom:18px}
+  .detail-actions{align-items:stretch}
+  .quantity-control{justify-content:space-between;width:100%}
+  .detail-actions .add-btn,.detail-actions .btn,.detail-actions .share-btn,.detail-actions .wa-btn{width:100%;justify-content:center}
   .product-sticker{margin-left:-30px;margin-right:-30px;padding-right:18px}
   .about-creative{margin-top:20px}
 }
@@ -947,7 +956,7 @@ section{position:relative}
       <div class="product-gallery">
         <div class="gallery-stage">
           <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous product image">‹</button>
-          <img class="product-main-image" id="productMainImage" src="" alt="">
+           <img class="product-main-image" id="productMainImage" src="" alt="">
           <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next product image">›</button>
         </div>
         <div class="product-thumbs" id="productThumbs"></div>
@@ -960,11 +969,21 @@ section{position:relative}
         <div class="price-stack" id="productPriceStack"></div>
         <p id="productDetailDescription"></p>
         <div class="detail-actions">
+           <div class="quantity-control" aria-label="Quantity">
+             <span>Qty</span>
+             <button type="button" id="productQtyMinus" aria-label="Decrease quantity">−</button>
+             <output id="productQty" aria-live="polite">1</output>
+             <button type="button" id="productQtyPlus" aria-label="Increase quantity">+</button>
+           </div>
           <button class="add-btn" id="productDetailAdd" data-testid="product-detail-add-to-cart">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             Add to Cart
           </button>
           <button class="btn btn-gold" id="productBuy" data-testid="product-buy-action">Order Now →</button>
+           <a class="wa-btn" id="productDetailWhatsApp" href="#" target="_blank" rel="noopener" data-testid="product-detail-whatsapp">
+             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.198.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+             Enquire on WhatsApp
+           </a>
           <button class="share-btn" id="productShare" data-testid="product-share-button">↗ Share Product</button>
         </div>
         <div class="product-specs">
@@ -1042,9 +1061,9 @@ section{position:relative}
 
 /* ---------- products ---------- */
 var PRODUCTS = {
-  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml-gallery-1.png','assets/krishi-gold-500ml-gallery-2.png','assets/krishi-gold-500ml-gallery-3.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', pack:'Pouch pack'},
-  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l-gallery-1.png','assets/krishi-gold-1l-gallery-2.png','assets/krishi-gold-1l-gallery-3.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', pack:'Bottle pack'},
-  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l-gallery-1.png','assets/krishi-gold-5l-gallery-2.png','assets/krishi-gold-5l-gallery-3.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', pack:'Jar pack'}
+  p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', pack:'Pouch pack'},
+  p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', pack:'Bottle pack'},
+  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', pack:'Jar pack'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
 
@@ -1056,12 +1075,15 @@ var productMainImage = document.getElementById('productMainImage');
 var productThumbs = document.getElementById('productThumbs');
 var activeProduct = null;
 var activeGalleryIndex = 0;
+var productQuantity = 1;
 var galleryTouchX = null;
 function setGalleryImage(index){
   var p = PRODUCTS[activeProduct]; if(!p) return;
   activeGalleryIndex = (index + p.gallery.length) % p.gallery.length;
+  productMainImage.classList.add('is-switching');
   productMainImage.src = p.gallery[activeGalleryIndex];
   productMainImage.alt = p.name + ' ' + p.size;
+  productMainImage.onload = function(){ productMainImage.classList.remove('is-switching'); };
   productThumbs.querySelectorAll('.product-thumb').forEach(function(t,i){ t.classList.toggle('active', i === activeGalleryIndex); });
 }
 function setProductDetails(id){
@@ -1072,6 +1094,9 @@ function setProductDetails(id){
   var price = p.mrp ? '<div class="mrp-line">MRP <strong>' + fmt(p.mrp) + '</strong></div><div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div><div class="discount">' + Math.round((p.mrp - p.price) / p.mrp * 100) + '% OFF</div>' : '<div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div>';
   document.getElementById('productPriceStack').innerHTML = price;
   document.getElementById('productDetailDescription').textContent = p.description;
+   productQuantity = 1;
+   document.getElementById('productQty').textContent = productQuantity;
+   document.getElementById('productDetailWhatsApp').href = 'https://wa.me/919504460972?text=' + encodeURIComponent('Hi, I want to enquire about Krishi Gold Mustard Oil ' + p.size);
   document.getElementById('specSize').textContent = 'Size: ' + p.size;
   document.getElementById('specPack').textContent = 'Packaging: ' + p.pack;
   document.getElementById('aboutProductCopy').textContent = p.description + ' This product is processed with cold-pressed extraction, gently filtered, and sealed in its ' + p.pack.toLowerCase() + ' for everyday kitchen use.';
@@ -1079,7 +1104,7 @@ function setProductDetails(id){
   productThumbs.innerHTML = p.gallery.map(function(src,i){ return '<button class="product-thumb' + (i === 0 ? ' active' : '') + '" data-gallery-index="' + i + '" aria-label="View product image ' + (i + 1) + '"><img src="' + src + '" alt="' + p.name + ' ' + p.size + ' image ' + (i + 1) + '"></button>'; }).join('');
   setGalleryImage(0);
 }
-function openProduct(id){
+ function openProduct(id, fromPopstate){
   var p = PRODUCTS[id]; if(!p) return;
   setProductDetails(id);
   document.getElementById('exploreProductList').innerHTML = Object.keys(PRODUCTS).filter(function(k){ return k !== id; }).map(function(k){
@@ -1087,9 +1112,15 @@ function openProduct(id){
     return '<article class="prod-card" data-explore="' + k + '"><div class="prod-img"><img class="product-photo" src="' + item.image + '" alt="' + item.name + ' ' + item.size + '"></div><div class="prod-info"><h3>' + item.name + '</h3><span class="size-chip">' + item.size + '</span><div class="prod-price">' + fmt(item.price) + ' <small>/ ' + (item.jar ? 'jar' : 'pack') + '</small></div></div></article>';
   }).join('');
   document.querySelectorAll('[data-explore]').forEach(function(card){ card.addEventListener('click', function(){ openProduct(card.dataset.explore); window.scrollTo({top:0,behavior:'smooth'}); }); });
-  homePage.classList.add('page-hidden'); siteFooter.classList.add('page-hidden'); productPage.classList.add('open'); window.scrollTo({top:0,behavior:'smooth'});
+   homePage.classList.add('page-hidden'); siteFooter.classList.add('page-hidden'); productPage.classList.add('open');
+   if(!fromPopstate && window.location.hash !== '#product-' + id) history.pushState({product:id},'',window.location.pathname + window.location.search + '#product-' + id);
+   window.scrollTo({top:0,behavior:'smooth'});
 }
-function closeProduct(){ productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null; window.scrollTo({top:0,behavior:'smooth'}); }
+ function closeProduct(fromPopstate){ productPage.classList.remove('open'); homePage.classList.remove('page-hidden'); siteFooter.classList.remove('page-hidden'); activeProduct = null; if(!fromPopstate && window.location.hash.indexOf('#product-') === 0) history.replaceState(null,'',window.location.pathname + window.location.search); window.scrollTo({top:0,behavior:'smooth'}); }
+ window.addEventListener('popstate', function(){
+   var id = window.location.hash.indexOf('#product-') === 0 ? window.location.hash.slice(9) : '';
+   if(id && PRODUCTS[id]) openProduct(id, true); else if(productPage.classList.contains('open')) closeProduct(true);
+ });
 document.querySelectorAll('a[href^="#"]').forEach(function(link){
   link.addEventListener('click', function(){ if(productPage.classList.contains('open')) closeProduct(); });
 });
@@ -1116,8 +1147,10 @@ productMainImage.addEventListener('touchend', function(e){
   if(Math.abs(delta) > 35) moveGallery(delta < 0 ? 1 : -1);
   galleryTouchX = null;
 }, {passive:true});
-document.getElementById('productDetailAdd').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); } });
-document.getElementById('productBuy').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct); openCart(); } });
+ document.getElementById('productQtyMinus').addEventListener('click', function(){ productQuantity = Math.max(1, productQuantity - 1); document.getElementById('productQty').textContent = productQuantity; });
+ document.getElementById('productQtyPlus').addEventListener('click', function(){ productQuantity = Math.min(99, productQuantity + 1); document.getElementById('productQty').textContent = productQuantity; });
+ document.getElementById('productDetailAdd').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct, productQuantity); } });
+ document.getElementById('productBuy').addEventListener('click', function(){ if(activeProduct){ addToCart(activeProduct, productQuantity); openCart(); } });
 document.getElementById('productBack').addEventListener('click', closeProduct);
 document.getElementById('productShare').addEventListener('click', function(){
   if(!activeProduct) return;
@@ -1181,11 +1214,12 @@ function renderCart(){
   document.getElementById('cartTotal').textContent = fmt(cartSubtotal());
 }
 
-function addToCart(id){
+ function addToCart(id, quantity){
   if(!PRODUCTS[id]) return;
-  cart[id] = (cart[id] || 0) + 1;
+   quantity = quantity || 1;
+   cart[id] = (cart[id] || 0) + quantity;
   saveCart(); renderCart();
-  showToast(PRODUCTS[id].size + ' pack added to cart');
+   showToast(PRODUCTS[id].size + ' × ' + quantity + ' added to cart');
 }
 
 cartBody.addEventListener('click', function(e){
@@ -1408,7 +1442,9 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape'){ closeCart(); closeMenu(); closeProduct(); closeCheckout(); successOverlay.classList.remove('open'); document.body.style.overflow = ''; }
 });
 
-renderCart();
+ var initialProductId = window.location.hash.indexOf('#product-') === 0 ? window.location.hash.slice(9) : '';
+ if(initialProductId && PRODUCTS[initialProductId]) openProduct(initialProductId, true);
+ renderCart();
 })();
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"7f7b0fd8732c4326aae4b9d58d5c514a"}' crossorigin="anonymous"></script>
