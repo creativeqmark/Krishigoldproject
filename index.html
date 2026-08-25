@@ -322,21 +322,26 @@ section{position:relative}
 .explore-products .prod-card:hover{transform:translateY(-3px)}
 .oil-flow{position:relative;margin:42px -2vw 0;padding:42px clamp(22px,5vw,72px);overflow:hidden;background:var(--cream2);color:var(--green);border:1px solid var(--line);border-radius:24px}
 .oil-flow::before,.oil-flow::after{display:none}
-.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:44px;height:44px;margin:0 auto 9px;display:grid;place-items:center;border:1px solid rgba(14,59,43,.25);border-radius:50%;color:var(--golddeep)}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:var(--muted);font-size:.68rem;margin-top:4px}
+.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:48px;height:48px;margin:0 auto 9px;display:grid;place-items:center;border:2px solid var(--green);border-radius:50%;color:var(--green)}.oil-highlight .oil-icon svg{width:26px;height:26px;display:block;stroke:currentColor;stroke-width:2.3;fill:none;stroke-linecap:round;stroke-linejoin:round}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:var(--muted);font-size:.68rem;margin-top:4px}
 .wa-icon{width:18px!important;height:18px!important;flex:none;display:block}
 .contact-card[data-testid="contact-whatsapp-card"] .cc-icon svg{width:24px;height:24px}
 .cart-item .ci-img img{width:52px;height:78px;object-fit:contain;filter:drop-shadow(0 5px 7px rgba(90,50,0,.2));user-select:none;-webkit-user-drag:none}
 .product-sticker{min-height:112px;margin:34px -10vw -40px;display:flex;justify-content:flex-end;align-items:flex-end;padding:0 8% 0 0;position:relative}
 .product-sticker::before{content:'PURE • NATURAL • TRUSTED';color:var(--green);font-size:.68rem;font-weight:800;letter-spacing:.2em;border:1px solid rgba(217,146,10,.38);border-radius:999px;padding:9px 14px;transform:rotate(-6deg);background:rgba(255,253,244,.7)}
-.creative-oil-visual{margin:38px 0 0;padding:28px clamp(18px,4vw,54px);border-radius:28px;overflow:hidden;background:var(--green);box-shadow:0 18px 38px rgba(10,44,32,.22)}
-.creative-oil-visual img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;object-position:center}
-.wholesale-option{margin-top:24px;padding:26px;background:var(--green);border-radius:22px;color:#f6f1da;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:var(--shadow)}
+.creative-oil-visual{margin:38px -10vw 0;border-radius:0;overflow:hidden;background:var(--green);box-shadow:0 18px 38px rgba(10,44,32,.22)}
+.creative-oil-visual img{display:block;width:100%;height:auto;min-height:260px;max-height:520px;object-fit:cover;object-position:center}
+.wholesale-option{margin-top:24px;padding:26px;background:var(--green);border-radius:22px;color:#f6f1da;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;box-shadow:var(--shadow)}
+.wholesale-stickers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:24px}
+.wholesale-option .wholesale-stickers{grid-column:1/-1}
+.bulk-sticker{min-height:188px;border-radius:24px;overflow:hidden;filter:drop-shadow(0 12px 12px rgba(9,48,34,.2));transform:rotate(-1.2deg)}
+.bulk-sticker:nth-child(2){transform:rotate(1.2deg)}
+.bulk-sticker svg{display:block;width:100%;height:100%;min-height:188px}
 .wholesale-option h3{font-size:1.35rem;margin-bottom:8px;color:#f6f1da}
 .wholesale-option p{color:#c9d6c4;font-size:.88rem;line-height:1.6;max-width:58ch}
 .wholesale-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;flex:none}
 .wholesale-controls label{font-size:.78rem;font-weight:800;color:#f6f1da}
 .wholesale-controls input{width:92px;padding:11px 12px;border:2px solid var(--gold);border-radius:10px;background:var(--paper);color:var(--ink);font-weight:800}
-.wholesale-total{font-weight:800;color:var(--gold2);font-size:.9rem;min-width:108px}
+.wholesale-total{font-weight:800;color:var(--gold2);font-size:.9rem;min-width:108px}.wholesale-error{display:block;flex-basis:100%;color:#ffd8c9;font-size:.76rem;font-weight:800;min-height:1.1em}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .modal-head h3{color:var(--green);font-size:1.35rem}
 .modal-close{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--green);background:rgba(14,59,43,.08)}
@@ -407,9 +412,10 @@ section{position:relative}
   .detail-actions .add-btn,.detail-actions .btn,.detail-actions .share-btn,.detail-actions .wa-btn{width:100%;justify-content:center}
   .product-sticker{margin-left:-30px;margin-right:-30px;padding-right:18px}
   .about-creative{margin-top:20px}
-  .creative-oil-visual{margin-left:-4vw;margin-right:-4vw;border-radius:18px}
-  .creative-oil-visual img{min-height:150px;object-fit:contain}
-  .wholesale-option{align-items:stretch;flex-direction:column}
+  .creative-oil-visual{margin-left:-8vw;margin-right:-8vw;border-radius:0}
+  .creative-oil-visual img{min-height:180px;max-height:300px;object-fit:cover}
+  .wholesale-stickers{grid-template-columns:1fr;gap:14px}
+  .wholesale-option{display:block}
   .wholesale-controls{justify-content:flex-start}
   .oil-flow{margin-left:-6vw;margin-right:-6vw;clip-path:ellipse(100% 70% at 50% 48%);padding-top:50px;padding-bottom:58px}
   .oil-highlights{grid-template-columns:repeat(2,1fr);gap:18px 10px}
@@ -804,6 +810,27 @@ section{position:relative}
 
     </div>
     <div class="wholesale-option" data-testid="wholesale-loose-oil-option">
+      <div class="wholesale-stickers" aria-label="Krishi Gold bulk wholesale visuals">
+        <div class="bulk-sticker" aria-hidden="true">
+          <svg viewBox="0 0 520 230" role="img">
+            <defs><linearGradient id="bulkBgA" x1="0" x2="1"><stop stop-color="#0e3b2b"/><stop offset="1" stop-color="#1f6848"/></linearGradient><linearGradient id="bulkOilA" x1="0" x2="1"><stop stop-color="#f7cf48"/><stop offset="1" stop-color="#bf7807"/></linearGradient></defs>
+            <rect width="520" height="230" rx="28" fill="url(#bulkBgA)"/><path d="M24 190Q150 116 280 175T500 122v84H24z" fill="#d99516" opacity=".2"/>
+            <path d="M326 32h126v112H326z" fill="#ead9a4" opacity=".18" stroke="#f2c94c" stroke-width="3"/><path d="M342 48h94v80h-94z" fill="#0e3b2b" stroke="#f2c94c" stroke-width="2"/>
+            <path d="M389 62c-18 20-21 35 0 47 21-12 18-27 0-47z" fill="none" stroke="#f2c94c" stroke-width="3"/><path d="M389 73v27M389 83l-9-7M389 91l10-8" stroke="#f2c94c" stroke-width="2" fill="none"/>
+            <text x="389" y="119" text-anchor="middle" fill="#f2c94c" font-size="10" font-weight="800" letter-spacing="2">KRISHI GOLD</text>
+            <text x="32" y="62" fill="#f7f1da" font-size="14" font-weight="800" letter-spacing="4">KRISHI GOLD</text><text x="32" y="111" fill="#f7f1da" font-size="33" font-weight="900" letter-spacing="2">BULK OIL</text><text x="34" y="141" fill="#f2c94c" font-size="15" font-weight="800" letter-spacing="3">WHOLESALE MUSTARD OIL</text><path d="M34 162h180" stroke="#f2c94c" stroke-width="2"/><text x="34" y="188" fill="#f7f1da" font-size="13" font-weight="700">PURE • RICH • CONSISTENT</text>
+            <circle cx="276" cy="177" r="28" fill="url(#bulkOilA)"/><text x="276" y="174" text-anchor="middle" fill="#0e3b2b" font-size="11" font-weight="900">₹210</text><text x="276" y="188" text-anchor="middle" fill="#0e3b2b" font-size="9" font-weight="800">PER LITRE</text>
+          </svg>
+        </div>
+        <div class="bulk-sticker" aria-hidden="true">
+          <svg viewBox="0 0 520 230" role="img">
+            <defs><linearGradient id="bulkBgB" x1="0" x2="1"><stop stop-color="#f6efd6"/><stop offset="1" stop-color="#ead9a4"/></linearGradient><linearGradient id="bulkOilB" x1="0" x2="1"><stop stop-color="#f7cf48"/><stop offset="1" stop-color="#a95d05"/></linearGradient></defs>
+            <rect width="520" height="230" rx="28" fill="url(#bulkBgB)"/><circle cx="412" cy="111" r="83" fill="#0e3b2b"/><circle cx="412" cy="111" r="67" fill="none" stroke="#f2c94c" stroke-width="2" stroke-dasharray="3 6"/>
+            <path d="M412 45c-20 22-24 41 0 58 24-17 20-36 0-58z" fill="none" stroke="#f2c94c" stroke-width="4"/><path d="M412 61v38M412 76l-13-10M412 87l14-11" stroke="#f2c94c" stroke-width="3" fill="none"/><text x="412" y="128" text-anchor="middle" fill="#f7f1da" font-size="13" font-weight="900" letter-spacing="3">KRISHI</text><text x="412" y="147" text-anchor="middle" fill="#f2c94c" font-size="13" font-weight="900" letter-spacing="3">GOLD</text>
+            <text x="30" y="52" fill="#0e3b2b" font-size="14" font-weight="900" letter-spacing="3">THE BULK CHOICE</text><text x="30" y="98" fill="#0e3b2b" font-size="31" font-weight="900">MUSTARD OIL</text><text x="32" y="127" fill="#7c5a14" font-size="15" font-weight="800" letter-spacing="2">LOOSE • WHOLESALE</text><path d="M32 148h168" stroke="#d99516" stroke-width="4"/><text x="32" y="180" fill="#0e3b2b" font-size="13" font-weight="800">MINIMUM 6 LITRES</text><text x="32" y="202" fill="#7c5a14" font-size="12" font-weight="700">FOR KITCHENS, CATERERS &amp; TRADE</text><path d="M270 191c15-31 36-32 50 0" fill="none" stroke="url(#bulkOilB)" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
       <div>
         <h3>Wholesale / Loose Oil</h3>
         <p>Bulk mustard oil without bottles or retail packaging. ₹210 per litre · minimum order 6 litres.</p>
@@ -813,6 +840,7 @@ section{position:relative}
         <input id="wholesaleQty" type="number" min="6" step="1" value="6" data-testid="wholesale-quantity">
         <span class="wholesale-total" id="wholesaleTotal">₹1,260</span>
         <button class="btn btn-gold" id="addWholesale" type="button" data-testid="add-wholesale-to-cart">Add to Cart</button>
+        <span class="wholesale-error" id="wholesaleError" role="alert" aria-live="polite"></span>
       </div>
     </div>
   </div>
@@ -1047,10 +1075,10 @@ section{position:relative}
     <section class="oil-flow" aria-label="Krishi Gold quality highlights">
       <h3 data-i18n data-en="Golden goodness in every pour" data-hi="हर धार में सुनहरी अच्छाई">Golden goodness in every pour</h3>
       <div class="oil-highlights">
-        <div class="oil-highlight"><div class="oil-icon">✦</div><b data-i18n data-en="PURE &amp; NATURAL" data-hi="शुद्ध और प्राकृतिक">PURE &amp; NATURAL</b><span data-i18n data-en="Nothing extra" data-hi="कुछ भी अतिरिक्त नहीं">Nothing extra</span></div>
-        <div class="oil-highlight"><div class="oil-icon">◌</div><b data-i18n data-en="RICH AROMA" data-hi="समृद्ध सुगंध">RICH AROMA</b><span data-i18n data-en="True mustard character" data-hi="सरसों का असली स्वाद">True mustard character</span></div>
-        <div class="oil-highlight"><div class="oil-icon">✓</div><b data-i18n data-en="QUALITY ASSURED" data-hi="गुणवत्ता आश्वस्त">QUALITY ASSURED</b><span data-i18n data-en="Checked with care" data-hi="सावधानी से जांचा गया">Checked with care</span></div>
-        <div class="oil-highlight"><div class="oil-icon">⌁</div><b data-i18n data-en="TRADITIONAL GOODNESS" data-hi="पारंपरिक अच्छाई">TRADITIONAL GOODNESS</b><span data-i18n data-en="Made for every kitchen" data-hi="हर रसोई के लिए">Made for every kitchen</span></div>
+        <div class="oil-highlight"><div class="oil-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20S5 15.5 5 9.7A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 1.7C19 15.5 12 20 12 20Z"/><path d="M12 5V2M9.5 6.5 8 4.5M14.5 6.5 16 4.5"/></svg></div><b data-i18n data-en="PURE &amp; NATURAL" data-hi="शुद्ध और प्राकृतिक">PURE &amp; NATURAL</b><span data-i18n data-en="Nothing extra" data-hi="कुछ भी अतिरिक्त नहीं">Nothing extra</span></div>
+        <div class="oil-highlight"><div class="oil-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20c4.2-2.4 6.5-5.4 6.5-8.8C18.5 7.5 16 5 12 3.5 8 5 5.5 7.5 5.5 11.2 5.5 14.6 7.8 17.6 12 20Z"/><path d="M9 12c2.5-.4 4.3-1.8 5.3-4.2M9 12c.5 2 1.7 3.3 3.8 4"/></svg></div><b data-i18n data-en="RICH AROMA" data-hi="समृद्ध सुगंध">RICH AROMA</b><span data-i18n data-en="True mustard character" data-hi="सरसों का असली स्वाद">True mustard character</span></div>
+        <div class="oil-highlight"><div class="oil-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8 12 2.5 2.5L16.5 9"/></svg></div><b data-i18n data-en="QUALITY ASSURED" data-hi="गुणवत्ता आश्वस्त">QUALITY ASSURED</b><span data-i18n data-en="Checked with care" data-hi="सावधानी से जांचा गया">Checked with care</span></div>
+        <div class="oil-highlight"><div class="oil-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6.5 20V10h11v10M4 10l8-6 8 6M9 14h6M9 17h6"/></svg></div><b data-i18n data-en="TRADITIONAL GOODNESS" data-hi="पारंपरिक अच्छाई">TRADITIONAL GOODNESS</b><span data-i18n data-en="Made for every kitchen" data-hi="हर रसोई के लिए">Made for every kitchen</span></div>
       </div>
     </section>
     <section class="creative-oil-visual" aria-label="Golden mustard oil visual">
@@ -1132,7 +1160,7 @@ var PRODUCTS = {
   p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', descriptionHi:'शुद्ध और प्राकृतिक रूप से समृद्ध सरसों तेल का सुविधाजनक पैक, तेज़ सुगंध और मुलायम स्वाद के साथ।', pack:'Pouch pack',packHi:'पाउच पैक'},
   p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', descriptionHi:'सावधानी से चुने सरसों के बीजों से बना परिवार के लिए उपयुक्त पैक, भरपूर स्वाद और भरोसेमंद गुणवत्ता के साथ।', pack:'Bottle pack',packHi:'बोतल पैक'},
    p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'},
-   wLoose:{id:'wLoose', name:'Wholesale Loose Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-oil-flow.png', gallery:['assets/krishi-gold-oil-flow.png'], description:'Loose mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में सरसों का तेल।', pack:'Loose bulk oil',packHi:'थोक खुला तेल'}
+   wLoose:{id:'wLoose', name:'Wholesale Loose Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-mark.png', gallery:['assets/krishi-gold-mark.png'], description:'Loose mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में सरसों का तेल।', pack:'Loose bulk oil',packHi:'थोक खुला तेल'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
 
@@ -1322,13 +1350,20 @@ document.querySelectorAll('[data-add]').forEach(function(btn){
 var wholesaleQtyInput = document.getElementById('wholesaleQty');
 var wholesaleTotal = document.getElementById('wholesaleTotal');
 function updateWholesaleTotal(){
-  var litres = Math.max(WHOLESALE_MIN_LITRES, Math.floor(Number(wholesaleQtyInput.value) || WHOLESALE_MIN_LITRES));
-  wholesaleQtyInput.value = litres;
-  wholesaleTotal.textContent = fmt(litres * WHOLESALE_RATE);
+  var raw = wholesaleQtyInput.value.trim();
+  var litres = Number(raw);
+  var valid = raw !== '' && Number.isInteger(litres) && litres >= WHOLESALE_MIN_LITRES;
+  wholesaleTotal.textContent = valid ? fmt(litres * WHOLESALE_RATE) : '₹—';
+  document.getElementById('wholesaleError').textContent = raw !== '' && (!Number.isInteger(litres) || litres < WHOLESALE_MIN_LITRES) ? 'Minimum wholesale order is 6 litres.' : '';
+  document.getElementById('addWholesale').disabled = !valid;
+  return valid;
 }
 wholesaleQtyInput.addEventListener('input', updateWholesaleTotal);
 document.getElementById('addWholesale').addEventListener('click', function(){
-  updateWholesaleTotal();
+  if(!updateWholesaleTotal()){
+    wholesaleQtyInput.focus();
+    return;
+  }
   addToCart('wLoose', Number(wholesaleQtyInput.value));
 });
 updateWholesaleTotal();
@@ -1404,7 +1439,7 @@ function openCheckout(){
    var button = document.getElementById('calculateDistanceBtn');
    button.disabled = true;
    return fetch(DELIVERY_DISTANCE_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({origin:DELIVERY_ORIGIN, destination:address})})
-     .then(function(response){ if(!response.ok) throw new Error('Distance service unavailable'); return response.json(); })
+     .then(function(response){ return response.json().then(function(data){ if(!response.ok) throw new Error(data.error || 'Distance service unavailable'); return data; }); })
      .then(function(data){
        var distance = Number(data.distanceKm);
        if(!Number.isFinite(distance) || distance < 0) throw new Error('Address could not be geocoded');
@@ -1413,9 +1448,9 @@ function openCheckout(){
        updateCheckoutTotals();
        return true;
      })
-     .catch(function(){
+     .catch(function(error){
        resetDeliveryCalculation();
-       setDeliveryStatus('We could not locate this address. Please correct it and try again.', 'error');
+       setDeliveryStatus(error.message === 'Delivery distance service is not configured' ? 'Delivery distance service is not configured yet. Please try again later.' : (error.message || 'We could not find a drivable route for this address.'), 'error');
        return false;
      })
      .finally(function(){ button.disabled = false; });
