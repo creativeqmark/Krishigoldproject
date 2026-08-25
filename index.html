@@ -320,17 +320,23 @@ section{position:relative}
 .explore-products .prod-list::-webkit-scrollbar{height:7px}.explore-products .prod-list::-webkit-scrollbar-thumb{background:var(--golddeep);border-radius:99px}
 .explore-products .prod-card{flex:0 0 min(340px,86vw);scroll-snap-align:start;cursor:pointer}
 .explore-products .prod-card:hover{transform:translateY(-3px)}
-.oil-flow{position:relative;margin:42px -2vw 0;padding:54px clamp(22px,5vw,72px) 62px;overflow:hidden;background:var(--green);color:#f6f1da;clip-path:ellipse(78% 70% at 50% 48%)}
-.oil-flow::before{content:'';position:absolute;inset:18px -8% auto;height:45%;background:var(--gold);border-radius:48% 52% 40% 60%;transform:rotate(-3deg);opacity:.95}
-.oil-flow::after{content:'';position:absolute;left:8%;right:12%;top:36px;height:22px;border-radius:50%;background:rgba(255,244,185,.55);filter:blur(5px);transform:rotate(-4deg)}
-.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:44px;height:44px;margin:0 auto 9px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;color:var(--gold2)}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:#c9d6c4;font-size:.68rem;margin-top:4px}
+.oil-flow{position:relative;margin:42px -2vw 0;padding:42px clamp(22px,5vw,72px);overflow:hidden;background:var(--cream2);color:var(--green);border:1px solid var(--line);border-radius:24px}
+.oil-flow::before,.oil-flow::after{display:none}
+.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:44px;height:44px;margin:0 auto 9px;display:grid;place-items:center;border:1px solid rgba(14,59,43,.25);border-radius:50%;color:var(--golddeep)}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:var(--muted);font-size:.68rem;margin-top:4px}
 .wa-icon{width:18px!important;height:18px!important;flex:none;display:block}
 .contact-card[data-testid="contact-whatsapp-card"] .cc-icon svg{width:24px;height:24px}
 .cart-item .ci-img img{width:52px;height:78px;object-fit:contain;filter:drop-shadow(0 5px 7px rgba(90,50,0,.2));user-select:none;-webkit-user-drag:none}
 .product-sticker{min-height:112px;margin:34px -10vw -40px;display:flex;justify-content:flex-end;align-items:flex-end;padding:0 8% 0 0;position:relative}
 .product-sticker::before{content:'PURE • NATURAL • TRUSTED';color:var(--green);font-size:.68rem;font-weight:800;letter-spacing:.2em;border:1px solid rgba(217,146,10,.38);border-radius:999px;padding:9px 14px;transform:rotate(-6deg);background:rgba(255,253,244,.7)}
-.creative-oil-visual{margin:38px 0 0;border-radius:24px;overflow:hidden;background:var(--paper);border:1px solid rgba(227,219,192,.8);box-shadow:var(--shadow-sm)}
-.creative-oil-visual img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover;object-position:center}
+.creative-oil-visual{margin:38px 0 0;padding:28px clamp(18px,4vw,54px);border-radius:28px;overflow:hidden;background:var(--green);box-shadow:0 18px 38px rgba(10,44,32,.22)}
+.creative-oil-visual img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;object-position:center}
+.wholesale-option{margin-top:24px;padding:26px;background:var(--green);border-radius:22px;color:#f6f1da;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:var(--shadow)}
+.wholesale-option h3{font-size:1.35rem;margin-bottom:8px;color:#f6f1da}
+.wholesale-option p{color:#c9d6c4;font-size:.88rem;line-height:1.6;max-width:58ch}
+.wholesale-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;flex:none}
+.wholesale-controls label{font-size:.78rem;font-weight:800;color:#f6f1da}
+.wholesale-controls input{width:92px;padding:11px 12px;border:2px solid var(--gold);border-radius:10px;background:var(--paper);color:var(--ink);font-weight:800}
+.wholesale-total{font-weight:800;color:var(--gold2);font-size:.9rem;min-width:108px}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .modal-head h3{color:var(--green);font-size:1.35rem}
 .modal-close{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--green);background:rgba(14,59,43,.08)}
@@ -402,7 +408,9 @@ section{position:relative}
   .product-sticker{margin-left:-30px;margin-right:-30px;padding-right:18px}
   .about-creative{margin-top:20px}
   .creative-oil-visual{margin-left:-4vw;margin-right:-4vw;border-radius:18px}
-  .creative-oil-visual img{min-height:150px;object-fit:cover}
+  .creative-oil-visual img{min-height:150px;object-fit:contain}
+  .wholesale-option{align-items:stretch;flex-direction:column}
+  .wholesale-controls{justify-content:flex-start}
   .oil-flow{margin-left:-6vw;margin-right:-6vw;clip-path:ellipse(100% 70% at 50% 48%);padding-top:50px;padding-bottom:58px}
   .oil-highlights{grid-template-columns:repeat(2,1fr);gap:18px 10px}
 }
@@ -543,8 +551,9 @@ section{position:relative}
     <ellipse cx="110" cy="104" rx="30" ry="4" fill="#fff" opacity=".35"/>
     <g fill="#5d2f18"><circle cx="20" cy="150" r="4"/><circle cx="40" cy="160" r="3.4"/><circle cx="230" cy="152" r="4"/><circle cx="212" cy="162" r="3.4"/><circle cx="60" cy="168" r="3"/><circle cx="196" cy="170" r="3"/></g>
   </symbol>
-  <symbol id="whatsappIcon" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 14.99L2 22l5.18-1.32A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.93 12l-.28.48.67 2.45-2.51-.64-.46.27A8 8 0 1 1 12 4Zm-3.26 3.4c-.2 0-.52.08-.79.38-.27.3-1.03 1-1.03 2.45s1.06 2.84 1.2 3.04c.15.2 2.07 3.16 5.02 4.43.7.3 1.25.48 1.68.61.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57Z"/>
+  <symbol id="whatsappIcon" viewBox="0 0 448 512">
+    <!-- Official WhatsApp brand mark path, used consistently for every WhatsApp action. -->
+    <path fill="currentColor" d="M380.9 97.1C339-44.9 184.6-17.9 108.8 37.8 33 93.5 4.8 193.4 38.2 280.5L0 416l139.5-36.6c83.1 45.3 184.8 30.1 250.8-35.7 66-65.8 82.4-166.5 40.6-246.6zM224.1 370.1c-29.7 0-58.8-7.9-84.2-22.8l-5.9-3.5-82.8 21.7 22.1-80.7-3.8-6.2c-17.2-27.5-26.3-59.2-26.3-91.8 0-95.7 77.9-173.6 173.7-173.6 46.4 0 90 18.1 122.8 50.9s50.8 76.4 50.8 122.8c-.1 95.7-77.9 173.2-166.4 173.2zm95.1-130.2c-5.2-2.6-30.9-15.2-35.7-16.9-4.8-1.7-8.3-2.6-11.8 2.6-3.5 5.2-13.5 16.9-16.6 20.4-3 3.5-6.1 3.9-11.3 1.3-5.2-2.6-22-8.1-41.9-25.8-15.5-13.8-26-30.8-29-36-3-5.2-.3-8 2.3-10.6 2.4-2.4 5.2-6.1 7.8-9.1 2.6-3 3.5-5.2 5.2-8.7 1.7-3.5.9-6.5-.4-9.1-1.3-2.6-11.8-28.3-16.2-38.8-4.3-10.2-8.7-8.8-11.8-9-3-.2-6.5-.2-10-.2s-9.1 1.3-13.9 6.5c-4.8 5.2-18.2 17.8-18.2 43.5s18.6 50.4 21.2 53.9c2.6 3.5 36.6 55.9 88.7 78.4 12.4 5.4 22.1 8.6 29.7 11 12.5 4 23.9 3.4 32.9 2.1 10-1.5 30.9-12.6 35.3-24.8 4.3-12.2 4.3-22.6 3-24.8-1.3-2.2-4.8-3.5-10-6.1z"/>
   </symbol>
 </defs>
 </svg>
@@ -794,6 +803,18 @@ section{position:relative}
       </article>
 
     </div>
+    <div class="wholesale-option" data-testid="wholesale-loose-oil-option">
+      <div>
+        <h3>Wholesale / Loose Oil</h3>
+        <p>Bulk mustard oil without bottles or retail packaging. ₹210 per litre · minimum order 6 litres.</p>
+      </div>
+      <div class="wholesale-controls">
+        <label for="wholesaleQty">Litres</label>
+        <input id="wholesaleQty" type="number" min="6" step="1" value="6" data-testid="wholesale-quantity">
+        <span class="wholesale-total" id="wholesaleTotal">₹1,260</span>
+        <button class="btn btn-gold" id="addWholesale" type="button" data-testid="add-wholesale-to-cart">Add to Cart</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -969,7 +990,7 @@ section{position:relative}
     <div class="totals-row"><span data-i18n data-en="Subtotal" data-hi="उप-योग">Subtotal</span><span id="cartSubtotal" data-testid="cart-subtotal">₹0</span></div>
      <div class="totals-row"><span data-i18n data-en="Delivery" data-hi="डिलीवरी">Delivery</span><span id="cartDelivery" class="free" data-testid="cart-delivery">Calculated at checkout</span></div>
      <div class="totals-row grand"><span data-i18n data-en="Grand Total" data-hi="कुल">Grand Total</span><span id="cartTotal" data-testid="cart-total">₹0</span></div>
-    <button class="btn btn-green checkout-btn" id="checkoutBtn" data-testid="proceed-to-checkout-button"><span data-i18n data-en="Proceed to Checkout" data-hi="चेकआउट करें">Proceed to Checkout</span><span class="arr">→</span></button>
+     <button class="btn btn-green checkout-btn" id="checkoutBtn" data-testid="proceed-to-checkout-button"><span data-i18n data-en="Enter Delivery Address" data-hi="डिलीवरी पता दर्ज करें">Enter Delivery Address</span><span class="arr">→</span></button>
   </div>
 </aside>
 
@@ -1052,16 +1073,16 @@ section{position:relative}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
-    <div class="order-summary" id="checkoutSummary"></div>
     <form id="checkoutForm" class="form-2col" novalidate>
-      <div class="field"><label for="coName">Full Name *</label><input id="coName" data-testid="checkout-name" type="text" placeholder="Your full name"></div>
-      <div class="field"><label for="coPhone">Phone *</label><input id="coPhone" data-testid="checkout-phone" type="tel" maxlength="10" placeholder="10-digit mobile"></div>
-       <div class="field full"><label for="coAddress">Complete Address *</label><textarea id="coAddress" data-testid="checkout-address" placeholder="House no, street, area" style="min-height:70px"></textarea></div>
+      <div class="field full"><label for="coAddress">Delivery Address *</label><textarea id="coAddress" data-testid="checkout-address" placeholder="House no, street, area" style="min-height:70px"></textarea></div>
       <div class="field"><label for="coCity">City *</label><input id="coCity" data-testid="checkout-city" type="text" placeholder="City"></div>
       <div class="field"><label for="coState">State *</label><input id="coState" data-testid="checkout-state" type="text" placeholder="State"></div>
       <div class="field"><label for="coPincode">Pincode *</label><input id="coPincode" data-testid="checkout-pincode" type="tel" maxlength="6" placeholder="6-digit pincode"></div>
-       <div class="field"><label for="coLandmark">Landmark <small>(optional)</small></label><input id="coLandmark" data-testid="checkout-landmark" type="text" placeholder="Nearby landmark"></div>
-       <div class="field full distance-action"><button type="button" class="btn btn-green" id="calculateDistanceBtn" data-testid="calculate-delivery-button">Calculate delivery</button><span id="deliveryStatus" class="delivery-status" role="status" aria-live="polite">Enter your delivery address to calculate the driving distance.</span></div>
+      <div class="field"><label for="coLandmark">Landmark <small>(optional)</small></label><input id="coLandmark" data-testid="checkout-landmark" type="text" placeholder="Nearby landmark"></div>
+      <div class="field full distance-action"><button type="button" class="btn btn-green" id="calculateDistanceBtn" data-testid="calculate-delivery-button">Calculate delivery</button><span id="deliveryStatus" class="delivery-status" role="status" aria-live="polite">Enter your delivery address to calculate the driving distance.</span></div>
+      <div class="field"><label for="coName">Full Name *</label><input id="coName" data-testid="checkout-name" type="text" placeholder="Your full name"></div>
+      <div class="field"><label for="coPhone">Phone *</label><input id="coPhone" data-testid="checkout-phone" type="tel" maxlength="10" placeholder="10-digit mobile"></div>
+       <div class="field full"><div class="order-summary" id="checkoutSummary"></div></div>
       <div class="field full">
         <label style="margin-bottom:10px">Payment Method</label>
         <div class="pay-options">
@@ -1101,12 +1122,17 @@ section{position:relative}
 /* ---------- products ---------- */
 var DELIVERY_RATE = 25;
 var FREE_DELIVERY_DISTANCE = 2;
+var WHOLESALE_RATE = 210;
+var WHOLESALE_MIN_LITRES = 6;
 var DELIVERY_ORIGIN = 'Pipra, Madhepur, Madhubani, Bihar 847408, India';
-var DELIVERY_DISTANCE_ENDPOINT = '/api/delivery-distance';
+/* The server-side endpoint should use Google Maps Routes/Geocoding with its
+   secret stored in an environment variable; no Maps key belongs in this file. */
+var DELIVERY_DISTANCE_ENDPOINT = window.KRISHI_DELIVERY_DISTANCE_ENDPOINT || '/api/delivery-distance';
 var PRODUCTS = {
   p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', descriptionHi:'शुद्ध और प्राकृतिक रूप से समृद्ध सरसों तेल का सुविधाजनक पैक, तेज़ सुगंध और मुलायम स्वाद के साथ।', pack:'Pouch pack',packHi:'पाउच पैक'},
   p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', descriptionHi:'सावधानी से चुने सरसों के बीजों से बना परिवार के लिए उपयुक्त पैक, भरपूर स्वाद और भरोसेमंद गुणवत्ता के साथ।', pack:'Bottle pack',packHi:'बोतल पैक'},
-  p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'}
+   p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'},
+   wLoose:{id:'wLoose', name:'Wholesale Loose Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-oil-flow.png', gallery:['assets/krishi-gold-oil-flow.png'], description:'Loose mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में सरसों का तेल।', pack:'Loose bulk oil',packHi:'थोक खुला तेल'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
 
@@ -1150,7 +1176,7 @@ function setProductDetails(id){
  function openProduct(id, fromPopstate){
   var p = PRODUCTS[id]; if(!p) return;
   setProductDetails(id);
-  document.getElementById('exploreProductList').innerHTML = Object.keys(PRODUCTS).filter(function(k){ return k !== id; }).map(function(k){
+   document.getElementById('exploreProductList').innerHTML = Object.keys(PRODUCTS).filter(function(k){ return k !== id && !PRODUCTS[k].wholesale; }).map(function(k){
     var item = PRODUCTS[k];
     return '<article class="prod-card" data-explore="' + k + '"><div class="prod-img"><img class="product-photo" src="' + item.image + '" alt="' + item.name + ' ' + item.size + '"></div><div class="prod-info"><h3>' + item.name + '</h3><span class="size-chip">' + item.size + '</span><div class="prod-price">' + fmt(item.price) + ' <small>/ ' + (item.jar ? 'jar' : 'pack') + '</small></div></div></article>';
   }).join('');
@@ -1284,7 +1310,7 @@ cartBody.addEventListener('click', function(e){
   var t = e.target.closest('button');
   if(!t) return;
   if(t.dataset.inc){ cart[t.dataset.inc]++; }
-  else if(t.dataset.dec){ var k = t.dataset.dec; cart[k]--; if(cart[k] <= 0) delete cart[k]; }
+   else if(t.dataset.dec){ var k = t.dataset.dec; cart[k]--; if(k === 'wLoose' && cart[k] < WHOLESALE_MIN_LITRES) cart[k] = WHOLESALE_MIN_LITRES; if(cart[k] <= 0) delete cart[k]; }
   else if(t.dataset.remove){ delete cart[t.dataset.remove]; showToast('Item removed from cart'); }
   else return;
   saveCart(); renderCart();
@@ -1293,6 +1319,19 @@ cartBody.addEventListener('click', function(e){
 document.querySelectorAll('[data-add]').forEach(function(btn){
   btn.addEventListener('click', function(){ addToCart(btn.dataset.add); });
 });
+var wholesaleQtyInput = document.getElementById('wholesaleQty');
+var wholesaleTotal = document.getElementById('wholesaleTotal');
+function updateWholesaleTotal(){
+  var litres = Math.max(WHOLESALE_MIN_LITRES, Math.floor(Number(wholesaleQtyInput.value) || WHOLESALE_MIN_LITRES));
+  wholesaleQtyInput.value = litres;
+  wholesaleTotal.textContent = fmt(litres * WHOLESALE_RATE);
+}
+wholesaleQtyInput.addEventListener('input', updateWholesaleTotal);
+document.getElementById('addWholesale').addEventListener('click', function(){
+  updateWholesaleTotal();
+  addToCart('wLoose', Number(wholesaleQtyInput.value));
+});
+updateWholesaleTotal();
 
 function openCart(){ renderCart(); cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeCart(){ cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); document.body.style.overflow = ''; }
