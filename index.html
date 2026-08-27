@@ -255,6 +255,8 @@ section{position:relative}
 .cart-empty .ce-icon{width:80px;height:80px;margin:0 auto 18px;border-radius:50%;background:#efe7cb;display:grid;place-items:center;color:var(--golddeep)}
 .cart-item{display:flex;gap:14px;background:var(--paper);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow-sm);border:1px solid rgba(227,219,192,.8);align-items:center}
 .ci-img{flex:none;width:52px}
+.ci-bulk-mark{flex:none;width:52px;height:64px;border-radius:12px;background:var(--green);border:2px solid var(--gold);display:grid;place-items:center;align-content:center;color:var(--gold2);font-size:.64rem;font-weight:900;line-height:1.05;letter-spacing:.08em;text-align:center}
+.ci-bulk-mark span{font-size:.58rem;color:#f6f1da;letter-spacing:.18em}
 .ci-info{flex:1;min-width:0}
 .ci-info b{display:block;font-size:.85rem;color:var(--green);line-height:1.3}
 .ci-info .ci-size{font-size:.72rem;color:var(--muted);font-weight:700}
@@ -322,26 +324,26 @@ section{position:relative}
 .explore-products .prod-card:hover{transform:translateY(-3px)}
 .oil-flow{position:relative;margin:42px -2vw 0;padding:42px clamp(22px,5vw,72px);overflow:hidden;background:var(--cream2);color:var(--green);border:1px solid var(--line);border-radius:24px}
 .oil-flow::before,.oil-flow::after{display:none}
-.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:48px;height:48px;margin:0 auto 9px;display:grid;place-items:center;border:2px solid var(--green);border-radius:50%;color:var(--green)}.oil-highlight .oil-icon svg{width:26px;height:26px;display:block;stroke:currentColor;stroke-width:2.3;fill:none;stroke-linecap:round;stroke-linejoin:round}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:var(--muted);font-size:.68rem;margin-top:4px}
+.oil-flow>*{position:relative;z-index:1}.oil-flow h3{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:24px}.oil-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.oil-highlight{text-align:center}.oil-highlight .oil-icon{width:52px;height:52px;margin:0 auto 9px;display:grid;place-items:center;border:2px solid var(--green);border-radius:50%;color:var(--green)}.oil-highlight .oil-icon svg{width:27px;height:27px;display:block;stroke:currentColor;stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.oil-highlight b{display:block;font-size:.72rem;letter-spacing:.08em}.oil-highlight span{display:block;color:var(--muted);font-size:.68rem;margin-top:4px}
 .wa-icon{width:18px!important;height:18px!important;flex:none;display:block}
+.fs-wa .wa-icon{width:20px!important;height:20px!important}
 .contact-card[data-testid="contact-whatsapp-card"] .cc-icon svg{width:24px;height:24px}
 .cart-item .ci-img img{width:52px;height:78px;object-fit:contain;filter:drop-shadow(0 5px 7px rgba(90,50,0,.2));user-select:none;-webkit-user-drag:none}
 .product-sticker{min-height:112px;margin:34px -10vw -40px;display:flex;justify-content:flex-end;align-items:flex-end;padding:0 8% 0 0;position:relative}
 .product-sticker::before{content:'PURE • NATURAL • TRUSTED';color:var(--green);font-size:.68rem;font-weight:800;letter-spacing:.2em;border:1px solid rgba(217,146,10,.38);border-radius:999px;padding:9px 14px;transform:rotate(-6deg);background:rgba(255,253,244,.7)}
-.creative-oil-visual{margin:38px -10vw 0;border-radius:0;overflow:hidden;background:var(--green);box-shadow:0 18px 38px rgba(10,44,32,.22)}
-.creative-oil-visual img{display:block;width:100%;height:auto;min-height:260px;max-height:520px;object-fit:cover;object-position:center}
+.creative-oil-visual{width:100vw;margin:38px 0 0;margin-left:calc((100% - 100vw)/2);border-radius:0;overflow:hidden;background:var(--green);box-shadow:0 18px 38px rgba(10,44,32,.22)}
+.creative-oil-visual img{display:block;width:100%;height:auto;max-width:none;object-fit:contain;object-position:center}
 .wholesale-option{margin-top:24px;padding:26px;background:var(--green);border-radius:22px;color:#f6f1da;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;box-shadow:var(--shadow)}
-.wholesale-stickers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:24px}
+.wholesale-stickers{display:block;margin-bottom:24px}
 .wholesale-option .wholesale-stickers{grid-column:1/-1}
-.bulk-sticker{min-height:188px;border-radius:24px;overflow:hidden;filter:drop-shadow(0 12px 12px rgba(9,48,34,.2));transform:rotate(-1.2deg)}
-.bulk-sticker:nth-child(2){transform:rotate(1.2deg)}
-.bulk-sticker svg{display:block;width:100%;height:100%;min-height:188px}
+.bulk-image{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:16px;box-shadow:0 12px 24px rgba(4,27,19,.24)}
 .wholesale-option h3{font-size:1.35rem;margin-bottom:8px;color:#f6f1da}
 .wholesale-option p{color:#c9d6c4;font-size:.88rem;line-height:1.6;max-width:58ch}
 .wholesale-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;flex:none}
 .wholesale-controls label{font-size:.78rem;font-weight:800;color:#f6f1da}
 .wholesale-controls input{width:92px;padding:11px 12px;border:2px solid var(--gold);border-radius:10px;background:var(--paper);color:var(--ink);font-weight:800}
 .wholesale-total{font-weight:800;color:var(--gold2);font-size:.9rem;min-width:108px}.wholesale-error{display:block;flex-basis:100%;color:#ffd8c9;font-size:.76rem;font-weight:800;min-height:1.1em}
+.add-btn:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .modal-head h3{color:var(--green);font-size:1.35rem}
 .modal-close{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--green);background:rgba(14,59,43,.08)}
@@ -358,6 +360,11 @@ section{position:relative}
 .delivery-status{font-size:.78rem;line-height:1.45;color:var(--muted);margin:-6px 0 16px}
 .delivery-status.is-error{color:#a33b2a}
 .delivery-status.is-success{color:#14843f}
+.suggestions{position:relative}
+.suggestion-list{position:absolute;left:0;right:0;top:calc(100% + 5px);z-index:8;display:none;max-height:210px;overflow-y:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:5px}
+.suggestion-list.open{display:block}
+.suggestion-list button{display:block;width:100%;padding:10px 12px;text-align:left;color:var(--green);font-size:.78rem;line-height:1.4;border-radius:8px}
+.suggestion-list button:hover,.suggestion-list button:focus{background:#fff3c6;outline:none}
 .distance-action{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-2px 0 4px}
 .distance-action .btn{padding:10px 16px;font-size:.8rem}
 .place-order-btn{width:100%;justify-content:center;font-size:1rem;padding:16px}
@@ -412,9 +419,9 @@ section{position:relative}
   .detail-actions .add-btn,.detail-actions .btn,.detail-actions .share-btn,.detail-actions .wa-btn{width:100%;justify-content:center}
   .product-sticker{margin-left:-30px;margin-right:-30px;padding-right:18px}
   .about-creative{margin-top:20px}
-  .creative-oil-visual{margin-left:-8vw;margin-right:-8vw;border-radius:0}
-  .creative-oil-visual img{min-height:180px;max-height:300px;object-fit:cover}
-  .wholesale-stickers{grid-template-columns:1fr;gap:14px}
+  .creative-oil-visual{width:100vw;margin-left:calc((100% - 100vw)/2);border-radius:0}
+  .creative-oil-visual img{width:100%;max-height:none;object-fit:contain}
+  .bulk-image{border-radius:12px}
   .wholesale-option{display:block}
   .wholesale-controls{justify-content:flex-start}
   .oil-flow{margin-left:-6vw;margin-right:-6vw;clip-path:ellipse(100% 70% at 50% 48%);padding-top:50px;padding-bottom:58px}
@@ -810,26 +817,8 @@ section{position:relative}
 
     </div>
     <div class="wholesale-option" data-testid="wholesale-loose-oil-option">
-      <div class="wholesale-stickers" aria-label="Krishi Gold bulk wholesale visuals">
-        <div class="bulk-sticker" aria-hidden="true">
-          <svg viewBox="0 0 520 230" role="img">
-            <defs><linearGradient id="bulkBgA" x1="0" x2="1"><stop stop-color="#0e3b2b"/><stop offset="1" stop-color="#1f6848"/></linearGradient><linearGradient id="bulkOilA" x1="0" x2="1"><stop stop-color="#f7cf48"/><stop offset="1" stop-color="#bf7807"/></linearGradient></defs>
-            <rect width="520" height="230" rx="28" fill="url(#bulkBgA)"/><path d="M24 190Q150 116 280 175T500 122v84H24z" fill="#d99516" opacity=".2"/>
-            <path d="M326 32h126v112H326z" fill="#ead9a4" opacity=".18" stroke="#f2c94c" stroke-width="3"/><path d="M342 48h94v80h-94z" fill="#0e3b2b" stroke="#f2c94c" stroke-width="2"/>
-            <path d="M389 62c-18 20-21 35 0 47 21-12 18-27 0-47z" fill="none" stroke="#f2c94c" stroke-width="3"/><path d="M389 73v27M389 83l-9-7M389 91l10-8" stroke="#f2c94c" stroke-width="2" fill="none"/>
-            <text x="389" y="119" text-anchor="middle" fill="#f2c94c" font-size="10" font-weight="800" letter-spacing="2">KRISHI GOLD</text>
-            <text x="32" y="62" fill="#f7f1da" font-size="14" font-weight="800" letter-spacing="4">KRISHI GOLD</text><text x="32" y="111" fill="#f7f1da" font-size="33" font-weight="900" letter-spacing="2">BULK OIL</text><text x="34" y="141" fill="#f2c94c" font-size="15" font-weight="800" letter-spacing="3">WHOLESALE MUSTARD OIL</text><path d="M34 162h180" stroke="#f2c94c" stroke-width="2"/><text x="34" y="188" fill="#f7f1da" font-size="13" font-weight="700">PURE • RICH • CONSISTENT</text>
-            <circle cx="276" cy="177" r="28" fill="url(#bulkOilA)"/><text x="276" y="174" text-anchor="middle" fill="#0e3b2b" font-size="11" font-weight="900">₹210</text><text x="276" y="188" text-anchor="middle" fill="#0e3b2b" font-size="9" font-weight="800">PER LITRE</text>
-          </svg>
-        </div>
-        <div class="bulk-sticker" aria-hidden="true">
-          <svg viewBox="0 0 520 230" role="img">
-            <defs><linearGradient id="bulkBgB" x1="0" x2="1"><stop stop-color="#f6efd6"/><stop offset="1" stop-color="#ead9a4"/></linearGradient><linearGradient id="bulkOilB" x1="0" x2="1"><stop stop-color="#f7cf48"/><stop offset="1" stop-color="#a95d05"/></linearGradient></defs>
-            <rect width="520" height="230" rx="28" fill="url(#bulkBgB)"/><circle cx="412" cy="111" r="83" fill="#0e3b2b"/><circle cx="412" cy="111" r="67" fill="none" stroke="#f2c94c" stroke-width="2" stroke-dasharray="3 6"/>
-            <path d="M412 45c-20 22-24 41 0 58 24-17 20-36 0-58z" fill="none" stroke="#f2c94c" stroke-width="4"/><path d="M412 61v38M412 76l-13-10M412 87l14-11" stroke="#f2c94c" stroke-width="3" fill="none"/><text x="412" y="128" text-anchor="middle" fill="#f7f1da" font-size="13" font-weight="900" letter-spacing="3">KRISHI</text><text x="412" y="147" text-anchor="middle" fill="#f2c94c" font-size="13" font-weight="900" letter-spacing="3">GOLD</text>
-            <text x="30" y="52" fill="#0e3b2b" font-size="14" font-weight="900" letter-spacing="3">THE BULK CHOICE</text><text x="30" y="98" fill="#0e3b2b" font-size="31" font-weight="900">MUSTARD OIL</text><text x="32" y="127" fill="#7c5a14" font-size="15" font-weight="800" letter-spacing="2">LOOSE • WHOLESALE</text><path d="M32 148h168" stroke="#d99516" stroke-width="4"/><text x="32" y="180" fill="#0e3b2b" font-size="13" font-weight="800">MINIMUM 6 LITRES</text><text x="32" y="202" fill="#7c5a14" font-size="12" font-weight="700">FOR KITCHENS, CATERERS &amp; TRADE</text><path d="M270 191c15-31 36-32 50 0" fill="none" stroke="url(#bulkOilB)" stroke-width="9" stroke-linecap="round"/>
-          </svg>
-        </div>
+      <div class="wholesale-stickers" aria-label="Krishi Gold bulk wholesale visual">
+        <img class="bulk-image" src="assets/krishi-gold-bulk-oil.png" alt="Krishi Gold bulk mustard oil in a large wholesale container" data-testid="wholesale-bulk-image">
       </div>
       <div>
         <h3>Wholesale / Loose Oil</h3>
@@ -1102,10 +1091,11 @@ section{position:relative}
       </button>
     </div>
     <form id="checkoutForm" class="form-2col" novalidate>
-      <div class="field full"><label for="coAddress">Delivery Address *</label><textarea id="coAddress" data-testid="checkout-address" placeholder="House no, street, area" style="min-height:70px"></textarea></div>
-      <div class="field"><label for="coCity">City *</label><input id="coCity" data-testid="checkout-city" type="text" placeholder="City"></div>
-      <div class="field"><label for="coState">State *</label><input id="coState" data-testid="checkout-state" type="text" placeholder="State"></div>
-      <div class="field"><label for="coPincode">Pincode *</label><input id="coPincode" data-testid="checkout-pincode" type="tel" maxlength="6" placeholder="6-digit pincode"></div>
+      <div class="field"><label for="coCountry">Country *</label><select id="coCountry" data-testid="checkout-country"><option value="India" selected>India</option></select></div>
+      <div class="field"><label for="coState">State *</label><select id="coState" data-testid="checkout-state"><option value="">Select State</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select></div>
+      <div class="field"><label for="coPincode">Pincode *</label><input id="coPincode" data-testid="checkout-pincode" type="tel" inputmode="numeric" maxlength="6" placeholder="6-digit pincode"></div>
+      <div class="field"><label for="coCity">City / Locality *</label><select id="coCity" data-testid="checkout-city" disabled><option value="">Enter PIN code first</option></select></div>
+      <div class="field full"><label for="coAddress">Complete Delivery Address *</label><div class="suggestions"><textarea id="coAddress" data-testid="checkout-address" placeholder="House no, street, area" autocomplete="street-address" style="min-height:70px"></textarea><div class="suggestion-list" id="addressSuggestions" role="listbox" aria-label="Address suggestions"></div></div></div>
       <div class="field"><label for="coLandmark">Landmark <small>(optional)</small></label><input id="coLandmark" data-testid="checkout-landmark" type="text" placeholder="Nearby landmark"></div>
       <div class="field full distance-action"><button type="button" class="btn btn-green" id="calculateDistanceBtn" data-testid="calculate-delivery-button">Calculate delivery</button><span id="deliveryStatus" class="delivery-status" role="status" aria-live="polite">Enter your delivery address to calculate the driving distance.</span></div>
       <div class="field"><label for="coName">Full Name *</label><input id="coName" data-testid="checkout-name" type="text" placeholder="Your full name"></div>
@@ -1156,11 +1146,13 @@ var DELIVERY_ORIGIN = 'Pipra, Madhepur, Madhubani, Bihar 847408, India';
 /* The server-side endpoint should use Google Maps Routes/Geocoding with its
    secret stored in an environment variable; no Maps key belongs in this file. */
 var DELIVERY_DISTANCE_ENDPOINT = window.KRISHI_DELIVERY_DISTANCE_ENDPOINT || '/api/delivery-distance';
+var PINCODE_ENDPOINT = window.KRISHI_PINCODE_ENDPOINT || '/api/pincode/';
+var ADDRESS_SUGGESTIONS_ENDPOINT = window.KRISHI_ADDRESS_SUGGESTIONS_ENDPOINT || '/api/address-suggestions?q=';
 var PRODUCTS = {
   p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', descriptionHi:'शुद्ध और प्राकृतिक रूप से समृद्ध सरसों तेल का सुविधाजनक पैक, तेज़ सुगंध और मुलायम स्वाद के साथ।', pack:'Pouch pack',packHi:'पाउच पैक'},
   p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', descriptionHi:'सावधानी से चुने सरसों के बीजों से बना परिवार के लिए उपयुक्त पैक, भरपूर स्वाद और भरोसेमंद गुणवत्ता के साथ।', pack:'Bottle pack',packHi:'बोतल पैक'},
    p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'},
-   wLoose:{id:'wLoose', name:'Wholesale Loose Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-mark.png', gallery:['assets/krishi-gold-mark.png'], description:'Loose mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में सरसों का तेल।', pack:'Loose bulk oil',packHi:'थोक खुला तेल'}
+    wLoose:{id:'wLoose', name:'Krishi Gold Bulk Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-bulk-oil.png', gallery:['assets/krishi-gold-bulk-oil.png'], description:'Pure mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में शुद्ध सरसों का तेल।', pack:'Bulk oil · sold by litre',packHi:'थोक तेल · लीटर के हिसाब से'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
 
@@ -1265,6 +1257,10 @@ document.getElementById('productShare').addEventListener('click', function(){
 /* ---------- cart state ---------- */
 var cart = {};
 try { cart = JSON.parse(localStorage.getItem('kg_cart') || '{}') || {}; } catch(e){ cart = {}; }
+Object.keys(cart).forEach(function(k){
+  if(!PRODUCTS[k] || !Number.isInteger(cart[k]) || cart[k] <= 0) delete cart[k];
+  else if(PRODUCTS[k].wholesale && cart[k] < WHOLESALE_MIN_LITRES) cart[k] = WHOLESALE_MIN_LITRES;
+});
 var deliveryState = { distanceKm:null, charge:0, ready:false };
 function calculateDeliveryCharge(distanceKm){
   return Math.max(0, distanceKm - FREE_DELIVERY_DISTANCE) * DELIVERY_RATE;
@@ -1303,12 +1299,16 @@ function renderCart(){
   var html = '';
   keys.forEach(function(k){
     var p = PRODUCTS[k], q = cart[k];
-    var sym = p.jar ? 'oilJar' : 'oilBottle';
-    var vb = p.jar ? '0 0 220 250' : '0 0 160 290';
+     var media = p.wholesale
+       ? '<div class="ci-bulk-mark" aria-label="Bulk oil, no bottle packaging">BULK<br><span>OIL</span></div>'
+       : '<div class="ci-img"><img src="' + p.image + '" alt="' + p.name + ' ' + p.size + '"></div>';
+      var quantityLabel = p.wholesale ? 'Quantity' : 'Pack size';
+      var sizeLabel = p.wholesale ? q + ' litres' : p.size;
+     var unitLabel = p.wholesale ? '/ litre' : (p.jar ? '/ jar' : '/ pack');
     html += '<div class="cart-item" data-testid="cart-item-' + k + '">' +
-       '<div class="ci-img"><img src="' + p.image + '" alt="' + p.name + ' ' + p.size + '"></div>' +
-       '<div class="ci-info"><b>' + p.name + '</b><span class="ci-size">Pack size: ' + p.size + '</span>' +
-        '<div class="ci-price">Unit: ' + fmt(p.price) + ' · Subtotal: ' + fmt(p.price * q) + '</div></div>' +
+        media +
+         '<div class="ci-info"><b>' + p.name + '</b><span class="ci-size">' + quantityLabel + ': ' + sizeLabel + '</span>' +
+         '<div class="ci-price">Unit: ' + fmt(p.price) + ' ' + unitLabel + ' · Subtotal: ' + fmt(p.price * q) + '</div></div>' +
       '<div class="ci-controls">' +
         '<div class="qty-ctrl">' +
           '<button data-dec="' + k + '" data-testid="qty-decrease-' + k + '" aria-label="Decrease">−</button>' +
@@ -1329,6 +1329,10 @@ function renderCart(){
  function addToCart(id, quantity){
   if(!PRODUCTS[id]) return;
    quantity = quantity || 1;
+    if(PRODUCTS[id].wholesale && (!Number.isInteger(quantity) || quantity < WHOLESALE_MIN_LITRES)){
+      showToast('Minimum order is 6 litres');
+      return;
+    }
    cart[id] = (cart[id] || 0) + quantity;
   saveCart(); renderCart();
    showToast(PRODUCTS[id].size + ' × ' + quantity + ' added to cart');
@@ -1354,7 +1358,7 @@ function updateWholesaleTotal(){
   var litres = Number(raw);
   var valid = raw !== '' && Number.isInteger(litres) && litres >= WHOLESALE_MIN_LITRES;
   wholesaleTotal.textContent = valid ? fmt(litres * WHOLESALE_RATE) : '₹—';
-  document.getElementById('wholesaleError').textContent = raw !== '' && (!Number.isInteger(litres) || litres < WHOLESALE_MIN_LITRES) ? 'Minimum wholesale order is 6 litres.' : '';
+   document.getElementById('wholesaleError').textContent = raw !== '' && (!Number.isInteger(litres) || litres < WHOLESALE_MIN_LITRES) ? 'Minimum order is 6 litres' : '';
   document.getElementById('addWholesale').disabled = !valid;
   return valid;
 }
@@ -1404,65 +1408,183 @@ function openCheckout(){
   checkoutOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
- function deliveryAddress(){
-   var landmark = document.getElementById('coLandmark').value.trim();
-   return [document.getElementById('coAddress').value.trim(), landmark, document.getElementById('coCity').value.trim(), document.getElementById('coState').value.trim(), document.getElementById('coPincode').value.trim(), 'India'].filter(Boolean).join(', ');
- }
- function setDeliveryStatus(message, kind){
-   var el = document.getElementById('deliveryStatus');
-   el.textContent = message;
-   el.className = 'delivery-status' + (kind ? ' is-' + kind : '');
- }
- function updateCheckoutTotals(){
-   var charge = deliveryState.ready ? deliveryState.charge : 0;
-   var distanceRow = document.querySelector('[data-testid="checkout-delivery-distance"] span:last-child');
-   var chargeEl = document.getElementById('checkoutDeliveryCharge');
-   var totalEl = document.getElementById('checkoutGrandTotal');
-   if(distanceRow) distanceRow.textContent = deliveryState.ready ? deliveryState.distanceKm.toFixed(1) + ' km' : 'Not calculated';
-   if(chargeEl) chargeEl.textContent = deliveryLabel();
-   if(totalEl) totalEl.textContent = fmt(cartSubtotal() + charge);
-   renderCart();
- }
- function resetDeliveryCalculation(){
-   deliveryState = {distanceKm:null, charge:0, ready:false};
-   updateCheckoutTotals();
- }
- var deliveryTimer;
- function calculateDelivery(){
-   var address = deliveryAddress();
-   var pincode = document.getElementById('coPincode').value.trim();
-   if(!document.getElementById('coAddress').value.trim() || !document.getElementById('coCity').value.trim() || !document.getElementById('coState').value.trim() || !/^\d{6}$/.test(pincode)){
-     setDeliveryStatus('Complete the address, city, state and 6-digit PIN code first.', 'error');
-     return Promise.resolve(false);
-   }
-   setDeliveryStatus('Calculating driving distance…');
-   var button = document.getElementById('calculateDistanceBtn');
-   button.disabled = true;
-   return fetch(DELIVERY_DISTANCE_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({origin:DELIVERY_ORIGIN, destination:address})})
-     .then(function(response){ return response.json().then(function(data){ if(!response.ok) throw new Error(data.error || 'Distance service unavailable'); return data; }); })
-     .then(function(data){
-       var distance = Number(data.distanceKm);
-       if(!Number.isFinite(distance) || distance < 0) throw new Error('Address could not be geocoded');
-       deliveryState = {distanceKm:distance, charge:calculateDeliveryCharge(distance), ready:true};
-       setDeliveryStatus((distance <= FREE_DELIVERY_DISTANCE ? 'Free delivery' : fmt(deliveryState.charge) + ' delivery') + ' · ' + distance.toFixed(1) + ' km driving distance.', 'success');
-       updateCheckoutTotals();
-       return true;
-     })
-     .catch(function(error){
-       resetDeliveryCalculation();
-       setDeliveryStatus(error.message === 'Delivery distance service is not configured' ? 'Delivery distance service is not configured yet. Please try again later.' : (error.message || 'We could not find a drivable route for this address.'), 'error');
-       return false;
-     })
-     .finally(function(){ button.disabled = false; });
- }
- document.getElementById('calculateDistanceBtn').addEventListener('click', calculateDelivery);
- ['coAddress','coCity','coState','coPincode','coLandmark'].forEach(function(id){
-   document.getElementById(id).addEventListener('input', function(){
-     resetDeliveryCalculation();
-     clearTimeout(deliveryTimer);
-     deliveryTimer = setTimeout(calculateDelivery, 700);
-   });
- });
+  function deliveryAddress(){
+    var landmark = document.getElementById('coLandmark').value.trim();
+    return [
+      document.getElementById('coAddress').value.trim(),
+      landmark,
+      document.getElementById('coCity').value.trim(),
+      document.getElementById('coState').value.trim(),
+      document.getElementById('coPincode').value.trim(),
+      document.getElementById('coCountry').value.trim()
+    ].filter(Boolean).join(', ');
+  }
+  function setDeliveryStatus(message, kind){
+    var el = document.getElementById('deliveryStatus');
+    el.textContent = message;
+    el.className = 'delivery-status' + (kind ? ' is-' + kind : '');
+  }
+  function updateCheckoutTotals(){
+    var charge = deliveryState.ready ? deliveryState.charge : 0;
+    var distanceRow = document.querySelector('[data-testid="checkout-delivery-distance"] span:last-child');
+    var chargeEl = document.getElementById('checkoutDeliveryCharge');
+    var totalEl = document.getElementById('checkoutGrandTotal');
+    if(distanceRow) distanceRow.textContent = deliveryState.ready ? deliveryState.distanceKm.toFixed(1) + ' km' : 'Not calculated';
+    if(chargeEl) chargeEl.textContent = deliveryLabel();
+    if(totalEl) totalEl.textContent = fmt(cartSubtotal() + charge);
+    renderCart();
+  }
+  function resetDeliveryCalculation(){
+    deliveryState = {distanceKm:null, charge:0, ready:false};
+    updateCheckoutTotals();
+  }
+  function setStateValue(value){
+    var state = document.getElementById('coState');
+    var match = Array.prototype.find.call(state.options, function(option){ return option.value.toLowerCase() === String(value || '').toLowerCase(); });
+    if(match) state.value = match.value;
+  }
+  function setCityOptions(suggestions, preferredCity){
+    var city = document.getElementById('coCity');
+    city.innerHTML = '';
+    if(!suggestions.length){
+      city.disabled = true;
+      city.innerHTML = '<option value="">Enter PIN code first</option>';
+      return;
+    }
+    city.disabled = false;
+    city.appendChild(new Option('Select city / locality', ''));
+    suggestions.forEach(function(item){
+      var option = new Option(item.label || item.city, item.city || item.label);
+      option.dataset.district = item.district || '';
+      option.dataset.state = item.state || '';
+      option.dataset.pincode = item.pincode || '';
+      city.appendChild(option);
+    });
+    var desired = preferredCity && suggestions.find(function(item){ return String(item.city).toLowerCase() === String(preferredCity).toLowerCase(); });
+    if(desired) city.value = desired.city;
+    else if(suggestions.length === 1) city.value = suggestions[0].city;
+  }
+  var pincodeRequest = 0;
+  function fetchPincodeSuggestions(pincode, preferredCity){
+    var requestId = ++pincodeRequest;
+    if(!/^\d{6}$/.test(pincode)){
+      setCityOptions([]);
+      return Promise.resolve([]);
+    }
+    setDeliveryStatus('Finding cities and localities for this PIN code…');
+    return fetch(PINCODE_ENDPOINT + encodeURIComponent(pincode))
+      .then(function(response){ return response.text().then(function(text){ var data; try { data = JSON.parse(text); } catch(e){ throw new Error('Pincode service returned an invalid response'); } if(!response.ok) throw new Error(data.error || 'Pincode lookup failed'); return data; }); })
+      .then(function(data){
+        if(requestId !== pincodeRequest) return [];
+        var suggestions = Array.isArray(data.suggestions) ? data.suggestions : [];
+        setCityOptions(suggestions, preferredCity);
+        if(suggestions[0] && suggestions[0].state) setStateValue(suggestions[0].state);
+        setDeliveryStatus(suggestions.length === 1 ? 'City / locality found. Confirm your address, then calculate delivery.' : 'Choose your city / locality, then confirm your address.');
+        return suggestions;
+      })
+      .catch(function(error){
+        if(requestId !== pincodeRequest) return [];
+        setCityOptions([]);
+        setDeliveryStatus(error.message || 'We could not find a locality for this PIN code.', 'error');
+        return [];
+      });
+  }
+  var addressSuggestionTimer;
+  var addressSuggestionRequest = 0;
+  var addressSuggestionItems = [];
+  var addressInput = document.getElementById('coAddress');
+  var addressSuggestionList = document.getElementById('addressSuggestions');
+  function closeAddressSuggestions(){
+    addressSuggestionList.classList.remove('open');
+    addressSuggestionList.innerHTML = '';
+    addressSuggestionItems = [];
+  }
+  function showAddressSuggestions(items){
+    addressSuggestionItems = items;
+    addressSuggestionList.innerHTML = '';
+    items.forEach(function(item, index){
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.suggestionIndex = index;
+      button.setAttribute('role', 'option');
+      button.textContent = item.label;
+      addressSuggestionList.appendChild(button);
+    });
+    addressSuggestionList.classList.toggle('open', items.length > 0);
+  }
+  function fetchAddressSuggestions(query){
+    var requestId = ++addressSuggestionRequest;
+    if(query.length < 3){ closeAddressSuggestions(); return; }
+    fetch(ADDRESS_SUGGESTIONS_ENDPOINT + encodeURIComponent(query))
+      .then(function(response){ return response.text().then(function(text){ var data; try { data = JSON.parse(text); } catch(e){ throw new Error('Address suggestions returned an invalid response'); } if(!response.ok) throw new Error(data.error || 'Address suggestions unavailable'); return data; }); })
+      .then(function(data){ if(requestId === addressSuggestionRequest) showAddressSuggestions(Array.isArray(data.suggestions) ? data.suggestions : []); })
+      .catch(function(){ if(requestId === addressSuggestionRequest) closeAddressSuggestions(); });
+  }
+  function applyAddressSuggestion(item){
+    addressInput.value = item.address || item.label || '';
+    setStateValue(item.state);
+    closeAddressSuggestions();
+    resetDeliveryCalculation();
+    if(item.pincode){
+      document.getElementById('coPincode').value = item.pincode;
+      fetchPincodeSuggestions(item.pincode, item.city);
+    } else if(item.city){
+      setCityOptions([{label:item.city, city:item.city, district:item.district, state:item.state}], item.city);
+    }
+  }
+  addressSuggestionList.addEventListener('click', function(event){
+    var button = event.target.closest('[data-suggestion-index]');
+    if(button) applyAddressSuggestion(addressSuggestionItems[Number(button.dataset.suggestionIndex)]);
+  });
+  addressInput.addEventListener('input', function(){
+    resetDeliveryCalculation();
+    clearTimeout(addressSuggestionTimer);
+    var query = addressInput.value.trim();
+    addressSuggestionTimer = setTimeout(function(){ fetchAddressSuggestions(query); }, 350);
+  });
+  addressInput.addEventListener('blur', function(){ setTimeout(closeAddressSuggestions, 180); });
+  document.getElementById('coPincode').addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g, '').slice(0, 6);
+    resetDeliveryCalculation();
+    if(this.value.length === 6) fetchPincodeSuggestions(this.value);
+    else setCityOptions([]);
+  });
+  document.getElementById('coState').addEventListener('change', function(){
+    resetDeliveryCalculation();
+  });
+  document.getElementById('coCity').addEventListener('change', function(){
+    resetDeliveryCalculation();
+  });
+  document.getElementById('coLandmark').addEventListener('input', resetDeliveryCalculation);
+  function calculateDelivery(){
+    var address = deliveryAddress();
+    var pincode = document.getElementById('coPincode').value.trim();
+    var city = document.getElementById('coCity');
+    if(document.getElementById('coCountry').value !== 'India' || !document.getElementById('coAddress').value.trim() || !city.value.trim() || !document.getElementById('coState').value.trim() || !/^\d{6}$/.test(pincode)){
+      setDeliveryStatus('Complete the country, state, PIN code, city and address first.', 'error');
+      return Promise.resolve(false);
+    }
+    setDeliveryStatus('Calculating actual driving distance…');
+    var button = document.getElementById('calculateDistanceBtn');
+    button.disabled = true;
+    return fetch(DELIVERY_DISTANCE_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({origin:DELIVERY_ORIGIN, destination:address})})
+      .then(function(response){ return response.text().then(function(text){ var data; try { data = JSON.parse(text); } catch(e){ throw new Error('Delivery service returned an invalid response'); } if(!response.ok) throw new Error(data.error || 'Distance service unavailable'); return data; }); })
+      .then(function(data){
+        var distance = Number(data.distanceKm);
+        if(!Number.isFinite(distance) || distance < 0) throw new Error('Address could not be located. Please correct or select the address.');
+        deliveryState = {distanceKm:distance, charge:calculateDeliveryCharge(distance), ready:true};
+        setDeliveryStatus((distance <= FREE_DELIVERY_DISTANCE ? 'Free delivery' : fmt(deliveryState.charge) + ' delivery') + ' · ' + distance.toFixed(1) + ' km driving distance.', 'success');
+        updateCheckoutTotals();
+        return true;
+      })
+      .catch(function(error){
+        resetDeliveryCalculation();
+        setDeliveryStatus(error.message || 'We could not find a drivable route for this address. Please correct or select the address.', 'error');
+        return false;
+      })
+      .finally(function(){ button.disabled = false; });
+  }
+  document.getElementById('calculateDistanceBtn').addEventListener('click', calculateDelivery);
  function closeCheckout(){ checkoutOverlay.classList.remove('open'); document.body.style.overflow = ''; }
 document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
 document.getElementById('checkoutClose').addEventListener('click', closeCheckout);
@@ -1555,10 +1677,10 @@ function normalizeWhatsAppIcons(){
   document.querySelectorAll('.wa-btn,[data-testid="cta-whatsapp-enquire"],[data-testid="product-detail-whatsapp"],.fs-wa').forEach(function(el){
     var isSocial = el.classList.contains('fs-wa');
     var label = isSocial ? '' : (lang === 'hi' ? 'WhatsApp पर पूछें' : 'Enquire on WhatsApp');
-    el.innerHTML = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsappIcon"></use></svg>' + (label ? '<span class="wa-label">' + label + '</span>' : '');
+     el.innerHTML = '<svg class="wa-icon" viewBox="0 0 448 512" aria-hidden="true"><use href="#whatsappIcon"></use></svg>' + (label ? '<span class="wa-label">' + label + '</span>' : '');
   });
   var contactIcon = document.querySelector('[data-testid="contact-whatsapp-card"] .cc-icon');
-  if(contactIcon) contactIcon.innerHTML = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsappIcon"></use></svg>';
+   if(contactIcon) contactIcon.innerHTML = '<svg class="wa-icon" viewBox="0 0 448 512" aria-hidden="true"><use href="#whatsappIcon"></use></svg>';
 }
 var socialLinks = {'.fs-yt':'https://youtube.com/@krishigoldoil?si=APbYDfCv7TJ__Lpq','.fs-ig':'https://www.instagram.com/krishi_gold_oil?igsi=MWtyM2xuamJhYWk4cw==','.fs-fb':'https://www.facebook.com/share/1Dgd5mZcS4/'};
 Object.keys(socialLinks).forEach(function(selector){ var link = document.querySelector(selector); if(link){ link.href = socialLinks[selector]; link.target = '_blank'; link.rel = 'noopener'; } });
@@ -1683,8 +1805,11 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape'){ closeCart(); closeMenu(); closeProduct(); closeCheckout(); successOverlay.classList.remove('open'); document.body.style.overflow = ''; }
 });
 
- var initialProductId = window.location.hash.indexOf('#product-') === 0 ? window.location.hash.slice(9) : '';
- if(initialProductId && PRODUCTS[initialProductId]) openProduct(initialProductId, true);
+  /* Product details are an interaction state, never the default route. A stale
+     product hash from an old session is cleared so a normal root visit opens Home. */
+  if(window.location.hash.indexOf('#product-') === 0){
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
  renderCart();
 })();
 </script>
