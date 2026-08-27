@@ -801,7 +801,7 @@ section{position:relative}
         <div class="prod-info">
           <h3>Krishi Gold<br>Mustard Oil</h3>
           <span class="size-chip">5 Litre</span>
-          <div class="prod-price" data-testid="price-5l">₹1,175 <small>/ jar</small></div>
+          <div class="prod-price" data-testid="price-5l">₹1,125 <small>/ jar</small></div>
           <div class="prod-actions">
             <button class="add-btn" data-add="p5l" data-testid="add-to-cart-5l">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -815,10 +815,29 @@ section{position:relative}
         </div>
       </article>
 
+      <article class="prod-card" data-product="p15l" data-testid="product-card-15l">
+        <div class="prod-img"><img class="product-photo" src="assets/krishi-gold-15l.png" alt="Krishi Gold Premium Mustard Oil 15 Litre tin"></div>
+        <div class="prod-info">
+          <h3>Krishi Gold<br>Premium Mustard Oil</h3>
+          <span class="size-chip">15 Litre</span>
+          <div class="prod-price" data-testid="price-15l">₹3,420 <small>/ tin</small></div>
+          <div class="prod-actions">
+            <button class="add-btn" data-add="p15l" data-testid="add-to-cart-15l">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              Add to Cart
+            </button>
+            <a class="wa-btn" href="https://wa.me/919504460972?text=Hi%2C%20I%20want%20to%20enquire%20about%20Krishi%20Gold%20Premium%20Mustard%20Oil%2015L" target="_blank" rel="noopener" data-testid="whatsapp-enquire-15l">
+              <svg class="wa-icon" viewBox="0 0 448 512" aria-hidden="true"><use href="#whatsappIcon"></use></svg>
+              Enquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
     </div>
     <div class="wholesale-option" data-testid="wholesale-loose-oil-option">
       <div class="wholesale-stickers" aria-label="Krishi Gold bulk wholesale visual">
-        <img class="bulk-image" src="assets/krishi-gold-bulk-oil.png" alt="Krishi Gold bulk mustard oil in a large wholesale container" data-testid="wholesale-bulk-image">
+        <img class="bulk-image" src="assets/krishi-gold-bulk-oil.png" alt="Krishi Gold loose mustard oil being poured into a food-grade container" data-testid="wholesale-bulk-image">
       </div>
       <div>
         <h3>Wholesale / Loose Oil</h3>
@@ -1151,10 +1170,12 @@ var ADDRESS_SUGGESTIONS_ENDPOINT = window.KRISHI_ADDRESS_SUGGESTIONS_ENDPOINT ||
 var PRODUCTS = {
   p500:{id:'p500', name:'Krishi Gold Mustard Oil', size:'500 ml', price:130, mrp:null, jar:false, image:'assets/krishi-gold-500ml.png', gallery:['assets/krishi-gold-500ml.png','assets/krishi-gold-500ml-detail.png','assets/krishi-gold-500ml-lifestyle.png'], description:'A handy everyday pack of pure, naturally rich mustard oil with a bold aroma and smooth finish.', descriptionHi:'शुद्ध और प्राकृतिक रूप से समृद्ध सरसों तेल का सुविधाजनक पैक, तेज़ सुगंध और मुलायम स्वाद के साथ।', pack:'Pouch pack',packHi:'पाउच पैक'},
   p1l:{id:'p1l', name:'Krishi Gold Mustard Oil', size:'1 Litre', price:240, mrp:null, jar:false, image:'assets/krishi-gold-1l.png', gallery:['assets/krishi-gold-1l.png','assets/krishi-gold-1l-detail.png','assets/krishi-gold-1l-lifestyle.png'], description:'Our family-sized classic, made from carefully selected mustard seeds for rich flavour and trusted quality.', descriptionHi:'सावधानी से चुने सरसों के बीजों से बना परिवार के लिए उपयुक्त पैक, भरपूर स्वाद और भरोसेमंद गुणवत्ता के साथ।', pack:'Bottle pack',packHi:'बोतल पैक'},
-   p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1175, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'},
-    wLoose:{id:'wLoose', name:'Krishi Gold Bulk Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-bulk-oil.png', gallery:['assets/krishi-gold-bulk-oil.png'], description:'Pure mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में शुद्ध सरसों का तेल।', pack:'Bulk oil · sold by litre',packHi:'थोक तेल · लीटर के हिसाब से'}
+   p5l:{id:'p5l', name:'Krishi Gold Mustard Oil', size:'5 Litre', price:1125, mrp:null, jar:true, image:'assets/krishi-gold-5l.png', gallery:['assets/krishi-gold-5l.png','assets/krishi-gold-5l-detail.png','assets/krishi-gold-5l-lifestyle.png'], description:'A generous kitchen jar of pure mustard oil, crafted for families who cook with goodness every day.', descriptionHi:'हर दिन स्वादिष्ट भोजन बनाने वाले परिवारों के लिए शुद्ध सरसों तेल का भरपूर जार।', pack:'Jar pack',packHi:'जार पैक'},
+   p15l:{id:'p15l', name:'Krishi Gold Premium Mustard Oil', size:'15 Litre', price:3420, mrp:null, jar:false, packUnit:'tin', image:'assets/krishi-gold-15l.png', gallery:['assets/krishi-gold-15l.png'], description:'A generous 15 litre tin of premium mustard oil for homes, kitchens and food businesses that value trusted goodness.', descriptionHi:'शुद्धता और भरोसेमंद अच्छाई को महत्व देने वाले घरों, रसोई और खाद्य व्यवसायों के लिए प्रीमियम सरसों तेल का 15 लीटर टिन।', pack:'15 litre tin pack',packHi:'15 लीटर टिन पैक'},
+   wLoose:{id:'wLoose', name:'Krishi Gold Wholesale / Loose Mustard Oil', size:'Bulk · per litre', price:WHOLESALE_RATE, mrp:null, jar:false, wholesale:true, image:'assets/krishi-gold-bulk-oil.png', gallery:['assets/krishi-gold-bulk-oil.png'], description:'Pure mustard oil supplied in bulk without bottles or retail packaging.', descriptionHi:'बोतल या खुदरा पैकेजिंग के बिना थोक में शुद्ध सरसों का तेल।', pack:'Bulk oil · sold by litre',packHi:'थोक तेल · लीटर के हिसाब से'}
 };
 function fmt(n){ return '₹' + n.toLocaleString('en-IN'); }
+function productUnit(p){ return p.wholesale ? 'litre' : (p.packUnit || (p.jar ? 'jar' : 'pack')); }
 
 /* ---------- full product detail page ---------- */
 var productPage = document.getElementById('productPage');
@@ -1180,7 +1201,7 @@ function setProductDetails(id){
   activeProduct = id;
   document.getElementById('productDetailName').textContent = p.name;
   document.getElementById('productDetailSize').textContent = p.size;
-  var price = p.mrp ? '<div class="mrp-line">MRP <strong>' + fmt(p.mrp) + '</strong></div><div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div><div class="discount">' + Math.round((p.mrp - p.price) / p.mrp * 100) + '% OFF</div>' : '<div class="detail-price">' + fmt(p.price) + ' <small>/ ' + (p.jar ? 'jar' : 'pack') + '</small></div>';
+   var price = p.mrp ? '<div class="mrp-line">MRP <strong>' + fmt(p.mrp) + '</strong></div><div class="detail-price">' + fmt(p.price) + ' <small>/ ' + productUnit(p) + '</small></div><div class="discount">' + Math.round((p.mrp - p.price) / p.mrp * 100) + '% OFF</div>' : '<div class="detail-price">' + fmt(p.price) + ' <small>/ ' + productUnit(p) + '</small></div>';
   document.getElementById('productPriceStack').innerHTML = price;
    document.getElementById('productDetailDescription').textContent = lang === 'hi' ? p.descriptionHi : p.description;
    productQuantity = 1;
@@ -1198,7 +1219,7 @@ function setProductDetails(id){
   setProductDetails(id);
    document.getElementById('exploreProductList').innerHTML = Object.keys(PRODUCTS).filter(function(k){ return k !== id && !PRODUCTS[k].wholesale; }).map(function(k){
     var item = PRODUCTS[k];
-    return '<article class="prod-card" data-explore="' + k + '"><div class="prod-img"><img class="product-photo" src="' + item.image + '" alt="' + item.name + ' ' + item.size + '"></div><div class="prod-info"><h3>' + item.name + '</h3><span class="size-chip">' + item.size + '</span><div class="prod-price">' + fmt(item.price) + ' <small>/ ' + (item.jar ? 'jar' : 'pack') + '</small></div></div></article>';
+     return '<article class="prod-card" data-explore="' + k + '"><div class="prod-img"><img class="product-photo" src="' + item.image + '" alt="' + item.name + ' ' + item.size + '"></div><div class="prod-info"><h3>' + item.name + '</h3><span class="size-chip">' + item.size + '</span><div class="prod-price">' + fmt(item.price) + ' <small>/ ' + productUnit(item) + '</small></div></div></article>';
   }).join('');
     document.querySelectorAll('[data-explore]').forEach(function(card){ card.addEventListener('click', function(){ openProduct(card.dataset.explore); }); });
    homePage.classList.add('page-hidden'); siteFooter.classList.add('page-hidden'); productPage.classList.add('open');
@@ -1304,7 +1325,7 @@ function renderCart(){
        : '<div class="ci-img"><img src="' + p.image + '" alt="' + p.name + ' ' + p.size + '"></div>';
       var quantityLabel = p.wholesale ? 'Quantity' : 'Pack size';
       var sizeLabel = p.wholesale ? q + ' litres' : p.size;
-     var unitLabel = p.wholesale ? '/ litre' : (p.jar ? '/ jar' : '/ pack');
+     var unitLabel = '/ ' + productUnit(p);
     html += '<div class="cart-item" data-testid="cart-item-' + k + '">' +
         media +
          '<div class="ci-info"><b>' + p.name + '</b><span class="ci-size">' + quantityLabel + ': ' + sizeLabel + '</span>' +
@@ -1708,13 +1729,13 @@ function applyLanguage(){
   });
   if(activeProduct) setProductDetails(activeProduct);
   document.querySelectorAll('.prod-card[data-product]').forEach(function(card){
-    var p = PRODUCTS[card.dataset.product], title = card.querySelector('.prod-info h3'), chip = card.querySelector('.size-chip');
-    if(title) title.innerHTML = lang === 'hi' ? 'कृषि गोल्ड<br>सरसों का तेल' : 'Krishi Gold<br>Mustard Oil';
+     var p = PRODUCTS[card.dataset.product], title = card.querySelector('.prod-info h3'), chip = card.querySelector('.size-chip'), isPremiumTin = p && p.id === 'p15l';
+     if(title) title.innerHTML = lang === 'hi' ? (isPremiumTin ? 'कृषि गोल्ड<br>प्रीमियम सरसों का तेल' : 'कृषि गोल्ड<br>सरसों का तेल') : (isPremiumTin ? 'Krishi Gold<br>Premium Mustard Oil' : 'Krishi Gold<br>Mustard Oil');
     if(chip && p) chip.textContent = lang === 'hi' ? (p.size === '1 Litre' ? '1 लीटर' : p.size) : p.size;
   });
   document.querySelectorAll('.prod-card[data-explore]').forEach(function(card){
-    var p = PRODUCTS[card.dataset.explore], title = card.querySelector('.prod-info h3'), chip = card.querySelector('.size-chip');
-    if(title) title.textContent = lang === 'hi' ? 'कृषि गोल्ड सरसों का तेल' : 'Krishi Gold Mustard Oil';
+     var p = PRODUCTS[card.dataset.explore], title = card.querySelector('.prod-info h3'), chip = card.querySelector('.size-chip'), isPremiumTin = p && p.id === 'p15l';
+     if(title) title.innerHTML = lang === 'hi' ? (isPremiumTin ? 'कृषि गोल्ड प्रीमियम सरसों का तेल' : 'कृषि गोल्ड सरसों का तेल') : (isPremiumTin ? 'Krishi Gold Premium Mustard Oil' : 'Krishi Gold Mustard Oil');
     if(chip && p) chip.textContent = lang === 'hi' ? (p.size === '1 Litre' ? '1 लीटर' : p.size) : p.size;
   });
   var navLabels = { '#home':['Home','होम'], '#about':['About','हमारे बारे में'], '#why':['Why Krishi Gold','कृषि गोल्ड ही क्यों'], '#products':['Products','उत्पाद'], '#process':['Our Process','हमारी प्रक्रिया'], '#contact':['Contact','संपर्क'] };
